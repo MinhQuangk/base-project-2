@@ -1,0 +1,154 @@
+body {
+    margin: 0px;
+}
+
+.container {
+    background-color: #F7F9FA;
+    width: 100%;
+    min-height: 85vh;
+    position: relative;
+}
+
+.title {
+    width: 50%;
+    height: 60px;
+    position: absolute;
+    top: 0%;
+    left: 25%;
+    text-align: center;
+}
+
+#title_fonts {
+    font-family: 'Bebas Neue', cursive;
+    font-family: 'Cookie', cursive;
+    font-family: 'Karla', sans-serif;
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-weight: 700;
+    font-size: 50px;
+    color: black;
+}
+
+.login {
+    width: 70%;
+    height: 525px;
+    position: absolute;
+    top: 7%;
+    left: 10%;
+}
+
+.right_form {
+    /*border: 1px solid black;*/
+    float: right;
+    background-color: #AAD9DB;
+    width: 40%;
+    height: 100%;
+    position: relative;
+    border-radius: 10px 10px;
+}
+
+.fonts {
+    /*border: 1px solid black;*/
+    margin: 0 auto;
+    height: 75px;
+}
+
+#fonts {
+    font-family: 'Bebas Neue', cursive;
+    font-family: 'Cookie', cursive;
+    font-family: 'Karla', sans-serif;
+    font-family: 'Oleo Script Swash Caps', cursive;
+    margin-top: 10px;
+    margin-left: 130px;
+    font-weight: 500;
+    font-size: 50px;
+    color: black;
+
+}
+
+.enter_form {
+    /*border: 1px solid red;*/
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    width: 80%;
+}
+
+.login .left_form {
+    width: 60%;
+    height: 100%;
+    position: relative;
+}
+
+.left_form .mainImg{
+    position: absolute;
+    top: 13%;
+}
+
+#signUpButton {
+    margin-left: 85px;
+    width: 150px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: rgb(41, 124, 150);
+}
+
+.save .left_save{
+    float: left;
+}
+.save .right_forget{
+    float: right;
+    margin-left: 10px;
+}
+
+
+.item-login {
+    display: flex;
+}
+
+#text-login {
+    color: black;
+}
+
+.text {
+    border: none;
+    width: 89%;
+    padding: 20px;
+    display: block;
+    height: 10px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0);
+    overflow: hidden;
+    margin-top: 0px;
+    margin-bottom: -25px;
+    transition: all 0.5s ease-in-out;
+}
+
+.text:focus {
+    outline: 0;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0);
+}
+
+.text:focus + span {
+    opacity: 0.6;
+}
+
+input[type="text"],
+input[type="password"] {
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+}
+
+input {
+    display: inline-block;
+    padding-top: 20px;
+    font-size: 14px;
+}
+
+.footer {
+    background-color: antiquewhite;
+    width: 100%;
+    min-height: 15vh;
+}
