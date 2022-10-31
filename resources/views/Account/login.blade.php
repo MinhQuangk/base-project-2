@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="font/css/login.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="{{asset('font/css/login.css')}}">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Karla:wght@300&display=swap"
@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cookie&family=Karla:wght@300&family=Sunshiney&display=swap"
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cookie&family=Karla:wght@300&family=Oleo+Script+Swash+Caps&family=Sunshiney&display=swap"
-          rel="stylesheet">
+          rel="stylesheet"> 
 </head>
 <body>
 <div class="container">
@@ -45,7 +45,7 @@
                         <button onclick="loginButton();" id="loginButton">Login</button>
                     </div>
                     <br>
-                    <span id="text-login">Don't have an account? <a href="{{route('signUp')}}"
+                    <span id="text-login">Don't have an account? <a href="{{route('admin.signUp')}}"
                                                                     style="color: aliceblue;">Sign up</a></span>
                     <br>
                     <div class="other-login">
@@ -53,11 +53,11 @@
                         <br>
                         <div class="item-login">
                             <a href="https://mail.google.com/mail/u/0/?pli=1#inbox"><img
-                                    src="font/img/Google__G__Logo.svg.png"
+                                    src="{{asset("font/img/Google__G__Logo.svg.png")}}"
                                     style="margin-right: 10px ;"
                                     width="35" height="35" alt=""></a>
                             <a href="https://www.facebook.com/"><img
-                                    src="font/img/fb_icon_325x325.png"
+                                    src="{{asset("font/img/fb_icon_325x325.png")}}"
                                     width="35" height="35" alt=""
                                     style="margin-right: 10px ;"></a>
                         </div>
@@ -68,7 +68,7 @@
             </div>
         </div>
         <div class="left_form">
-            <img src="{{asset('font/img/Screenshot%202022-10-29%20201329.png    ')}}" style="height: 100%; width: 100%">
+            <img src="{{asset('font/img/Screenshot%202022-10-29%20201329.png')}}" style="height: 100%; width: 100%">
         </div>
     </div>
 </div>

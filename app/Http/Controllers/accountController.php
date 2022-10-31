@@ -16,4 +16,7 @@ class accountController extends Controller
     public function signUp(){
         return view('Account.signUp');
     }
+    public function Index(){
+        return view('layout.index');
+    }
 }

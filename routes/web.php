@@ -17,10 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+    Route::prefix('admin')->group(function(){
 
+    Route::get('index',[accountController::class,'index']);
 
-    Route::get('login',[accountController::class,'login'])->name('login');
+    Route::get('login',[accountController::class,'login'])->name('admin.login');
 
-    Route::get('signUp',[accountController::class,'signUp'])->name('signUp')  ;
+    
+    Route::get('signUp',[accountController::class,'signUp'])->name('admin.signUp')  ;
 
-
+    });

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="font/css/signUp.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="{{asset("font/css/signUp.css")}}">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Karla:wght@300&display=swap"
@@ -43,7 +43,7 @@
                         <div class="left_save">
                         </div>
                         <div class="right_forget">
-                            <span id="text-login">Already have an account? <a href="{{Route('login');}}"
+                            <span id="text-login">Already have an account? <a href="{{Route('admin.login');}}"
                                                                             style="color: blue;">Login</a></span>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
         </div>
         <div class="left_form">
             <div class="mainImg">
-                <img src="font/img/Screenshot%202022-10-29%20201329.png" style="height: 100%; width: 100%">
+                <img src="{{asset("font/img/Screenshot%202022-10-29%20201329.png")}}" style="height: 100%; width: 100%">
             </div>
         </div>
     </div>
@@ -72,7 +72,7 @@
                     Phone: 0386066416
                     </span>
 </div>
-</body>
+</body> 
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
