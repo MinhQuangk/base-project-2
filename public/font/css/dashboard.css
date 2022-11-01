@@ -1,23 +1,373 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-.dashboard .cover-img img{
+
+.dashboard .cover-img img {
     width: 100%;
     height: 40vh;
     object-fit: cover;
 }
 
-.dashboard .cover-img .text{
+.dashboard .cover-img .text {
     position: absolute;
     top: 30%;
     left: 30%;
 }
-.dashboard .cover-img .text h1{
-    color: rgb(42, 42, 72);
+
+.dashboard .cover-img .text h1 {
     font-size: 70px;
 }
-.dashboard .cover-img .text p{
+
+.dashboard .cover-img .text p {
     font-size: 23px;
+}
+
+.all-info {
+    background-color: #f0f1f3;
+}
+
+.all-info .row {
+    display: flex;
+    width: 96%;
+    margin: auto;
+    border: 1px solid red;
+    justify-content: space-between;
+}
+
+.all-info .row .col {
+    width: 24%;
+    border: 1px solid red;
+}
+
+.all-info .row .col .card {
+    width: 100%;
+    margin: 6% 0px;
+    border: 1px solid red;
+}
+
+.all-info .row .col .card .teacher-inner {
+    display: flex;
+    background-color: red;
+    padding: 10px 0px;
+}
+
+.all-info .row .col .card .teacher-inner .column {
+    width: 49%;
+    border: 1px solid green;
+}
+
+.all-info .row .col .card .teacher-inner .column-left {
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+}
+
+.all-info .row .col .card .teacher-inner .column-left h1 {
+    font-size: 60px;
+}
+
+.all-info .row .col .card .teacher-inner .column-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.all-info .row .col .card .teacher-inner .column-right .fa-chart-bar {
+    font-size: 80px;
+    color: #ccc;
+    padding: 0px 7px;
+    opacity: 0.4;
+}
+
+.all-info .row .col .card .teacher-footer {
+    text-align: center;
+    padding: 5px 0px;
+    background-color: red;
+}
+
+.all-info .row .col .card .teacher-footer a {
+    text-decoration: none;
+    color: #ccc;
+}
+
+.all-info .row .col .card .attendance-inner {
+    display: flex;
+    background-color: blue;
+    padding: 10px 0px;
+}
+
+.all-info .row .col .card .attendance-inner .column {
+    width: 50%;
+    /* border: 1px solid green; */
+}
+
+.all-info .row .col .card .attendance-inner .column-left {
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+}
+
+.all-info .row .col .card .attendance-inner .column-left h1 {
+    font-size: 60px;
+}
+
+.all-info .row .col .card .attendance-inner .column-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.all-info .row .col .card .attendance-inner .column-right .fa-user-plus {
+    font-size: 80px;
+    padding: 0px 7px;
+    opacity: 0.4;
+    color: #ccc;
+}
+
+
+/* student and media section ================ */
+
+.all-info .row .col .card .student-inner {
+    display: flex;
+    background-color: red;
+    padding: 10px 0px;
+}
+
+.all-info .row .col .card .student-inner .column {
+    width: 49%;
+    border: 1px solid green;
+}
+
+.all-info .row .col .card .student-inner .column-left {
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+}
+
+.all-info .row .col .card .student-inner .column-left h1 {
+    font-size: 60px;
+}
+
+.all-info .row .col .card .student-inner .column-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.all-info .row .col .card .student-inner .column-right .fa-user {
+    font-size: 80px;
+    color: #ccc;
+    padding: 0px 7px;
+    opacity: 0.4;
+}
+
+.all-info .row .col .card .student-footer {
+    text-align: center;
+    padding: 5px 0px;
+    background-color: red;
+}
+
+.all-info .row .col .card .student-footer a {
+    text-decoration: none;
+    color: #ccc;
+}
+
+.all-info .row .col .card .media-inner {
+    display: flex;
+    background-color: blue;
+    padding: 10px 0px;
+}
+
+.all-info .row .col .card .media-inner .column {
+    width: 50%;
+    /* border: 1px solid green; */
+}
+
+.all-info .row .col .card .media-inner .column-left {
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+}
+
+.all-info .row .col .card .media-inner .column-left h1 {
+    font-size: 60px;
+}
+
+.all-info .row .col .card .media-inner .column-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.all-info .row .col .card .media-inner .column-right .fa-user-plus {
+    font-size: 80px;
+    padding: 0px 7px;
+    opacity: 0.4;
+    color: #ccc;
+}
+
+
+/* subjects and scores section ================= */
+
+.all-info .row .col .card .subjects-inner {
+    display: flex;
+    background-color: red;
+    padding: 10px 0px;
+}
+
+.all-info .row .col .card .subjects-inner .column {
+    width: 49%;
+    border: 1px solid green;
+}
+
+.all-info .row .col .card .subjects-inner .column-left {
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+}
+
+.all-info .row .col .card .subjects-inner .column-left h1 {
+    font-size: 60px;
+}
+
+.all-info .row .col .card .subjects-inner .column-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.all-info .row .col .card .subjects-inner .column-right .fa-plus-circle {
+    font-size: 80px;
+    color: #ccc;
+    padding: 0px 7px;
+    opacity: 0.4;
+}
+
+.all-info .row .col .card .subjects-footer {
+    text-align: center;
+    padding: 5px 0px;
+    background-color: red;
+}
+
+.all-info .row .col .card .subjects-footer a {
+    text-decoration: none;
+    color: #ccc;
+}
+
+.all-info .row .col .card .scores-inner {
+    display: flex;
+    background-color: blue;
+    padding: 10px 0px;
+}
+
+.all-info .row .col .card .scores-inner .column {
+    width: 50%;
+    /* border: 1px solid green; */
+}
+
+.all-info .row .col .card .scores-inner .column-left {
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+}
+
+.all-info .row .col .card .scores-inner .column-left h1 {
+    font-size: 60px;
+}
+
+.all-info .row .col .card .scores-inner .column-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.all-info .row .col .card .scores-inner .column-right .fa-print {
+    font-size: 80px;
+    padding: 0px 7px;
+    opacity: 0.4;
+    color: #ccc;
+}
+
+
+/* schedule and expenses section */
+
+.all-info .row .col .card .schedule-inner {
+    display: flex;
+    background-color: red;
+    padding: 10px 0px;
+}
+
+.all-info .row .col .card .schedule-inner .column {
+    width: 49%;
+    border: 1px solid green;
+}
+
+.all-info .row .col .card .schedule-inner .column-left {
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+}
+
+.all-info .row .col .card .schedule-inner .column-left h1 {
+    font-size: 60px;
+}
+
+.all-info .row .col .card .schedule-inner .column-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.all-info .row .col .card .schedule-inner .column-right .fa-clock {
+    font-size: 80px;
+    color: #ccc;
+    padding: 0px 7px;
+    opacity: 0.4;
+}
+
+.all-info .row .col .card .schedule-footer {
+    text-align: center;
+    padding: 5px 0px;
+    background-color: red;
+}
+
+.all-info .row .col .card .schedule-footer a {
+    text-decoration: none;
+    color: #ccc;
+}
+
+.all-info .row .col .card .expenses-inner {
+    display: flex;
+    background-color: blue;
+    padding: 10px 0px;
+}
+
+.all-info .row .col .card .expenses-inner .column {
+    width: 50%;
+    /* border: 1px solid green; */
+}
+
+.all-info .row .col .card .expenses-inner .column-left {
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+}
+
+.all-info .row .col .card .expenses-inner .column-left h1 {
+    font-size: 60px;
+}
+
+.all-info .row .col .card .expenses-inner .column-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.all-info .row .col .card .expenses-inner .column-right .fa-money-check-alt {
+    font-size: 80px;
+    padding: 0px 7px;
+    opacity: 0.4;
+    color: #ccc;
 }
