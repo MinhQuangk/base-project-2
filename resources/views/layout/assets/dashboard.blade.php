@@ -173,6 +173,7 @@
     <div class="row">
         <div class="chart_left">
             <h1>All Teacher</h1>
+            <button onclick="window.location.reload()">Refresh</button>
             <canvas id="mychart2" width="400" height="400"></canvas>
             <div class="chart_footer">
               <div class="row">
@@ -194,7 +195,7 @@
                 <h1>All Student</h1>
                 <button onclick="window.location.reload()">Refresh</button>
             </div>
-            <canvas id="myChart3" width="400" height="400"></canvas>
+            <canvas id="mychart3" width="400" height="400"></canvas>
             <div class="chart_footer">
                 <div class="row">
                     <div class="chart_footer_left">

@@ -6,6 +6,7 @@
     <title>School Management System</title>
     <link href="{{ asset('font/css/admin.css') }}" rel="stylesheet">
     <link href="{{ asset('font/css/dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('font/css/students.css') }}" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -88,7 +89,7 @@
                     <h2>teacher content</h2>
                 </div>
                 <div id="student" class="tabcontent">
-                    <h2>Student content</h2>
+                    @include('layout.assets.students');
                 </div>
                 <div id="subjects" class="tabcontent">
                     <h2>Subjects content</h2>
@@ -128,4 +129,150 @@
 
 
 <script src="{{ asset('font/js/app.js') }}"></script>
+<script>
+    // chart for teacher start here ===============================
+    
+    // chart for student here ========================================
+var ctx3 = document.getElementById("mychart3").getContext("2d");
+var myChart = new Chart(ctx3, {
+type: "pie",
+data: {
+  // labels: ["Male Students", "Female Students"],
+  datasets: [
+    {
+      // label: '# of Votes',
+
+      data: [5,6] ,
+      backgroundColor: ["rgba(247, 202, 24, 0.7)", "rgba(154,205,50,0.7)"],
+      // borderColor: [
+      //   "rgba(255, 99, 132, 1)",
+      //   "rgba(54, 162, 235, 1)",
+      //   "rgba(255, 206, 86, 1)",
+      //   "rgba(75, 192, 192, 1)",
+      //   "rgba(153, 102, 255, 1)",
+      //   "rgba(255, 159, 64, 1)",
+      // ],
+      borderWidth: 1,
+    },
+  ],
+},
+options: {
+  responsive: false,
+  // scales: {
+  //     y: {
+  //         beginAtZero: true
+  //     }
+  // }
+  layout: {
+    padding: {
+      left: 0,
+      right: 0,
+      top: 0,
+      bottom: 0,
+    },
+  },
+  legend: {
+    display: false,
+    position: "bottom", // top left bottom right
+    align: "end", // start end center
+    labels: {
+      fontColor: "red",
+      fontSize: 16,
+      boxWidth: 20,
+    },
+  },
+  title: {
+    display: true,
+    text: "Custom Chart Title",
+    position: "bottom",
+    fontSize: 25,
+    fontFamily: "Comic Sans MS",
+    fontColor: "red",
+    fontStyle: "bold italic",
+    padding: 20,
+    lineHeight: 5,
+  },
+},
+});
+function addData(chart, label, data) {
+    chart.data.labels.push(label);
+    chart.data.datasets.forEach((dataset) => {
+        dataset.data.push(data);
+    });
+    chart.update();
+}
+
+function removeData(chart) {
+    chart.data.labels.pop();
+    chart.data.datasets.forEach((dataset) => {
+        dataset.data.pop();
+    });
+    chart.update();
+}
+function update_student_chart(){
+  chart.data.datasets[0].data = 
+  chart.update();
+}
+var ctx2 = document.getElementById("mychart2").getContext("2d");
+var myChart = new Chart(ctx2, {
+type: "pie",
+data: {
+  labels: ["Male Teacher", "Female Teacher","gay :))"],
+  datasets: [
+    {
+      label: '# of Votes',
+
+      data: [7,8,6] ,
+      backgroundColor: ["rgba(247, 202, 24, 0.7)", "rgba(154,205,50,0.7)","rgba(255, 99, 132, 1)",],
+      // borderColor: [
+      //   "rgba(255, 99, 132, 1)",
+      //   "rgba(54, 162, 235, 1)",
+      //   "rgba(255, 206, 86, 1)",
+      //   "rgba(75, 192, 192, 1)",
+      //   "rgba(153, 102, 255, 1)",
+      //   "rgba(255, 159, 64, 1)",
+      // ],
+      borderWidth: 1,
+    },
+  ],
+},
+options: {
+  responsive: false,
+  // scales: {
+  //     y: {
+  //         beginAtZero: true
+  //     }
+  // }
+  layout: {
+    padding: {
+      left: 0,
+      right: 0,
+      top: 0,
+      bottom: 0,
+    },
+  },
+  legend: {
+    display: false,
+    // position: "bottom", // top left bottom right
+    // align: "end", // start end center
+    // labels: {
+    //   fontColor: "red",
+    //   fontSize: 16,
+    //   boxWidth: 20,
+    // },
+  },
+  // title: {
+  //   display: true,
+  //   text: "Custom Chart Title",
+  //   position: "bottom",
+  //   fontSize: 25,
+  //   fontFamily: "Comic Sans MS",
+  //   fontColor: "red",
+  //   fontStyle: "bold italic",
+  //   padding: 20,
+  //   lineHeight: 5,
+  // },
+},
+});
+</script>
 </html>
