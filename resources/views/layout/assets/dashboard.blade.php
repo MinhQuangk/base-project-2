@@ -1,7 +1,7 @@
 <section class="dashboard">
     <div class="welcome_admin" style="display: flex; align-items: center;justify-content: space-between;">
         <h1 style="padding: 1% 4%; font-size:34px; color:#000; width:20%">Dashboard</h1>
-        <div class="welcome_admin_message" style="width: 80%;display:flex; align-items: center;background-color: yellowgreen;color: #fff;padding: 20px;margin: 15px 0px">
+        <div class="welcome_admin_message" style="width: 80%;display:flex; align-items: center;background-color: rgb(20, 126, 164);color: #fff;padding: 20px;margin: 15px 0px">
             <h1 style="margin: 0px 15px;">
                 <?php
                 $time = date("H");
@@ -41,7 +41,7 @@
                         </div>
                     </div>
                     <div class="column column-right">
-                        <i class="far fa-chart-bar"></i>
+                        <i class="fas fa-user"></i>
                     </div>
                 </div>
                 <div class="teacher-footer">
@@ -53,11 +53,11 @@
                     <div class="column column-left">
                         <div class="column-left-inner">
                             <h1 id="examCount">01</h1>
-                            <p>Điểm thi</p>
+                            <p>Lớp</p>
                         </div>
                     </div>
                     <div class="column column-right">
-                        <i class="fas fa-user-plus"></i>
+                        <i class="fa fa-inbox"></i>
                     </div>
                 </div>
                 <div class="teacher-footer">
@@ -91,7 +91,7 @@
                         </div>
                     </div>
                     <div class="column column-right">
-                        <i class="fas fa-user-plus"></i>
+                        <i class="fa fa-phone"></i>
                     </div>
                 </div>
                 <div class="media-footer">
@@ -109,7 +109,7 @@
                         </div>
                     </div>
                     <div class="column column-right">
-                        <i class="fas fa-plus-circle"></i>
+                        <i class="fa fa-book"></i>
                     </div>
                 </div>
                 <div class="subjects-footer">
@@ -179,12 +179,12 @@
               <div class="row">
                 <div class="chart_footer_left">
                     <hr>
-                    <span>Female Teacher</span>
+                    <span style="color: black">Số giáo viên nam :</span>
                     <h1 id="fetchFemale_teacher_count">00</h1>
                 </div>
                 <div class="chart_footer_right">
                     <hr>
-                    <span>Male Teacher</span>
+                    <span style="color: black">Số giáo viên nữ :</span>
                     <h1 id="fetchMale_teacher_count">00</h1>
                 </div>
               </div>  
@@ -201,16 +201,22 @@
                     <div class="chart_footer_left">
                         <hr>
                         <h1 id="fetchChartData"></h1>
-                        <span>Female Students</span>
+                        <span style="color: black">số học sinh nam :</span>
                         <h1 id="fetchFemale_count">00</h1>
                     </div>
                     <div class="chart_footer_right">
                         <hr>
-                        <span>Male Students</span>
+                        <span style="color: black">số học sinh nữ :</span>
                         <h1 id="fetchMale_count">00</h1>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</section>
+<section class="fee_chart"> 
+        <h1>All Fee Collection</h1>
+        <div class="fee_chart_inner">
+            <canvas id="mychart4" width="50"></canvas>
+        </div>
 </section>

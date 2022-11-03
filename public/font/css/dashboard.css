@@ -1,4 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Limelight&display=swap");
 * {
+    -webkit-box-sizing: border-box;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -8,6 +10,7 @@
     width: 100%;
     height: 40vh;
     object-fit: cover;
+    
 }
 
 .dashboard .cover-img .text {
@@ -19,6 +22,7 @@
 
 .dashboard .cover-img .text h1 {
     font-size: 70px;
+    color: black;
 }
 
 .dashboard .cover-img .text p {
@@ -33,19 +37,16 @@
     display: flex;
     width: 96%;
     margin: auto;
-    border: 1px solid red;
     justify-content: space-between;
 }
 
 .all-info .row .col {
     width: 24%;
-    border: 1px solid red;
 }
 
 .all-info .row .col .card {
     width: 100%;
     margin: 6% 0px;
-    border: 1px solid red;
 }
 
 .all-info .row .col .card .teacher-inner {
@@ -56,7 +57,6 @@
 
 .all-info .row .col .card .teacher-inner .column {
     width: 49%;
-    border: 1px solid green;
 }
 
 .all-info .row .col .card .teacher-inner .column-left {
@@ -75,7 +75,7 @@
     justify-content: flex-end;
 }
 
-.all-info .row .col .card .teacher-inner .column-right .fa-chart-bar {
+.all-info .row .col .card .teacher-inner .column-right .fa-user{
     font-size: 80px;
     color: #ccc;
     padding: 0px 7px;
@@ -85,7 +85,7 @@
 .all-info .row .col .card .teacher-footer {
     text-align: center;
     padding: 5px 0px;
-    background-color: red;
+    background-color: rgb(63, 29, 29);
 }
 
 .all-info .row .col .card .teacher-footer a {
@@ -95,7 +95,7 @@
 
 .all-info .row .col .card .attendance-inner {
     display: flex;
-    background-color: blue;
+    background-color: #0200BD;
     padding: 10px 0px;
 }
 
@@ -120,10 +120,21 @@
     justify-content: flex-end;
 }
 
-.all-info .row .col .card .attendance-inner .column-right .fa-user-plus {
+.all-info .row .col .card .attendance-inner .column-right .fa-inbox {
     font-size: 80px;
     padding: 0px 7px;
     opacity: 0.4;
+    color: #ccc;
+}
+
+.all-info .row .col .card .teacher-footer {
+    text-align: center;
+    padding: 5px 0px;
+    background-color: #375a8c;
+}
+
+.all-info .row .col .card .teacher-footer a {
+    text-decoration: none;
     color: #ccc;
 }
 
@@ -132,13 +143,13 @@
 
 .all-info .row .col .card .student-inner {
     display: flex;
-    background-color: red;
+    background-color: #0B8814;
     padding: 10px 0px;
 }
 
 .all-info .row .col .card .student-inner .column {
     width: 49%;
-    border: 1px solid green;
+    /* border: 1px solid green; */
 }
 
 .all-info .row .col .card .student-inner .column-left {
@@ -167,7 +178,7 @@
 .all-info .row .col .card .student-footer {
     text-align: center;
     padding: 5px 0px;
-    background-color: red;
+    background-color: #14C823;
 }
 
 .all-info .row .col .card .student-footer a {
@@ -177,7 +188,7 @@
 
 .all-info .row .col .card .media-inner {
     display: flex;
-    background-color: blue;
+    background-color: #D38B0E;
     padding: 10px 0px;
 }
 
@@ -202,10 +213,21 @@
     justify-content: flex-end;
 }
 
-.all-info .row .col .card .media-inner .column-right .fa-user-plus {
+.all-info .row .col .card .media-inner .column-right .fa-phone {
     font-size: 80px;
     padding: 0px 7px;
     opacity: 0.4;
+    color: #ccc;
+}
+
+.all-info .row .col .card .media-footer {
+    text-align: center;
+    padding: 5px 0px;
+    background-color: #A88D64;
+}
+
+.all-info .row .col .card .media-footer a {
+    text-decoration: none;
     color: #ccc;
 }
 
@@ -214,13 +236,13 @@
 
 .all-info .row .col .card .subjects-inner {
     display: flex;
-    background-color: red;
+    background-color: #7776EE;
     padding: 10px 0px;
 }
 
 .all-info .row .col .card .subjects-inner .column {
     width: 49%;
-    border: 1px solid green;
+    /* border: 1px solid green; */
 }
 
 .all-info .row .col .card .subjects-inner .column-left {
@@ -239,7 +261,7 @@
     justify-content: flex-end;
 }
 
-.all-info .row .col .card .subjects-inner .column-right .fa-plus-circle {
+.all-info .row .col .card .subjects-inner .column-right .fa-book {
     font-size: 80px;
     color: #ccc;
     padding: 0px 7px;
@@ -249,7 +271,7 @@
 .all-info .row .col .card .subjects-footer {
     text-align: center;
     padding: 5px 0px;
-    background-color: red;
+    background-color: #373673;
 }
 
 .all-info .row .col .card .subjects-footer a {
@@ -259,7 +281,7 @@
 
 .all-info .row .col .card .scores-inner {
     display: flex;
-    background-color: blue;
+    background-color: #A61E20;
     padding: 10px 0px;
 }
 
@@ -291,18 +313,29 @@
     color: #ccc;
 }
 
+.all-info .row .col .card .scores-footer {
+    text-align: center;
+    padding: 5px 0px;
+    background-color: #710405;
+}
+
+.all-info .row .col .card .scores-footer a {
+    text-decoration: none;
+    color: #ccc;
+}
+
 
 /* schedule and expenses section */
 
 .all-info .row .col .card .schedule-inner {
     display: flex;
-    background-color: red;
+    background-color: #D02628;
     padding: 10px 0px;
 }
 
 .all-info .row .col .card .schedule-inner .column {
     width: 49%;
-    border: 1px solid green;
+    /* border: 1px solid green; */
 }
 
 .all-info .row .col .card .schedule-inner .column-left {
@@ -331,7 +364,7 @@
 .all-info .row .col .card .schedule-footer {
     text-align: center;
     padding: 5px 0px;
-    background-color: red;
+    background-color: #8E0506;
 }
 
 .all-info .row .col .card .schedule-footer a {
@@ -341,7 +374,7 @@
 
 .all-info .row .col .card .expenses-inner {
     display: flex;
-    background-color: blue;
+    background-color: #A81F20;
     padding: 10px 0px;
 }
 
@@ -372,130 +405,23 @@
     opacity: 0.4;
     color: #ccc;
 }
-.chart .row {
-    width: 94%;
-    margin: 15px auto;
-    display: flex;
-    justify-content: space-between;
-    background-color: #f0f1f3;
-  }
-  .chart .row .chart_left,
-  .chart_right {
-    padding: 25px;
-    width: 49%;
-    background-color: #fff;
-  }
-  .chart .row .chart_left h1 {
-    color: black;
-  }
-  .chart .row .chart_right h1 {
-    color: black;
-  }
-  .chart .row .chart_left canvas {
-    display: block;
-    margin: auto;
-  }
-  .chart .row .chart_left .chart_footer .row {
-    display: flex;
-    justify-content: space-between;
-    margin: 25px auto 0px auto;
-    background-color: transparent;
-  }
-  .chart .row .chart_left .chart_footer .row .chart_footer_left {
-    width: 50%;
-    border-right: 2px solid #ddd;
-  }
-  .chart .row .chart_left .chart_footer .row .chart_footer_left hr {
-    margin-top: 25px;
-    margin-bottom: 10px;
-    border: 4px solid rgba(154, 205, 50, 1);
-    border-radius: 5px;
-    background-color: rgba(154, 205, 50, 1);
-    width: 70px;
-  }
-  .chart .row .chart_left .chart_footer .row .chart_footer_left span {
-    margin-bottom: 15px;
-    color: #a5b9d4;
-  }
-  .chart .row .chart_left .chart_footer .row .chart_footer_right hr {
-    margin-top: 25px;
-    margin-bottom: 10px;
-    border: 4px solid rgba(247, 202, 24, 1);
-    border-radius: 5px;
-    background-color: rgba(247, 202, 24, 1);
-    width: 70px;
-  }
-  .chart .row .chart_left .chart_footer .row .chart_footer_right span {
-    margin-bottom: 15px;
-    color: #a5b9d4;
-  }
-  /* teachers chart section start =========================== */
-  .chart .row .chart_right .top_Male_female_chart {
-    display: flex;
-    justify-content: space-between;
-  }
-  .chart .row .chart_right .top_Male_female_chart button {
-    background-color: yellowgreen;
-    color: #fff;
-    cursor: pointer;
-    border: 1px solid yellowgreen;
-    border-radius: 3px 7px;
-  }
-  .chart .row .chart_right canvas {
-    display: block;
-    margin: auto;
-  }
-  .chart .row .chart_right .chart_footer .row {
-    display: flex;
-    justify-content: space-between;
-    margin: 25px auto 0px auto;
-    background-color: transparent;
-  }
-  .chart .row .chart_right .chart_footer .row .chart_footer_left {
-    width: 50%;
-    border-right: 2px solid #ddd;
-  }
-  .chart .row .chart_right .chart_footer .row .chart_footer_left hr {
-    margin-top: 25px;
-    margin-bottom: 10px;
-    border: 4px solid rgba(154, 205, 50, 1);
-    border-radius: 5px;
-    background-color: rgba(154, 205, 50, 1);
-    width: 70px;
-  }
-  .chart .row .chart_right .chart_footer .row .chart_footer_left span {
-    margin-bottom: 15px;
-    color: #a5b9d4;
-  }
-  .chart .row .chart_right .chart_footer .row .chart_footer_right hr {
-    margin-top: 25px;
-    margin-bottom: 10px;
-    border: 4px solid rgba(247, 202, 24, 1);
-    border-radius: 5px;
-    background-color: rgba(247, 202, 24, 1);
-    width: 70px;
-  }
-  .chart .row .chart_right .chart_footer .row .chart_footer_right span {
-    margin-bottom: 15px;
-    color: #a5b9d4;
-  }
-  /* A5B9D4 */
-  /* 'rgba(154,205,50,0.7)', */
-  /* .chart .row .chart_left #myChart2 {
-    width: 300px;
-    height: 300px;
-  } */
-  /* fee chart ================== */
-  #fee_chart {
-    width: 94%;
-    margin: 25px auto;
-    background-color: #fff;
-    padding: 25px;
-  }
-  #fee_chart h1 {
-    color: #000;
-    margin: 15px 0px;
-  }
-  #fee_chart .fee_chart_inner {
-    width: 100%;
-  }
+
+.all-info .row .col .card .expenses-footer {
+    text-align: center;
+    padding: 5px 0px;
+    background-color: #2C2B5C;
+}
+
+.all-info .row .col .card .expenses-footer a {
+    text-decoration: none;
+    color: #ccc;
+    
+}
+
+
+/* .chart {
+  background-color: #fff;
+} */
+
+
+/*# sourceMappingURL=dashboard.css.map */
