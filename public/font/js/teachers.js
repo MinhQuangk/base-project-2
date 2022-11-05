@@ -1,4 +1,3 @@
-//Chức năng xem thông tin giảng viên và chức năng thêm giảng viên
 function teacherFunc(evt, teacherName) {
     var i, t_tabcontent, t_tablinks;
     t_tabcontent = document.getElementsByClassName("teacher_tabcontent");

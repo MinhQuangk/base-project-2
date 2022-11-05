@@ -16,6 +16,9 @@
 </head>
 <body>
 <div class="container">
+    <div class="title">
+        <h1 id="title_fonts">Student management system</h1>
+    </div>
     <div class="login">
         <div class="right_form">
             <div class="fonts">
@@ -45,7 +48,7 @@
                         <div class="right_forget">
                             <span id="text-login">Already have an account? <a href="{{Route('admin.login');}}"
                                                                             style="color: blue;">Login</a></span>
-                        </div>
+                        </div>  
                     </div>
                     <br> <br>
                     <div>
@@ -55,22 +58,9 @@
             </div>
         </div>
         <div class="left_form">
-            <div class="mainImg">
-                <img src="{{asset("font/img/Screenshot%202022-10-29%20201329.png")}}" style="height: 100%; width: 100%">
-            </div>
+            <img src="{{asset('font/img/Screenshot%202022-10-29%20201329.png')}}" style="height: 100%; width: 100%">
         </div>
     </div>
-</div>
-<div class="footer">
-    <span class="text-muted" style="font-weight: bold;">Copyright © 2022-2023 - StudentManagementSystem.com</span>
-    <br>
-    <span class="text-muted" style="font-weight: bold;">Powered by:Từ Đàm Văn Thiên - 21SE5 & Vũ Minh Quang - 21SE4
-
-    </span>
-    <br>
-    <span class="text-muted" style="font-weight: bold;">Address: Nam Ky Khoi Nghia Street, Ngu Hanh Son District, City. Danang <br>
-                    Phone: 0386066416
-                    </span>
 </div>
 </body> 
 

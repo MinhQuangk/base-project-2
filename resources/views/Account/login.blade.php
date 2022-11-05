@@ -46,7 +46,7 @@
                     </div>
                     <br>
                     <span id="text-login">Don't have an account? <a href="{{route('admin.signUp')}}"
-                                                                    style="color: aliceblue;">Sign up</a></span>
+                                                                    style="color: blue;">Sign up</a></span>
                     <br>
                     <div class="other-login">
                         <span id="text-login1">Or Sign up Using</span>
@@ -72,17 +72,7 @@
         </div>
     </div>
 </div>
-<div class="footer">
-    <span class="text-muted" style="font-weight: bold;">Copyright © 2022-2023 - StudentManagementSystem.com</span>
-    <br>
-    <span class="text-muted" style="font-weight: bold;">Powered by:Từ Đàm Văn Thiên - 21SE5 & Vũ Minh Quang - 21SE4
 
-    </span>
-    <br>
-    <span class="text-muted" style="font-weight: bold;">Address: Nam Ky Khoi Nghia Street, Ngu Hanh Son District, City. Danang <br>
-                    Phone: 0386066416
-                    </span>
-</div>
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"

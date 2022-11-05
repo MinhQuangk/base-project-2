@@ -1,11 +1,12 @@
 body {
     margin: 0px;
+    background-color: #6fb0bd;
 }
 
 .container {
-    background-color: #F7F9FA;
+    background-color: #6fbccc;
     width: 100%;
-    min-height: 85vh;
+    min-height: 100vh;
     position: relative;
 }
 
@@ -30,24 +31,24 @@ body {
 
 .login {
     width: 70%;
-    height: 525px;
+    height: 550px;
     position: absolute;
-    top: 7%;
+    top: 20%;
     left: 10%;
+    border-radius: 5px;
+    border: solid 5px black;
+    margin-left: 100px;
 }
 
 .right_form {
-    /*border: 1px solid black;*/
     float: right;
     background-color: #AAD9DB;
     width: 40%;
     height: 100%;
     position: relative;
-    border-radius: 10px 10px;
 }
 
 .fonts {
-    /*border: 1px solid black;*/
     margin: 0 auto;
     height: 75px;
 }
@@ -58,7 +59,7 @@ body {
     font-family: 'Karla', sans-serif;
     font-family: 'Oleo Script Swash Caps', cursive;
     margin-top: 10px;
-    margin-left: 130px;
+    margin-left: 160px;
     font-weight: 500;
     font-size: 50px;
     color: black;
@@ -66,26 +67,19 @@ body {
 }
 
 .enter_form {
-    /*border: 1px solid red;*/
     position: absolute;
-    top: 15%;
-    left: 10%;
-    width: 80%;
+    top: 20%;
+    left: 13%;
+    width: 70%;
 }
 
 .login .left_form {
     width: 60%;
     height: 100%;
-    position: relative;
-}
-
-.left_form .mainImg{
-    position: absolute;
-    top: 13%;
 }
 
 #signUpButton {
-    margin-left: 85px;
+    margin-left: 80px;
     width: 150px;
     height: 40px;
     border-radius: 20px;
@@ -106,7 +100,7 @@ body {
 }
 
 #text-login {
-    color: black;
+    color: rgb(240, 19, 19);
 }
 
 .text {
@@ -114,7 +108,7 @@ body {
     width: 89%;
     padding: 20px;
     display: block;
-    height: 10px;
+    height: 15px;
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.1);
     border: 2px solid rgba(255, 255, 255, 0);
@@ -147,8 +141,4 @@ input {
     font-size: 14px;
 }
 
-.footer {
-    background-color: antiquewhite;
-    width: 100%;
-    min-height: 15vh;
-}
+
