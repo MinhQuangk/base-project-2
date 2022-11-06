@@ -234,7 +234,7 @@ var ctx4 = document.getElementById("mychart4").getContext("2d");
     data: {
             labels: ["dưới 2.00", "2.00 – 2.49","2.50 – 3.19","3.20 – 3.59","3.60 – 4.00"],
             datasets: [
-                {
+                {   
                 data: [5, 15,20,35,20,5],
                 backgroundColor: ['#7D6E83', 'Orange', 'Yellow', 'Green', 'Blue','Red'],
                 borderWidth: 1,

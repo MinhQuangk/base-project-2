@@ -19,11 +19,16 @@ Route::get('/', function () {
 });
     Route::prefix('admin')->group(function(){
 
-    Route::get('index',[accountController::class,'index']);
+    // Route::get('index',[accountController::class,'index'])->name('admin.index');
 
-    Route::get('login',[accountController::class,'login'])->name('admin.login');
+    // đăng nhập
+    Route::get('login',[accountController::class,'showLogin'])->name('admin.showLogin');
 
-    
-    Route::get('signUp',[accountController::class,'signUp'])->name('admin.signUp')  ;
+    Route::post('login',[accountController::class,'login'])->name('admin.login');
 
+    //đăng ký
+    Route::get('signUp',[accountController::class,'signUp'])->name('admin.signUp');
+
+    Route::post('signUp',[accountController::class,'storeUser'])->name('admin.store');
     });
+

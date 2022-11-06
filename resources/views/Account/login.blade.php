@@ -15,6 +15,9 @@
           rel="stylesheet"> 
 </head>
 <body>
+    @if (Auth::check())
+        xin chào :{{Auth::user()->email}}
+    @endif
 <div class="container">
     <div class="title">
         <h1 id="title_fonts">Student management system</h1>
@@ -25,16 +28,24 @@
                 <h1 id="fonts">Login</h1>
             </div>
             <div class="enter_form">
-                <form action="" method="post">
-                    <input class="text" type="text" name="User" id="username" style="border: 1px solid black"
+                <form action="{{route('admin.login')}}" method="post">
+                    @csrf
+                    <input class="text" type="text" name="username" id="username" style="border: 1px solid black"
                            placeholder="Username">
                     <i class="fa fa-user"></i> <br> <br>
-                    <input class="text" type="password" name="Pass" id="pass" style="border: 1px solid black"
-                           placeholder="Password">
-                    <i class="fa fa-key"></i> <br> <br>
+                    @if ($errors->has('username'))
+                        <strong class="text-danger" style="color: red">{{$errors->first('username')}}</strong>
+                    @endif
+                    <input class="text" type="password" name="password" id="pass" style="border: 1px solid black"
+                           placeholder="Password" >
+                     <br>
+                    @if ($errors->has('password'))
+                    <strong class="text-danger" style="color: red ;">{{$errors->first('password')}}</strong>
+                @endif
+                     <br>
                     <div class="save">
                         <div class="left_save">
-                            <input type="checkbox" name=""><span id="text-save">Save Password</span>
+                            <input type="checkbox" name="remember"><span id="text-save">Save Password</span>
                         </div>
                         <div class="right_forget">
                             <span id="text-login12"> <a href="" style="color: blue;">Forgot password?</a></span>
@@ -42,7 +53,7 @@
                     </div>
                     <br> <br>
                     <div>
-                        <button onclick="loginButton();" id="loginButton">Login</button>
+                        <button  id="loginButton" type="submit">Login</button>
                     </div>
                     <br>
                     <span id="text-login">Don't have an account? <a href="{{route('admin.signUp')}}"

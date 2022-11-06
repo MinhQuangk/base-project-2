@@ -15,6 +15,7 @@
           rel="stylesheet">
 </head>
 <body>
+    
 <div class="container">
     <div class="title">
         <h1 id="title_fonts">Student management system</h1>
@@ -25,34 +26,45 @@
                 <h1 id="fonts">Sign Up</h1>
             </div>
             <div class="enter_form">
+                
                 <form action="" method="post">
-                    <input class="text" type="text" name="User" id="username" style="border: 1px solid black"
+                    @csrf
+                    <input class="text" type="text" name="username" id="username" style="border: 1px solid black"
                            placeholder="Username">
                     <i class="fa fa-user"></i> <br>
                     <br>
-                    <input class="text" type="password" name="Pass" id="pass" style="border: 1px solid black"
+                    @if ($errors->has('username'))
+                        <strong class="text-danger" style="color: red">{{$errors->first('username')}}</strong>
+                    @endif
+                    <input class="text" type="password" name="password" id="pass" style="border: 1px solid black"
                            placeholder="Password">
                     <br><br>
-                    <input class="text" type="password" name="re_Pass" id="re_pass" style="border: 1px solid black"
-                           placeholder="Password">
-                    <i class="fa fa-key"></i> <br> <br>
+                    @if ($errors->has('password'))
+                        <strong class="text-danger" style="color: red">{{$errors->first('password')}}</strong>
+                    @endif
                     <input class="text" type="text" name="phone" id="phone" style="border: 1px solid black"
                            placeholder="Phone number">
                     <br><br>
-                    <input class="text" type="email" name="phone" id="email" style="border: 1px solid black"
+                    @if ($errors->has('phone'))
+                        <strong class="text-danger" style="color: red">{{$errors->first('phone')}}</strong>
+                    @endif
+                    <input class="text" type="email" name="email" id="email" style="border: 1px solid black"
                            placeholder="Email">
                     <br><br>
+                    @if ($errors->has('email'))
+                        <strong class="text-danger" style="color: red">{{$errors->first('email')}}</strong>
+                    @endif
                     <div class="save">
                         <div class="left_save">
                         </div>
                         <div class="right_forget">
-                            <span id="text-login">Already have an account? <a href="{{Route('admin.login');}}"
+                            <span id="text-login">Already have an account? <a href="{{Route('admin.showLogin');}}"
                                                                             style="color: blue;">Login</a></span>
                         </div>  
                     </div>
                     <br> <br>
                     <div>
-                        <button onclick="loginButton();" id="signUpButton">Sign Up</button>
+                        <button onclick="loginButton();" id="signUpButton" name="btn_login">Sign Up</button>
                     </div>
                 </form>
             </div>
