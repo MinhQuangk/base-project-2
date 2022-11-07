@@ -18,9 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
     Route::prefix('admin')->group(function(){
-
-    // Route::get('index',[accountController::class,'index'])->name('admin.index');
-
     // đăng nhập
     Route::get('login',[accountController::class,'showLogin'])->name('admin.showLogin');
 
@@ -30,5 +27,9 @@ Route::get('/', function () {
     Route::get('signUp',[accountController::class,'signUp'])->name('admin.signUp');
 
     Route::post('signUp',[accountController::class,'storeUser'])->name('admin.store');
+
+    //đăng xuất
+
+    Route::get('logout',[accountController::class,'logout'])->name('admin.logout');
     });
 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Validator;
-use App\Models\Users;
+use App\Models\User;
 use Dotenv\Validator as DotenvValidator;
 use Illuminate\Contracts\Validation\Validator as ContractsValidationValidator;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -21,11 +21,17 @@ class accountController extends Controller
     {
         
     }
+    public function logout(){
+        Auth::logout();
+        return view('Account.login');
+    }
+
     // phương thức đăng nhập 
     public function showLogin(){
         return view('Account.login');
     }
     public function login(Request $request){
+       
         if($request->isMethod('post')){
         $validator = FacadesValidator::make($request->all(),[
             'username'=>'required',
@@ -35,10 +41,14 @@ class accountController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
         $remember =$request->remember;
-
-        
-        if(Auth::attempt(['username'=>$request->username,'password'=>$request->password],$remember)){
-            return redirect()->route('admin.index');
+        $user =$request->username;
+        $pass =$request->password;
+        if(Auth::attempt(['username'=>$user,'password'=>$pass])){
+           
+             return view('layout.index');
+          
+        }else{
+            return 'đăng nhập thất bại';
         }
 
     }   }
@@ -68,11 +78,11 @@ class accountController extends Controller
         if($validator->fails()){
             return redirect()->back()->withErrors($validator)->withInput(); 
         }
-        $users = DB::table('users')->where('username',$request->username)->first();
+        $users = DB::table('member')->where('username',$request->username)->first();
         if(!$users){
-            $newUser = new Users();
+            $newUser = new User();
             $newUser->username = $request->username;
-            $newUser->password = $request->password;
+            $newUser->password = bcrypt($request->password);
             $newUser->phone = $request->phone;
             $newUser->email = $request->email;
             $newUser->save();
@@ -81,8 +91,6 @@ class accountController extends Controller
             return redirect()->route('admin.signUp')->with('message','tạo tài khoản không thành công vui lòng thử lại');
         }
     }
-    public function Index(){
-        return view('layout.index');
-    }
+   
     
 }

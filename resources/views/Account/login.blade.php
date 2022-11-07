@@ -15,9 +15,6 @@
           rel="stylesheet"> 
 </head>
 <body>
-    @if (Auth::check())
-        xin chào :{{Auth::user()->email}}
-    @endif
 <div class="container">
     <div class="title">
         <h1 id="title_fonts">Student management system</h1>
@@ -31,7 +28,7 @@
                 <form action="{{route('admin.login')}}" method="post">
                     @csrf
                     <input class="text" type="text" name="username" id="username" style="border: 1px solid black"
-                           placeholder="Username">
+                           placeholder="username">
                     <i class="fa fa-user"></i> <br> <br>
                     @if ($errors->has('username'))
                         <strong class="text-danger" style="color: red">{{$errors->first('username')}}</strong>
@@ -39,10 +36,11 @@
                     <input class="text" type="password" name="password" id="pass" style="border: 1px solid black"
                            placeholder="Password" >
                      <br>
-                    @if ($errors->has('password'))
-                    <strong class="text-danger" style="color: red ;">{{$errors->first('password')}}</strong>
-                @endif
                      <br>
+                    @if ($errors->has('password'))
+                    <strong class="text-danger" style="color: red ;">{{$errors->first('password')}}</strong> <br>
+                @endif
+                    
                     <div class="save">
                         <div class="left_save">
                             <input type="checkbox" name="remember"><span id="text-save">Save Password</span>

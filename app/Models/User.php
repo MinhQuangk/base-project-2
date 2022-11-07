@@ -6,10 +6,12 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
-
+use League\CommonMark\Extension\Table\Table;
+use Illuminate\Support\Facades\DB;
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -23,10 +25,13 @@ class User extends Authenticatable
      *
      * @var string[]
      */
+    protected $table = 'member'; 
+
     protected $fillable = [
-        'name',
+        'username',
         'email',
         'password',
+        'phone'
     ];
 
     /**
@@ -58,4 +63,7 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+    // public function setPasswordAttribute($password){
+    //     $this->attributes['password']=Hash::make('$password');
+    // }
 }

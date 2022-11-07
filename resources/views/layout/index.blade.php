@@ -33,7 +33,7 @@
             <div class="admin-left" id="slideNav">
                 <div class="admin">
                     <img src="{{ asset('font/img/yasua.jpg') }}" alt="profile picture" />
-                    <h4 style="text-align:center;">T.D.V.Thiên</h4>
+                    <h4 style="text-align:center;">Vũ Minh Quang</h4>
                 </div>
                 <div class="tab">
                     <div class="tablinks" id="defaultOpen" onclick="openTab(event,'dashboard_top')">
@@ -85,7 +85,7 @@
                     <div class="header-left">
                         <i onclick="menuAnimation()" class="fas fa-bars"></i>
                     </div>
-                    <div class="header-right">Admin</div>
+                    <div class="header-right"><a href="{{route('admin.logout')}}" style="color: black"> Đăng xuất</a></div>
                 </div>
                 <div id="dashboard_top" class="tabcontent">
                     @include('layout.assets.dashboard')
