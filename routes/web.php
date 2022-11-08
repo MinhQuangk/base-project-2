@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\accountController;
+use App\Http\Controllers\DBcontroller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+    
     Route::prefix('admin')->group(function(){
+    
+    Route::get('index',[DBcontroller::class,'showStudent'])->name('admin.showStudent');
     // đăng nhập
+    
     Route::get('login',[accountController::class,'showLogin'])->name('admin.showLogin');
 
     Route::post('login',[accountController::class,'login'])->name('admin.login');
@@ -31,5 +36,8 @@ Route::get('/', function () {
     //đăng xuất
 
     Route::get('logout',[accountController::class,'logout'])->name('admin.logout');
+
+    //thêm thông tin sinh viên
+    Route::post('index',[DBcontroller::class,'addStudent'])->name('admin.addS');
     });
 

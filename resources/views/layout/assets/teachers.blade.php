@@ -1,7 +1,7 @@
 <div class="teacher_section">
     <!-- teacher tab button start =================== -->
      <div class="teacher_tab">
-        <h1>Thông tin sinh viên</h1>
+        <h1>Thông tin giảng viên</h1>
         <div class="teacher_tab_inner">
           <button
             class="t_btn_tablinks"
@@ -45,7 +45,7 @@
           <h2>Form Đăng ký giảng viên</h2>
           <div class="first_last_name">
             <span class="f_left">
-              <label for="t_fname">Họ tên đệm</label>
+              <label for="t_fname">Họ và tên đệm</label>
               <input type="text" id="t_fname" name="f_name" required />
               <br />
             </span>
