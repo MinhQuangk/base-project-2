@@ -1,9 +1,11 @@
+@extends('layout.index')
+@section('dashboard')
 <section class="dashboard">
     <div class="welcome_admin" style="display: flex; align-items: center;justify-content: space-between;">
         <h1 style="padding: 1% 4%; font-size:34px; color:#000; width:20%">Dashboard</h1>
         <div class="welcome_admin_message" style="width: 80%;display:flex; align-items: center;background-color: rgb(20, 126, 164);color: #fff;padding: 20px;margin: 15px 0px">
             <h1 style="margin: 0px 15px;">
-                <?php
+                @php
                 $time = date("H");
                 if($time < "12"){
                     echo"Good Morning";
@@ -14,7 +16,7 @@
                 }else if($time >= "19"){
                     echo "Good Night";
                 }
-                ?>
+                @endphp
             </h1>
             <h1 style="color: yellow;font-size: 35px">Văn Thiên</h1>
             <h1 style="font-size: 35px;margin-left: 200px;"><?php echo date('M d,Y'); ?></h1>
@@ -226,4 +228,5 @@
             <canvas id="mychart5"></canvas>
         </div>
     </div>  
-</section>
+</section>    
+@endsection

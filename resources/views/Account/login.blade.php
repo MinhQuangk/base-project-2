@@ -25,7 +25,7 @@
                 <h1 id="fonts">Login</h1>
             </div>
             <div class="enter_form">
-                <form action="{{route('admin.login')}}" method="post">
+                <form action="{{route('account.login')}}" method="post">
                     @csrf
                     <input class="text" type="text" name="username" id="username" style="border: 1px solid black"
                            placeholder="username">
@@ -54,7 +54,7 @@
                         <button  id="loginButton" type="submit">Login</button>
                     </div>
                     <br>
-                    <span id="text-login">Don't have an account? <a href="{{route('admin.signUp')}}"
+                    <span id="text-login">Don't have an account? <a href="{{route('account.signUp')}}"
                                                                     style="color: blue;">Sign up</a></span>
                     <br>
                     <div class="other-login">

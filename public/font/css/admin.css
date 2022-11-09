@@ -31,6 +31,18 @@
     display: none;
 }
 
+.admin-top .row .admin-left .tab .tablinks a{
+    text-decoration: none;
+    color:#fff ;
+}
+.admin-top .row .admin-left .tab .tablinks a:active{
+    text-decoration: none;
+    color: black ;
+}
+.admin-top .row .admin-left .tab .tablinks a:hover{
+    text-decoration: none;
+    color: black;
+}
 .admin-top .row .admin-left .tab .tablinks:hover .tooltip{
     display: block;
 }

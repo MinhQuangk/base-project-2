@@ -58,7 +58,7 @@
                         <div class="left_save">
                         </div>
                         <div class="right_forget">
-                            <span id="text-login">Already have an account? <a href="{{Route('admin.showLogin');}}"
+                            <span id="text-login">Already have an account? <a href="{{Route('account.showLogin');}}"
                                                                             style="color: blue;">Login</a></span>
                         </div>  
                     </div>

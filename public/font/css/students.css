@@ -5,7 +5,13 @@
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
-
+/* thanh tìm kiếm */
+.search {
+ margin-bottom: 20px;
+}
+.search label{
+    color: black;
+}
 .t_dlt_btn {
     background: red;
     color: #fff;

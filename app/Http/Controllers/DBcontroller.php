@@ -14,7 +14,7 @@ class DBcontroller extends Controller
 
         $studentList = $student->getAllStudent();
 
-        return view('layout.index',compact('studentList'));
+        return view('layout.assets.students',compact('studentList'));
     }
     public function addStudent(Request $request){
         $student = new Students();

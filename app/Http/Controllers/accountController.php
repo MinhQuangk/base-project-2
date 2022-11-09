@@ -30,6 +30,7 @@ class accountController extends Controller
     public function showLogin(){
         return view('Account.login');
     }
+    
     public function login(Request $request){
        
         if($request->isMethod('post')){
@@ -45,7 +46,7 @@ class accountController extends Controller
         $pass =$request->password;
         if(Auth::attempt(['username'=>$user,'password'=>$pass])){
            
-             return view('layout.index');
+             return view('layout.assets.dashboard');
           
         }else{
             return 'đăng nhập thất bại';
@@ -86,9 +87,9 @@ class accountController extends Controller
             $newUser->phone = $request->phone;
             $newUser->email = $request->email;
             $newUser->save();
-            return redirect()->route('admin.showLogin')->with('message','bạn đã tạo tài khoản thành công vui lòng đăng nhập thử để xác nhận');
+            return redirect()->route('account.showLogin')->with('message','bạn đã tạo tài khoản thành công vui lòng đăng nhập thử để xác nhận');
         }else{
-            return redirect()->route('admin.signUp')->with('message','tạo tài khoản không thành công vui lòng thử lại');
+            return redirect()->route('account.signUp')->with('message','tạo tài khoản không thành công vui lòng thử lại');
         }
     }
    

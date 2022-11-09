@@ -28,98 +28,103 @@
 </head>
 
 <body>
-    <section class="admin-top">
-        <div class=row>
-            <div class="admin-left" id="slideNav">
-                <div class="admin">
-                    <img src="{{ asset('font/img/yasua.jpg') }}" alt="profile picture" />
-                    <h4 style="text-align:center;">Vũ Minh Quang</h4>
-                </div>
-                <div class="tab">
-                    <div class="tablinks" id="defaultOpen" onclick="openTab(event,'dashboard_top')">
-                        <i class="fas fa-tachometer-alt"></i>
-                        <h4>Trang chủ</h4>
-                    </div>
-                    <div class="tablinks" onclick="openTab(event,'teacher_top')">
-                        <i class="fas fa-chalkboard-teacher"></i>
-                        <h4>Giảng viên</h4>
-                    </div>
-                    <div class="tablinks" onclick="openTab(event,'students')">
-                        <i class="fas fa-user"></i>
-                        <h4>Sinh viên</h4>
-                    </div>
-                    <div class="tablinks" onclick="openTab(event,'subjects')">
-                        <i class="fas fa-plus-circle"></i>
-                        <h4>Môn học</h4>
-                    </div>
-                    <div class="tablinks" onclick="openTab(event,'scores')">
-                        <i class="fas fa-print"></i>
-                        <h4>Điểm số</h4>
-                    </div>
-                    <div class="tablinks" onclick="openTab(event,'schedules')">
-                        <i class="fas fa-clock"></i>
-                        <h4>Thời khóa biểu</h4>
-                    </div>
-                    <div class="tablinks" onclick="openTab(event,'media')">
-                        <i class="fas fa-video"></i>
-                        <h4>Danh bạ điện thoại</h4>
-                    </div>
-                    <div class="tablinks" onclick="openTab(event,'expenses')">
-                        <i class="fas fa-money-check-alt"></i>
-                        <h4>Học phí</h4>
-                    </div>
-                    <div class="tablinks" onclick="openTab(event,'exams')">
-                        <i class="fas fa-graduation-cap"></i>
-                        <h4>Exam</h4>
-                    </div>
-                    <div class="tablinks" onclick="openTab(event,'notice')">
-                        <i class="fas fa-bullhorn" ></i>
-                        <h4>Thông báo và khảo sát</h4>
-                    </div>
-                </div>
+   
+   <section class="admin-top">
+    <div class=row>
+        <div class="admin-left" id="slideNav">
+            <div class="admin">
+                <img src="{{ asset('font/img/yasua.jpg') }}" alt="profile picture" />
+                <h4 style="text-align:center;">Vũ Minh Quang</h4>
             </div>
-
-            <!-- right side of dashboard start here ======== -->
-            <div class="admin-right" id="admin-right">
-                <div class="header">
-                    <div class="header-left">
-                        <i onclick="menuAnimation()" class="fas fa-bars"></i>
-                    </div>
-                    <div class="header-right"><a href="{{route('admin.logout')}}" style="color: black"> Đăng xuất</a></div>
+            <div class="tab">
+                <div class="tablinks" id="defaultOpen" onclick="openTab(event,'dashboard_top')">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <a href="{{ route('admin.dashboard') }}"><h4>Trang chủ</h4></a>
                 </div>
-                <div id="dashboard_top" class="tabcontent">
-                    @include('layout.assets.dashboard')
+                <div class="tablinks" onclick="openTab(event,'teacher_top')">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h4><a href="{{ route('admin.teacher') }}">Giảng viên</a></h4>
                 </div>
-                <div id="teacher_top" class="tabcontent">
-                    @include('layout.assets.teachers')
+                <div class="tablinks" onclick="openTab(event,'students')">
+                    <i class="fas fa-user"></i>
+                    <a href="{{ route('admin.showStudent') }}"><h4>Sinh viên</h4></a>
                 </div>
-                <div id="students" class="tabcontent" >
-                    @include('layout.assets.students')    
+                <div class="tablinks" onclick="openTab(event,'subjects')">
+                    <i class="fas fa-plus-circle"></i>
+                    <a href="#"><h4>Môn học</h4></a>
                 </div>
-                <div id="subjects" class="tabcontent">
-                    <h2>Subjects content</h2>
+                <div class="tablinks" onclick="openTab(event,'scores')">
+                    <i class="fas fa-print"></i>
+                    <a href="#"><h4>Điểm số</h4></a>
                 </div>
-                <div id="scores" class="tabcontent">
-                    <h2>Scores content</h2>
+                <div class="tablinks" onclick="openTab(event,'schedules')">
+                    <i class="fas fa-clock"></i>
+                    <a href="#"> <h4>Thời khóa biểu</h4></a>
                 </div>
-                <div id="schedule" class="tabcontent">
-                    <h2>Schedule content</h2>
+                <div class="tablinks" onclick="openTab(event,'media')">
+                    <i class="fas fa-video"></i>
+                    <a href="#"><h4>Danh bạ điện thoại</h4></a>
                 </div>
-                <div id="media" class="tabcontent">
-                    <h2>Media content</h2>
+                <div class="tablinks" onclick="openTab(event,'expenses')">
+                    <i class="fas fa-money-check-alt"></i>
+                    <a href="#"><h4>Học phí</h4></a>
                 </div>
-                <div id="expenses" class="tabcontent">
-                    <h2>expenses content</h2>
+                <div class="tablinks" onclick="openTab(event,'exams')">
+                    <i class="fas fa-graduation-cap"></i>
+                    <a href="{{ route('admin.exam') }}"><h4>Exam</h4></a>
                 </div>
-                <div id="exams" class="tabcontent">
-                   @include('layout.assets.exam');
-                </div>
-                <div id="notice" class="tabcontent">
-                    <h2>Map content</h2>
+                <div class="tablinks" onclick="openTab(event,'notice')">
+                    <i class="fas fa-bullhorn" ></i>
+                    <a href="#"><h4>Thông báo và khảo sát</h4></a>
                 </div>
             </div>
         </div>
-    </section>
+
+        <!-- right side of dashboard start here ======== -->
+        <div class="admin-right" id="admin-right">
+            <div class="header">
+                <div class="header-left">
+                    <i onclick="menuAnimation()" class="fas fa-bars"></i>
+                </div>
+                <div class="header-right"><a href="{{route('admin.logout')}}" style="color: black"> Đăng xuất</a></div>
+            </div>
+            <div id="dashboard_top" class="tabcontent">
+                @yield('dashboard')
+            </div>
+            <div id="teacher_top" class="tabcontent">
+                {{-- @include('layout.assets.teachers') --}}
+                @yield('teacher')
+            </div>
+            <div id="students" class="tabcontent" >
+                {{-- @include('layout.assets.students')     --}}
+                @yield('student')
+            </div>
+            <div id="subjects" class="tabcontent">
+                
+            </div>
+            <div id="scores" class="tabcontent">
+                
+            </div>
+            <div id="schedule" class="tabcontent">
+               
+            </div>
+            <div id="media" class="tabcontent">
+               
+            </div>
+            <div id="expenses" class="tabcontent">
+                
+            </div>
+            <div id="exams" class="tabcontent">
+               {{-- @include('layout.assets.exam'); --}}
+               @yield('exam')
+            </div>
+            <div id="notice" class="tabcontent">
+                
+            </div>
+        </div>
+    </div>
+</section>
+  
 <script>
     function menuAnimation(){
         var element = document.getElementById("slideNav");
@@ -133,7 +138,7 @@
 </body>
 
 
-<script src="{{ asset('font/js/app.js') }}"></script>
+ <script src="{{ asset('font/js/app.js') }}"></script>
 <script src="{{ asset('font/js/teachers.js') }}"></script>
 <script src="{{ asset('font/js/students.js') }}"></script>
 <script src="{{ asset('font/js/exam.js') }}"></script>
@@ -310,6 +315,6 @@ var ctx5 = document.getElementById("mychart5").getContext("2d");
     
   },
 });
-</script>
+</script> 
 
-</html>
+</html> 

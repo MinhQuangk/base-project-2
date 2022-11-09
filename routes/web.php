@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\accountController;
 use App\Http\Controllers\DBcontroller;
+use App\Http\Controllers\LayoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,25 +20,36 @@ Route::get('/', function () {
     return view('welcome');
 });
     
-    Route::prefix('admin')->group(function(){
+    Route::prefix('account')->group(function(){
     
-    Route::get('index',[DBcontroller::class,'showStudent'])->name('admin.showStudent');
-    // đăng nhập
+    //Route::get('index',[DBcontroller::class,'showStudent'])->name('admin.showStudent');
     
-    Route::get('login',[accountController::class,'showLogin'])->name('admin.showLogin');
+   Route::get('dashboard',[LayoutController::class,'dashboard'],)->name('admin.dashboard');
 
-    Route::post('login',[accountController::class,'login'])->name('admin.login');
+   Route::get('student',[DBcontroller::class,'showStudent'],)->name('admin.showStudent');
 
-    //đăng ký
-    Route::get('signUp',[accountController::class,'signUp'])->name('admin.signUp');
+   Route::get('teacher',[LayoutController::class,'teacher'])->name('admin.teacher');
 
-    Route::post('signUp',[accountController::class,'storeUser'])->name('admin.store');
-
+   Route::get('exam',[LayoutController::class,'exam'])->name('admin.exam');
     //đăng xuất
 
     Route::get('logout',[accountController::class,'logout'])->name('admin.logout');
 
     //thêm thông tin sinh viên
-    Route::post('index',[DBcontroller::class,'addStudent'])->name('admin.addS');
+    Route::post('student',[DBcontroller::class,'addStudent'])->name('admin.addS');
     });
 
+    Route::prefix('account')->group(function(){
+
+        // đăng nhập
+        Route::get('login',[accountController::class,'showLogin'])->name('account.showLogin');
+
+        Route::post('login',[accountController::class,'login'])->name('account.login');
+    
+        //đăng ký
+        Route::get('signUp',[accountController::class,'signUp'])->name('account.signUp');
+    
+        Route::post('signUp',[accountController::class,'storeUser'])->name('account.store');    
+    
+
+    });

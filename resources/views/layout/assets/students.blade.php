@@ -1,3 +1,5 @@
+@extends('layout.index')
+@section('student')
 <div class="student_section">
     <div class="student_tab">
         <h1>Thông tin sinh viên</h1>
@@ -6,10 +8,19 @@
             <button class="s_btn_tablinks" onclick="studentFunc(event,'add_student')"><i class="fas fa-plus-circle"></i></button>
         </div>
     </div>
-    <!-- Chức năng xem thông tin giảng viên -->
+    <!-- Chức năng xem thông tin sinh viên -->
     <div id="see_student" class="student_tabcontent">
+        <form action="" class="search" method="POST">
+            <label for="id">id</label>
+            <input type="text" name="id"/>
+            <label for="">Tên</label>
+            <input type="text" name="name"/>
+            <label for="">Email</label>
+            <input type="text" name="email">
+            <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </form>
         <div class_student_search>
-            <input type="text" class="search_input" placeholder="Tìm kiếm giảng viên...."/>
+            
             <table>
                 <tr>
                     <td width='50px'>Id</td>
@@ -47,7 +58,7 @@
     <div id="add_student" class="student_tabcontent">
         <form autocomplete="off" id="formData" method="POST" action="{{ route('admin.addS')}}" >
             @csrf
-            <h2>Bảng thêm giảng viên</h2>
+            <h2 style="font-family: Arial, Helvetica, sans-serif;">thêm sinh viên</h2>
             <div class="first_last_name">
                 <!-- Họ và tên -->
                 <span class="f_left">
@@ -88,3 +99,4 @@
         </form>
     </div>
 </div>
+@endsection
