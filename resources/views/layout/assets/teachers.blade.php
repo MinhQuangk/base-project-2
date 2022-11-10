@@ -18,7 +18,9 @@
       </div>
   </div>
   <!-- teacher tab button start =================== -->
-
+  @if (session('msg'))
+  <h3 style="color: black">{{session('msg')}}</h3>
+@endif
   <!-- teacher tabcontent button start =================== -->
   <div class="teacher_tabcontent_data">
     <div id="see_teacher" class="teacher_tabcontent">
@@ -43,8 +45,9 @@
     </div>
     
     <div id="add_teacher" class="teacher_tabcontent">
-    <form enctype="multipart/form-data" id="teacher_formData" >
+    <form enctype="multipart/form-data" id="teacher_formData" method="POST" action="{{ route('admin.addT') }}">
         <h2>Form Đăng ký giảng viên</h2>
+        @csrf
         <div class="first_last_name">
           <span class="f_left">
             <label for="t_fname">Họ và tên đệm</label>
@@ -61,28 +64,27 @@
         <input
           type="text"
           id="t_enroll_year"
-          name="t_enroll_year"
+          name="yearOfBirth"
           required
         />
         <br />
         <div class="t_class">
           <span class="t_class_left">
             <label for="t_dob">Chức danh</label>
-            <input type="text" id="t_dob" name="t_dob" required />
+            <input type="text" id="t_dob" name="academic" required />
             <br />
           </span>
           <span class="t_class_right">
             <label for="t_class">Khoa</label>
-            <input type="text" id="t_class" name="t_class" required />
+            <input type="text" id="t_class" name="department" required />
             <br />
           </span>
        </div>
         <label for="t_gender">Giới tính</label>
-        <select name="t_gender" id="t_gender" required>
-          <option value="">select one</option>
-          <option value="female">Nam</option>
-          <option value="male">Nữ</option>
-          <option value="other">Khác...</option>
+        <select name="gender" id="t_gender" required>
+          <option selected disabled value="0">select one</option>
+          <option value="male" {{request()->gender=='male'?'selected':false}}>Nam</option>
+          <option value="female"{{request()->gender=='female'?'selected':false}}>Nữ</option>
         </select>
         <br />
         <label for="t_phone">Số điện thoại</label>
@@ -105,7 +107,7 @@
         <input
           type="file"
           id="t_image"
-          name="file"
+          name="avatar"
           required
         />
         <br>

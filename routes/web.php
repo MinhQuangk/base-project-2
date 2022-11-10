@@ -28,7 +28,9 @@ Route::get('/', function () {
 
    Route::get('student',[DBcontroller::class,'showStudent'],)->name('admin.showStudent');
 
-   Route::get('teacher',[LayoutController::class,'teacher'])->name('admin.teacher');
+   Route::get('teacher',[DBController::class,'showTeacher'])->name('admin.teacher');
+
+   Route::post('teacher',[DBController::class,'addTeacher'])->name('admin.addT');
 
    Route::get('exam',[LayoutController::class,'exam'])->name('admin.exam');
     //đăng xuất
@@ -38,7 +40,11 @@ Route::get('/', function () {
     //thêm thông tin sinh viên
     Route::post('student',[DBcontroller::class,'addStudent'])->name('admin.addS');
   
-    // Route::post('student1',[DBcontroller::class,'searchStudent'])->name('admin.search');
+    Route::get('delete/{s_id}',[DBcontroller::class,'deleteStudent'])->name('admin.deleteS');
+    
+    Route::get('update/{s_id}',[DBcontroller::class,'getUpdateStudent'])->name('admin.updateS');
+
+    Route::post('update',[DBcontroller::class,'postUpdateStudent'])->name('admin.addUpdateS');
 
     });
 

@@ -1,6 +1,10 @@
 @extends('layout.index')
 @section('student')
 <div class="student_section">
+    
+    @if (session('msg'))
+                <h3>{{session('msg')}}</h3>
+    @endif
     <div class="student_tab">
         <h1>Thông tin sinh viên</h1>
         <div class="student_tab_inner">
@@ -11,8 +15,6 @@
     <!-- Chức năng xem thông tin sinh viên -->
     <div id="see_student" class="student_tabcontent">
         <form class="search">
-           
-            
             <input type="text" name="key"/>
             <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
         </form>
@@ -20,8 +22,9 @@
             
             <table>
                 <tr>
-                    <td width='50px'>Id</td>
+                    <td width='50px'>STT</td>
                     <td width='150px'>Họ và tên</td>
+                    <td width='50px'>Mã sv</td>
                     <td width='100px'>Ngày sinh</td>
                     <td>Quê quán</td>
                     <td>Khoa</td>
@@ -29,14 +32,17 @@
                     <td>Số điện thoại</td>
                     <td >Email</td>
                     <td width='100px'>Lớp</td>
+                    <td>Action</td>
+    
                 </tr>
                 <tbody d="s_table_body">
                     <!-- student will be show here======= -->
                     @if (!empty($studentList))
-                        @foreach ( $studentList as $item)
+                        @foreach ( $studentList as $key =>$item)
                         <tr>
-                            <td>{{$item->s_id}}</td>
+                            <td>{{$key +1}}</td>
                             <td>{{$item->s_name}}</td>
+                            <td>{{$item->s_id}}</td>
                             <td>{{$item->birthday}}</td>
                             <td>{{$item->s_address}}</td>
                             <td>{{$item->department}}</td>
@@ -44,6 +50,11 @@
                             <td>{{$item->s_phone}}</td>
                             <td>{{$item->S_email}}</td>
                             <td>{{$item->s_class}}</td>
+                            <td>
+                                <a onclick="return confirm('xác nhận xóa')" href="{{ route('admin.deleteS',['s_id'=>$item->s_id]) }}"><i class="fa fa-trash" aria-hidden="true" style="color: red"></i></a>
+                                <a href="{{ route('admin.updateS',['s_id'=>$item->s_id]) }}"><i class="fas fa-user-edit" style="color: green"></i></i></a>
+                            </td>
+                        
                         </tr>
                         @endforeach
                     @endif
@@ -95,6 +106,5 @@
             <input type="submit" id="sub_student_btn">
         </form>
     </div>
-    
 </div>
 @endsection
