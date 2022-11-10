@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
     
-    Route::prefix('account')->group(function(){
+    Route::prefix('admin')->group(function(){
     
     //Route::get('index',[DBcontroller::class,'showStudent'])->name('admin.showStudent');
     
@@ -37,6 +37,9 @@ Route::get('/', function () {
 
     //thêm thông tin sinh viên
     Route::post('student',[DBcontroller::class,'addStudent'])->name('admin.addS');
+  
+    // Route::post('student1',[DBcontroller::class,'searchStudent'])->name('admin.search');
+
     });
 
     Route::prefix('account')->group(function(){

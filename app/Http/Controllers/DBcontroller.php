@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Students;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use League\CommonMark\Extension\Table\Table;
 
 class DBcontroller extends Controller
 {
@@ -13,6 +15,12 @@ class DBcontroller extends Controller
         $student = new Students();
 
         $studentList = $student->getAllStudent();
+        
+        if($key=Request()->key){
+
+            $studentList= $student->Search($key);
+            return view('layout.assets.students',compact('studentList'));
+        }
 
         return view('layout.assets.students',compact('studentList'));
     }
@@ -33,4 +41,18 @@ class DBcontroller extends Controller
         
         return Redirect()->route('admin.showStudent')->with('msg','thêm người dùng thành công');
     }
+    // public function searchStudent(Request $request){
+    //     $key=$request->key;
+    //     if(!empty($key)){
+
+    //         $data=Students::orderBy('id')->where('s_id   ',
+    //         's_name',
+    //         'S_email',
+    //         's_class',
+    //         's_phone',
+    //         '%'.$key.'%'
+    //         );
+    //     }
+    //     return view()
+    // }
 }

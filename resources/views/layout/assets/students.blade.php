@@ -10,13 +10,10 @@
     </div>
     <!-- Chức năng xem thông tin sinh viên -->
     <div id="see_student" class="student_tabcontent">
-        <form action="" class="search" method="POST">
-            <label for="id">id</label>
-            <input type="text" name="id"/>
-            <label for="">Tên</label>
-            <input type="text" name="name"/>
-            <label for="">Email</label>
-            <input type="text" name="email">
+        <form class="search">
+           
+            
+            <input type="text" name="key"/>
             <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
         </form>
         <div class_student_search>
@@ -98,5 +95,6 @@
             <input type="submit" id="sub_student_btn">
         </form>
     </div>
+    
 </div>
 @endsection
