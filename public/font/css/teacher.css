@@ -319,7 +319,7 @@
 
 /*# sourceMappingURL=teachers.css.map */
 
-.teacher_tabcontent_data .teacher_tabcontent .teacher_details_modal {
+/* .teacher_tabcontent_data .teacher_tabcontent .teacher_details_modal {
     position: fixed;
     width: 100%;
     top: 0;
@@ -329,17 +329,17 @@
     display: none;
     z-index: 400;
     overflow-y: scroll;
-}
+} */
 
-.teacher_tabcontent_data .teacher_tabcontent .teacher_details_modal .teacher_details_modal_body {
+/* .teacher_tabcontent_data .teacher_tabcontent .teacher_details_modal .teacher_details_modal_body {
     position: relative;
     width: 70%;
     z-index: 301;
     margin: 70px auto;
     background: #fff;
-}
+} */
 
-.teacher_tabcontent_data .teacher_tabcontent .teacher_details_modal .teacher_details_modal_body #hide_teacher_details_modal {
+/* .teacher_tabcontent_data .teacher_tabcontent .teacher_details_modal .teacher_details_modal_body #hide_teacher_details_modal {
     position: absolute;
     top: -15px;
     right: -15px;
@@ -348,7 +348,8 @@
     border-radius: 50%;
     color: #fff;
     cursor: pointer;
-}
+    display: block;
+} */
 
 
 /* stdent details section start here -=================== */

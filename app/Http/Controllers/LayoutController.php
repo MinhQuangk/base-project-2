@@ -25,4 +25,7 @@ class LayoutController extends Controller
     public function noctices(){
         return view('layout.assets.noctices');
     }
+    public function admin(){
+        return view('Account.admin');
+    }
 }

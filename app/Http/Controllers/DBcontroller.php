@@ -91,14 +91,25 @@ class DBcontroller extends Controller
 
     // insert teacher
     public function showTeacher(){
+        
         $teacher = new Teacher();
-       
-            return view('layout.assets.teachers');
+        $teacherlist=$teacher->getAllTeacher();
+    
+        return view('layout.assets.teachers',compact('teacherlist'));
+            
         }
 
     public function addTeacher(Request $request){
         $teacher = new Teacher();
-        
+        if($request->has('img')){
+            $file = $request -> img;
+            $ext =$request  ->img->extension();
+            $file_name =time().'_'.'admin.'.$ext;
+            $file->move(public_path('uploads'),$file_name);
+           
+        }
+        $request->merge(['avatar'=>$file_name]);
+      
         $dataInsert =[     
             $request->f_name,
             $request->l_name,
@@ -114,5 +125,7 @@ class DBcontroller extends Controller
         
         return Redirect()->route('admin.teacher')->with('msg','thêm mới giảng viên thành công');
     }
+    
+
 }
 

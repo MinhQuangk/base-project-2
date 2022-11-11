@@ -33,30 +33,37 @@
               <!-- show teacher data here ================ --> 
           </div>
           <!-- teacher modal start ======================= -->
-          <div class="teacher_details_modal" id="view_teacher_detail_modal">
-            <div class="teacher_details_modal_body">
-                <div id="hide_teacher_details_modal">X</div>
-                <div class="teacher_details_modal_body_inner">
-                  <!-- details data show here ============ -->
+          @if (!empty($teacherlist))
+              @foreach ($teacherlist as $key =>$item)
+              <div class="teacher_details_modal" id="view_teacher_detail_modal">
+                <div class="teacher_details_modal_body">
+                    
+                    <div class="teacher_details_modal_body_inner">
+                      <!-- details data show here ============ -->
+                      <img src="{{asset('uploads')}}/{{$item->avatar}}" alt="">
+              <h3 style="color: black">{{$item->f_name}}</h3>
+              <h3 style="color: black">{{$item->l_name}}</h3>
+                    </div>
                 </div>
-            </div>
-          </div>
+              </div>
+              @endforeach
+          @endif
           <!-- teacher modal end ======================= -->
     </div>
     
     <div id="add_teacher" class="teacher_tabcontent">
-    <form enctype="multipart/form-data" id="teacher_formData" method="POST" action="{{ route('admin.addT') }}">
+    <form enctype="multipart/form-data" id="teacher_formData" method="POST" action="{{ route('admin.addT') }}" enctype="multipart/form-data">
         <h2>Form Đăng ký giảng viên</h2>
         @csrf
         <div class="first_last_name">
           <span class="f_left">
             <label for="t_fname">Họ và tên đệm</label>
-            <input type="text" id="t_fname" name="f_name" required />
+            <input type="text" id="t_fname" name="f_name"  />
             <br />
           </span>
           <span class="l_right">
             <label for="t_lname">Tên</label>
-            <input type="text" id="t_lname" name="l_name" required />
+            <input type="text" id="t_lname" name="l_name"  />
             <br />
           </span>
         </div>
@@ -71,17 +78,17 @@
         <div class="t_class">
           <span class="t_class_left">
             <label for="t_dob">Chức danh</label>
-            <input type="text" id="t_dob" name="academic" required />
+            <input type="text" id="t_dob" name="academic"  />
             <br />
           </span>
           <span class="t_class_right">
             <label for="t_class">Khoa</label>
-            <input type="text" id="t_class" name="department" required />
+            <input type="text" id="t_class" name="department"  />
             <br />
           </span>
        </div>
         <label for="t_gender">Giới tính</label>
-        <select name="gender" id="t_gender" required>
+        <select name="gender" id="t_gender" >
           <option selected disabled value="0">select one</option>
           <option value="male" {{request()->gender=='male'?'selected':false}}>Nam</option>
           <option value="female"{{request()->gender=='female'?'selected':false}}>Nữ</option>
@@ -92,7 +99,7 @@
           type="text"
           id="t_phone"
           name="t_phone"
-          required
+         
         />
         <br />
         <label for="t_email">Email</label>
@@ -100,15 +107,15 @@
           type="text"
           id="t_email"
           name="t_email"
-          required
+          
         />
         <br />
         <label for="t_image">Hình ảnh</label>
         <input
           type="file"
           id="t_image"
-          name="avatar"
-          required
+          name="img"
+
         />
         <br>
         <input type="submit" name="t_submit" id="t_teacher_btn"></input>

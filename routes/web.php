@@ -37,6 +37,8 @@ Route::get('/', function () {
    Route::get('schedule',[LayoutController::class,'schedule'])->name('admin.schedule');
 
    Route::get('noctices',[LayoutController::class,'noctices'])->name('admin.noctices');
+
+   Route::get('admin',[LayoutController::class,'admin'])->name('admin.edit');
     //đăng xuất
 
     Route::get('logout',[accountController::class,'logout'])->name('admin.logout');

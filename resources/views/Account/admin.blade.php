@@ -18,6 +18,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
+@extends('layout.index')
+
+@section('dashboard')
 <body>
     <h1 class="textHeader" style="text-align: center; font-size: 50px;">Thông tin Admin</h1>
     <div class="tab-display">
@@ -91,5 +94,5 @@
             </div>
         </div>
 </body>
-
+@endsection
 </html>

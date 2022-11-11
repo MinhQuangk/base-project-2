@@ -27,4 +27,9 @@ class Teacher extends Model
         return $add_teacher;
     }
 
+    public function getAllTeacher(){
+        $teacher = DB::select('SELECT * FROM teacher ');
+
+        return $teacher;
+    }
 }
