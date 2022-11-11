@@ -1,4 +1,3 @@
-
 * {
     padding: 0;
     margin: 0;
@@ -10,14 +9,14 @@
     background-color: #e8f3f3;
 }
 
-.admin-top .row .admin-left{
+.admin-top .row .admin-left {
     color: #fff;
     width: 20%;
     background-color: rgb(71, 60, 172);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.admin-top .row .admin-left .admin img{
+.admin-top .row .admin-left .admin img {
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -27,31 +26,34 @@
     margin: 30px auto 10px;
 }
 
-.admin-top .row .admin-left .tab .tablinks .tooltip{
+.admin-top .row .admin-left .tab .tablinks .tooltip {
     display: none;
 }
 
-.admin-top .row .admin-left .tab .tablinks a{
+.admin-top .row .admin-left .tab .tablinks a {
     text-decoration: none;
-    color:#fff ;
+    color: #fff;
 }
-.admin-top .row .admin-left .tab .tablinks a:active{
-    text-decoration: none;
-    color: black ;
-}
-.admin-top .row .admin-left .tab .tablinks a:hover{
+
+.admin-top .row .admin-left .tab .tablinks a:active {
     text-decoration: none;
     color: black;
 }
-.admin-top .row .admin-left .tab .tablinks:hover .tooltip{
+
+.admin-top .row .admin-left .tab .tablinks a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.admin-top .row .admin-left .tab .tablinks:hover .tooltip {
     display: block;
 }
 
-.admin-top .row .admin-left .tab{
+.admin-top .row .admin-left .tab {
     margin-top: 15px;
 }
 
-.admin-top .row .admin-left .tab .tablinks{
+.admin-top .row .admin-left .tab .tablinks {
     display: flex;
     align-items: center;
     background-color: inherit;
@@ -70,7 +72,7 @@
     border-radius: 5px;
 }
 
-.admin-top .row .admin-left .tab .tablinks .tooltip{
+.admin-top .row .admin-left .tab .tablinks .tooltip {
     position: absolute;
     background-color: rgb(71, 60, 172);
     padding: 10px 17px;
@@ -82,30 +84,31 @@
     display: none;
 }
 
-.admin-top .row .admin-left .tab .tablinks h4{
+.admin-top .row .admin-left .tab .tablinks h4 {
     margin: 0px 0px 0px 15px;
 }
 
-.admin-top .row .admin-left .tab .tablinks.active{
+.admin-top .row .admin-left .tab .tablinks.active {
     background-color: #fff;
     color: black;
 }
 
-.admin-top .row .admin-left .tab .tablinks:hover{
-    background-color: #fff;
+.admin-top .row .admin-left .tab .tablinks:hover {
+    background-color: rgb(83, 184, 194);
     color: black;
 }
 
-.admin-top .row .admin-left.navSlide{
+.admin-top .row .admin-left.navSlide {
     width: 5%;
     height: 100%;
 }
-.admin-top .row .admin-left.navSlide h4{
+
+.admin-top .row .admin-left.navSlide h4 {
     display: none;
 }
 
 .admin-top .row .admin-left.navSlide .fas,
-.admin-top .row .admin-left.navSlide .fas{
+.admin-top .row .admin-left.navSlide .fas {
     font-size: 25px;
     display: block;
     margin: auto;
@@ -113,10 +116,10 @@
 
 .admin-top .row .admin-left.navSlide .admin img {
     width: 35px;
-    height: 35px ;
+    height: 35px;
 }
 
-.admin-top .row .admin-left.navSlide .admin h4{
+.admin-top .row .admin-left.navSlide .admin h4 {
     display: none;
 }
 
@@ -126,12 +129,12 @@
     transition: 0.3s;
 }
 
-.admin-top .row .admin-right.navSlide1{
+.admin-top .row .admin-right.navSlide1 {
     width: 100%;
     margin-left: 0;
 }
 
-.admin-top .row .admin-right .header{
+.admin-top .row .admin-right .header {
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -139,7 +142,7 @@
     background-color: rgb(71, 60, 172);
 }
 
-.admin-top .row .admin-right .header .header-left .fas{
+.admin-top .row .admin-right .header .header-left .fas {
     font-size: 25px;
     cursor: pointer;
 }

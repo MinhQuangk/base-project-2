@@ -19,4 +19,10 @@ class LayoutController extends Controller
     public function student(){
         return view('layout.assets.students');
     }
+    public function schedule(){
+        return view('layout.assets.schedule');
+    }
+    public function noctices(){
+        return view('layout.assets.noctices');
+    }
 }

@@ -140,6 +140,7 @@
     border-collapse: collapse;
     width: 100%;
     background-color: #fff;
+    margin: 0px auto;
 }
 
 .student_section #see_student th {

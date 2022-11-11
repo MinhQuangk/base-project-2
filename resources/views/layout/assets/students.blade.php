@@ -4,7 +4,7 @@
     
     @if (session('msg'))
                 <h3>{{session('msg')}}</h3>
-    @endif
+    @endif  
     <div class="student_tab">
         <h1>Thông tin sinh viên</h1>
         <div class="student_tab_inner">

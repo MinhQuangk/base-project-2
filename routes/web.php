@@ -33,6 +33,10 @@ Route::get('/', function () {
    Route::post('teacher',[DBController::class,'addTeacher'])->name('admin.addT');
 
    Route::get('exam',[LayoutController::class,'exam'])->name('admin.exam');
+
+   Route::get('schedule',[LayoutController::class,'schedule'])->name('admin.schedule');
+
+   Route::get('noctices',[LayoutController::class,'noctices'])->name('admin.noctices');
     //đăng xuất
 
     Route::get('logout',[accountController::class,'logout'])->name('admin.logout');

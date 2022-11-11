@@ -12,3 +12,12 @@
     //     evt.currentTarget.className += " active";
     // }
     // document.getElementById('defaultOpen').click();
+    function admin() {
+        let hidden = document.getElementById('admin_details');
+        if (hidden.style.display === 'none') {
+            hidden.style.display = 'block';
+        } else {
+            hidden.style.display = 'none';
+        }
+    }
+    document.getElementById('admin_details').click();

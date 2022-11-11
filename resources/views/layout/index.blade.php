@@ -5,12 +5,15 @@
     <meta charset="UTF-8">
     <title>School Management System</title>
     <link href="{{ asset('font/css/admin.css') }}" rel="stylesheet">
+    <link href="{{ asset('font/css/admin2.css') }}" rel="stylesheet">
     <link href="{{ asset('font/css/dashboard.css') }}" rel="stylesheet">
     <link href="{{ asset('font/css/students.css') }}" rel="stylesheet">
     <link href="{{ asset('font/css/dashboard2.css') }}" rel="stylesheet">
     <link href="{{ asset('font/css/teacher.css') }}" rel="stylesheet">
     <link href="{{ asset('font/css/exam.css') }}" rel="stylesheet">
     <link href="{{ asset('font/css/editS.css') }}" rel="stylesheet">
+    <link href="{{ asset('font/css/schedule.css') }}" rel="stylesheet">
+  <link href="{{ asset('font/css/noctices.css') }}" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -60,7 +63,9 @@
                 </div>
                 <div class="tablinks" onclick="openTab(event,'schedules')">
                     <i class="fas fa-clock"></i>
-                    <a href="#"> <h4>Thời khóa biểu</h4></a>
+                    <a href="{{ route('admin.schedule') }}">
+                      <h4>Thời khóa biểu</h4>
+                    </a>
                 </div>
                 <div class="tablinks" onclick="openTab(event,'media')">
                     <i class="fas fa-video"></i>
@@ -76,19 +81,43 @@
                 </div>
                 <div class="tablinks" onclick="openTab(event,'notice')">
                     <i class="fas fa-bullhorn" ></i>
-                    <a href="#"><h4>Thông báo và khảo sát</h4></a>
+                    <a href="{{ route('admin.noctices') }}">
+                      <h4>Thông báo và khảo sát</h4>
+                    </a>
                 </div>
             </div>
         </div>
 
         <!-- right side of dashboard start here ======== -->
         <div class="admin-right" id="admin-right">
-            <div class="header">
-                <div class="header-left">
-                    <i onclick="menuAnimation()" class="fas fa-bars"></i>
-                </div>
-                <div class="header-right"><a href="{{route('admin.logout')}}" style="color: black"> Đăng xuất</a></div>
+          <div class="header">
+            <div class="header-left">
+              <i onclick="menuAnimation()" class="fas fa-bars"></i>
             </div>
+            <div class="header-right">
+              <div class="header-right-inner-right">
+                <img src="{{ asset('font/img/yasua.jpg') }}" onclick="admin()" class="adminImg" alt="Profile Image" />
+                <div id="admin_details" class="admin_details">
+                  <nav>
+                    <ul>
+                      <li>
+                        <a href="">
+                          <ion-icon name="help-circle-outline"></ion-icon>
+                          Admin
+                        </a>  
+                      </li>
+                      <li>
+                        <a href="{{ route('admin.logout') }}">
+                          <ion-icon name="log-out-outline"></ion-icon>
+                          Đăng xuất
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
             <div id="dashboard_top" class="tabcontent">
                 @yield('dashboard')
             </div>
@@ -107,7 +136,7 @@
                 
             </div>
             <div id="schedule" class="tabcontent">
-               
+              @yield('schedule')
             </div>
             <div id="media" class="tabcontent">
                
@@ -120,7 +149,7 @@
                @yield('exam')
             </div>
             <div id="notice" class="tabcontent">
-                
+              @yield('noctices')
             </div>
         </div>
     </div>
