@@ -1,0 +1,289 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+* {
+    padding: 0px;
+    margin: 0px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+/* thanh tìm kiếm */
+
+.search {
+    margin-bottom: 20px;
+}
+
+.search label {
+    color: black;
+}
+
+.t_dlt_btn {
+    background: red;
+    color: #fff;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid red;
+    cursor: pointer;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.t_edit_btn {
+    background: green;
+    color: #fff;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid green;
+    cursor: pointer;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.t_view_details {
+    background: green;
+    color: #fff;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid green;
+    cursor: pointer;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.class_section #errorMessage {
+    position: fixed;
+    top: 20px;
+    margin-left: 10%;
+    z-index: 20;
+    display: none;
+    background-color: red;
+    padding: 10px 30px;
+    width: 20%;
+    color: #fff;
+}
+
+.class_section #successMessage {
+    position: fixed;
+    top: 20px;
+    margin-left: 10%;
+    display: none;
+    z-index: 20;
+    width: 20%;
+    background-color: green;
+    padding: 10px 30px;
+    color: #fff;
+}
+
+.class_section .class_tab {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 7px 2%;
+    border-bottom: 2px solid yellowgreen;
+    overflow: hidden;
+}
+
+.class_section .class_tab h1 {
+    color: #000;
+}
+
+.class_section .class_tab .s_btn_tablinks {
+    background-color: #fff;
+    border: 1px solid #fff;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+.class_section .class_tab .s_btn_tablinks:hover {
+    background-color: yellow;
+}
+
+.class_section .class_tab .s_btn_tablinks.active_t {
+    background-color: yellow;
+}
+
+.class_section .class_tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+}
+
+.class_section #see_class {
+    margin: 20px 0px;
+}
+
+.class_section #see_class .class_search {
+    margin: 15px 0px;
+}
+
+.class_section #see_class .class_search .search_input {
+    padding: 10px 5px;
+    width: 250px;
+    margin: 10px 0px;
+    border: 1px solid yellowgreen;
+}
+
+.class_section #see_class .class_search #submit {
+    padding: 10px 5px;
+    margin: 10px 0px;
+}
+
+.class_section #see_class .class_search .search_input:focus {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.class_section #see_class table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #fff;
+    margin: 0px auto;
+}
+
+.class_section #see_class th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    background-color: black;
+    color: #fff;
+}
+
+.class_section #see_class td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    color: #000;
+}
+
+.class_section #see_class tr:nth-child(even) {
+    background-color: #e6e3e3;
+    color: #000;
+}
+
+.class_section #add_class form {
+    background-color: #fff;
+    border: 1px solid yellowgreen;
+    border-radius: 15px;
+    -webkit-box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+    width: 50%;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.class_section #add_class form h2 {
+    font-family: "Lobster", cursive;
+    text-align: center;
+    margin: 15px 0px;
+    color: #000;
+    display: block;
+}
+
+.class_section #add_class form .first_last_name {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    color: #000;
+}
+
+.class_section #add_class form .first_last_name .f_left {
+    width: 49%;
+}
+
+.class_section #add_class form .first_last_name .l_right {
+    width: 49%;
+}
+
+.class_section #add_class form .s_city {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.class_section #add_class form .s_city .s_city_left {
+    width: 49%;
+}
+
+.class_section #add_class form .s_city .s_city_right {
+    width: 49%;
+}
+
+.class_section #add_class form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid yellowgreen;
+    outline: none;
+    font-size: 15px;
+    color: #3e3e3e;
+    font-weight: 500;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.class_section #add_class form input:focus {
+    border: 1px solid yellow;
+}
+
+.class_section #add_class form label {
+    font-size: 20px;
+    line-height: 40px;
+    font-weight: 500;
+    color: #000;
+}
+
+.class_section #add_class .radio_option {
+    width: 25%;
+    position: relative;
+}
+
+.class_section #add_class .radio_option .rd1 {
+    position: absolute;
+    top: 28px;
+}
+
+.class_section #add_class .radio_option .rd2 {
+    position: absolute;
+    top: 60px;
+    left: 0px;
+}
+
+.class_section #add_class form #sub_class_btn {
+    padding: 10px 50px;
+    outline: none;
+    border: 1px solid yellowgreen;
+    cursor: pointer;
+    font-size: 17px;
+    background-color: yellow;
+}
+
+.class_section #add_class form #sub_class_btn:hover {
+    background-color: yellowgreen;
+    border: 1px solid yellow;
+}
+
+
+/*# sourceMappingURL=class.css.map */

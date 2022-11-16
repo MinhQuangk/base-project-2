@@ -29,25 +29,42 @@
              <input type="text" class="search_input" placeholder="Search teacher...">
            </form>
          </div>
+         
          <div class="row" id="teacher_row">
               <!-- show teacher data here ================ --> 
+              @if (!empty($teacherlist))
+         @foreach ($teacherlist as $key =>$item)
+             <div class="card">
+              <img src="{{asset('uploads')}}/{{$item->avatar}}" alt="">
+              <div class="s_card_footer">
+                <h2 style="color: black">{{$item->f_name}} {{$item->l_name}}</h2>
+                <div class="teacher_profile_action">
+                  <a href="" class="s_btn_view">Profile</a>
+                  <a href="" class="s_btn_del"><i class="fa fa-trash" aria-hidden="true" style="color: red"></i></a>
+                  <a href="" class="s_btn_del"><i class="fas fa-user-edit" style="color: green"></i></a>
+
+                </div>
+              </div>
+             </div>
+             @endforeach
+             @endif
           </div>
+        
+
           <!-- teacher modal start ======================= -->
-          @if (!empty($teacherlist))
-              @foreach ($teacherlist as $key =>$item)
+          
+         
               <div class="teacher_details_modal" id="view_teacher_detail_modal">
                 <div class="teacher_details_modal_body">
                     
                     <div class="teacher_details_modal_body_inner">
                       <!-- details data show here ============ -->
-                      <img src="{{asset('uploads')}}/{{$item->avatar}}" alt="">
-              <h3 style="color: black">{{$item->f_name}}</h3>
-              <h3 style="color: black">{{$item->l_name}}</h3>
+                      
                     </div>
                 </div>
               </div>
-              @endforeach
-          @endif
+             
+         
           <!-- teacher modal end ======================= -->
     </div>
     

@@ -82,7 +82,7 @@
     transition: 0.4s;
     margin: 1% 1%;
     width: 18%;
-    border: 1px solid #c7c4c4;
+    border: 1px solid #100808;
     background-color: #fff;
     border-radius: 15px;
     overflow: hidden;
@@ -108,6 +108,7 @@
 
 .teacher_section .teacher_tabcontent_data .row .card .s_card_footer .teacher_profile_action .s_btn_view {
     padding: 5px 22px;
+    text-decoration: none;
     background-color: #0606fc;
     color: #fff;
     font-size: 15px;
@@ -119,6 +120,7 @@
 .teacher_section .teacher_tabcontent_data .row .card .s_card_footer .teacher_profile_action .s_btn_del {
     padding: 5px 15px;
     cursor: pointer;
+    border: 1px solid #0606fc;
 }
 
 .teacher_section .teacher_tabcontent_data #add_teacher {
@@ -357,6 +359,7 @@
 .teacher_details_modal_body_inner {
     padding: 15px;
     background-color: #f0f1f3;
+   
 }
 
 .teacher_details_modal_body_inner .row {

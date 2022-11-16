@@ -13,7 +13,11 @@
     <link href="{{ asset('font/css/exam.css') }}" rel="stylesheet">
     <link href="{{ asset('font/css/editS.css') }}" rel="stylesheet">
     <link href="{{ asset('font/css/schedule.css') }}" rel="stylesheet">
-  <link href="{{ asset('font/css/noctices.css') }}" rel="stylesheet">
+    <link href="{{ asset('font/css/noctices.css') }}" rel="stylesheet">
+    <link href="{{ asset('font/css/subjects.css') }}" rel="stylesheet">
+    <link href="{{ asset('font/css/expenses.css') }}" rel="stylesheet">
+    <link href="{{ asset('font/css/class.css') }}" rel="stylesheet">
+    <link href="{{ asset('font/css/scores.css') }}" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -55,11 +59,15 @@
                 </div>
                 <div class="tablinks" onclick="openTab(event,'subjects')">
                     <i class="fas fa-plus-circle"></i>
-                    <a href="#"><h4>Môn học</h4></a>
+                    <a href="{{ route('admin.subjects') }}">
+                      <h4>Môn học</h4>
+                    </a>
                 </div>
                 <div class="tablinks" onclick="openTab(event,'scores')">
                     <i class="fas fa-print"></i>
-                    <a href="#"><h4>Điểm số</h4></a>
+                    <a href="{{ route('admin.scores') }}">
+                      <h4>Điểm số</h4>
+                    </a>
                 </div>
                 <div class="tablinks" onclick="openTab(event,'schedules')">
                     <i class="fas fa-clock"></i>
@@ -68,12 +76,16 @@
                     </a>
                 </div>
                 <div class="tablinks" onclick="openTab(event,'media')">
-                    <i class="fas fa-video"></i>
-                    <a href="#"><h4>Danh bạ điện thoại</h4></a>
+                  <i class="fas fa-inbox"></i>
+                  <a href="{{ route('admin.class') }}">
+                    <h4>Lớp</h4>
+                  </a>
                 </div>
                 <div class="tablinks" onclick="openTab(event,'expenses')">
                     <i class="fas fa-money-check-alt"></i>
-                    <a href="#"><h4>Học phí</h4></a>
+                    <a href="{{ route('admin.expenses') }}">
+                      <h4>Học phí</h4>
+                    </a>
                 </div>
                 <div class="tablinks" onclick="openTab(event,'exams')">
                     <i class="fas fa-graduation-cap"></i>
@@ -130,19 +142,19 @@
                 @yield('student')
             </div>
             <div id="subjects" class="tabcontent">
-                
+              @yield('subjects')
             </div>
             <div id="scores" class="tabcontent">
-                
+              @yield('scores')
             </div>
             <div id="schedule" class="tabcontent">
               @yield('schedule')
             </div>
             <div id="media" class="tabcontent">
-               
+              @yield('class')
             </div>
             <div id="expenses" class="tabcontent">
-                
+              @yield('expenses')
             </div>
             <div id="exams" class="tabcontent">
                {{-- @include('layout.assets.exam'); --}}
@@ -172,7 +184,10 @@
 <script src="{{ asset('font/js/teachers.js') }}"></script>
 <script src="{{ asset('font/js/students.js') }}"></script>
 <script src="{{ asset('font/js/exam.js') }}"></script>
-
+<script src="{{ asset('font/js/subjects.js') }}"></script>
+<script src="{{ asset('font/js/expenses.js') }}"></script>
+<script src="{{ asset('font/js/class.js') }}"></script>
+<script src="{{ asset('font/js/scores.js') }}"></script>
 <script>
     var ctx2 = document.getElementById("mychart2").getContext("2d");
 var myChart = new Chart(ctx2, {
