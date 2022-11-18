@@ -94,7 +94,10 @@ class DBcontroller extends Controller
         
         $teacher = new Teacher();
         $teacherlist=$teacher->getAllTeacher();
-    
+        if($key=Request()->key){
+
+            $teacherlist= $teacher->Search($key);
+            return view('layout.assets.teachers',compact('teacherlist'));}
         return view('layout.assets.teachers',compact('teacherlist'));
             
         }
@@ -125,7 +128,64 @@ class DBcontroller extends Controller
         
         return Redirect()->route('admin.teacher')->with('msg','thêm mới giảng viên thành công');
     }
-    
+    public function deleteTeacher($t_id=0){
+        $teacher = new Teacher();
+
+        $teacherList = $teacher->deleteTeacher($t_id);
+        if($teacherList){
+            $msg = 'xóa thành công';
+           
+        }else{
+            $msg = 'xóa không thành công';
+        }
+        return redirect()->route('admin.teacher');
+    }
+    public function getUpdateTeacher(Request $request,$id=0){
+        $teacher = new Teacher();
+
+        if(!empty($id)){
+            $detail = $teacher->getDetail($id);
+            if(!empty( $detail[0])){
+                $request->session()->put('t_id',$id);
+                $detail = $detail[0];
+            }
+        }
+       
+       
+        return view('layout.assets.editDbTeacher',compact('detail'));
+    }
+    public function postUpdateTeacher(Request $request){
+        $teacher = new Teacher();
+        $id =session('t_id');
+        $dataInsert =[     
+            $request->f_name,
+            $request->l_name,
+            $request->academic,
+            $request->gender,
+            $request->department,
+            $request->t_phone,
+            $request->t_email,
+            $request->yearOfBirth,
+          
+        ];
+        
+       $teacher->updateTeacher($dataInsert,$id);
+        return redirect()->route('admin.teacher')->with('msg','Cập nhật thành công');
+    }
+    public function detailTeacher(Request $request,$id=0){
+        $teacher = new Teacher();
+
+        if(!empty($id)){
+            $detail = $teacher->getDetail($id);
+            if(!empty( $detail[0])){
+                $request->session()->put('t_id',$id);
+                $detail = $detail[0];
+            }
+        }
+       
+       
+        return view('layout.assets.detailTeacher',compact('detail'));
+    }
 
 }
 

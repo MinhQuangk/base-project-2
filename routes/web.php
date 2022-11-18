@@ -50,11 +50,11 @@ Route::get('/', function () {
 
     Route::post('student',[DBcontroller::class,'addStudent'])->name('admin.addS');
   
-    Route::get('delete/{s_id}',[DBcontroller::class,'deleteStudent'])->name('admin.deleteS');
+    Route::get('deleteS/{s_id}',[DBcontroller::class,'deleteStudent'])->name('admin.deleteS');
     
-    Route::get('update/{s_id}',[DBcontroller::class,'getUpdateStudent'])->name('admin.updateS');
+    Route::get('updateS/{s_id}',[DBcontroller::class,'getUpdateStudent'])->name('admin.updateS');
 
-    Route::post('update',[DBcontroller::class,'postUpdateStudent'])->name('admin.addUpdateS');
+    Route::post('updateS',[DBcontroller::class,'postUpdateStudent'])->name('admin.addUpdateS');
 
     //thông tin giáo viên
     
@@ -62,12 +62,15 @@ Route::get('/', function () {
 
     Route::post('teacher',[DBController::class,'addTeacher'])->name('admin.addT');
 
-    Route::get('delete/{t_id}',[DBcontroller::class,'deleteStudent'])->name('admin.deleteT');
+    Route::get('deleteT/{t_id}',[DBcontroller::class,'deleteTeacher'])->name('admin.deleteT');
     
-    Route::get('update/{t_id}',[DBcontroller::class,'getUpdateStudent'])->name('admin.updateT');
+    Route::get('updateT/{t_id}',[DBcontroller::class,'getUpdateTeacher'])->name('admin.updateT');
 
-    Route::post('update',[DBcontroller::class,'postUpdateStudent'])->name('admin.addUpdateT');
+    Route::post('updateT',[DBcontroller::class,'postUpdateTeacher'])->name('admin.addUpdateT');
 
+    Route::get('detailT/t_id={t_id}',[DBcontroller::class,'detailTeacher'])->name('admin.detailT');
+
+    // thông tin môn học
     });
 
     Route::prefix('account')->group(function(){

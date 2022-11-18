@@ -26,10 +26,12 @@
     <div id="see_teacher" class="teacher_tabcontent">
          <div class="teacher_search">
            <form action="#" id="teacher_data_search">
-             <input type="text" class="search_input" placeholder="Search teacher...">
+             <input type="text" class="search_input" placeholder="Search teacher..." name="key">
+             <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+
            </form>
          </div>
-         
+          
          <div class="row" id="teacher_row">
               <!-- show teacher data here ================ --> 
               @if (!empty($teacherlist))
@@ -39,10 +41,9 @@
               <div class="s_card_footer">
                 <h2 style="color: black">{{$item->f_name}} {{$item->l_name}}</h2>
                 <div class="teacher_profile_action">
-                  <a href="" class="s_btn_view">Profile</a>
-                  <a href="" class="s_btn_del"><i class="fa fa-trash" aria-hidden="true" style="color: red"></i></a>
-                  <a href="" class="s_btn_del"><i class="fas fa-user-edit" style="color: green"></i></a>
-
+                  <a class="s_btn_view" href="{{ route('admin.detailT',['t_id'=>$item->t_id]) }}">Profile</a>
+                  <a onclick="return confirm('xác nhận xóa')" href="{{ route('admin.deleteT', ['t_id'=>$item->t_id])}}" class="s_btn_del" ><i class="fa fa-trash" aria-hidden="true" style="color: red"></i></a>
+                  <a href="{{ route('admin.updateT',['t_id'=>$item->t_id]) }}" class="s_btn_del"><i class="fas fa-user-edit" style="color: green"></i></a>
                 </div>
               </div>
              </div>
@@ -69,7 +70,7 @@
     </div>
     
     <div id="add_teacher" class="teacher_tabcontent">
-    <form enctype="multipart/form-data" id="teacher_formData" method="POST" action="{{ route('admin.addT') }}" enctype="multipart/form-data">
+      <form enctype="multipart/form-data" id="teacher_formData" method="POST" action="{{ route('admin.addT') }}" enctype="multipart/form-data">
         <h2>Form Đăng ký giảng viên</h2>
         @csrf
         <div class="first_last_name">
@@ -132,7 +133,7 @@
           type="file"
           id="t_image"
           name="img"
-
+          
         />
         <br>
         <input type="submit" name="t_submit" id="t_teacher_btn"></input>

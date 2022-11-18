@@ -32,4 +32,23 @@ class Teacher extends Model
 
         return $teacher;
     }
+    public function Search($key){
+        $search_teacher = DB::table('teacher')->select('*')->where('l_name','like',
+        '%'.$key.'%')->get();
+        return $search_teacher;
+     }
+     public function deleteTeacher($id){
+         $delete_teacher=DB::table('teacher')->where('t_id','=',$id)->delete();
+         return $delete_teacher;
+     }
+     public function updateTeacher($data,$id){
+         $data = array_merge($data,[$id]);
+         $update_teacher=DB::insert('UPDATE teacher set f_name = ?,l_name=?,academic=?,gender=?,department=?,t_phone=?,t_email=?,yearOfBirth=? where t_id =? ',$data);
+         return $update_teacher;
+     }
+     public function getDetail($id){
+         return DB::select('SELECT * FROM teacher WHERE t_id = ? ',[$id]);
+         
+         
+     }
 }

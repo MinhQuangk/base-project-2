@@ -26,7 +26,7 @@
                     <!-- Năm sinh -->
                     <span class="l_right">
                         <label for="lname">Ngày sinh</label>
-                        <input type="date" id="lname" name="birthday" value="{{old('birthday') ??$detail->birthday}}" >
+                        <input type="datetime" id="lname" name="birthday" value="{{old('birthday') ??$detail->birthday}}" >
                     </span>
                 </div>
                 <label for="s_address">Quê quán</label>
