@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Students;
 use App\Models\Teacher;
+use App\Models\Subject;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -185,6 +186,45 @@ class DBcontroller extends Controller
        
        
         return view('layout.assets.detailTeacher',compact('detail'));
+    }
+    //Subject
+    public function showSubject(){
+        $subject = new Subject();
+
+        $subjectList = $subject->getAllSubject();
+        
+        if($key=Request()->key){
+
+            $subjectList= $subject->Search($key);
+            return view('layout.assets.subjects',compact('subjectList'));
+        }
+
+        return view('layout.assets.subjects',compact('subjectList'));
+    }
+    public function addSubject(Request $request){
+        $subject = new Subject();
+        
+        $dataInsert =[     
+            $request->sbj_id ,
+            $request->sbj_name,
+            $request->credit_quantity,
+            $request->department
+        ];
+       $subject->addSubject($dataInsert);
+        
+        return Redirect()->route('admin.Subject')->with('msg','thêm người dùng thành công');
+    }
+    public function deleteSubject($id=0){
+        $subject = new Subject();
+
+        $subjectList = $subject->deleteSubject($id);
+        if($subjectList){
+            $msg = 'xóa thành công';
+           
+        }else{
+            $msg = 'xóa không thành công';
+        }
+        return redirect()->route('admin.Subject')->with('msg',$msg);
     }
 
 }

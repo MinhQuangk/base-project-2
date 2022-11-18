@@ -71,6 +71,11 @@ Route::get('/', function () {
     Route::get('detailT/t_id={t_id}',[DBcontroller::class,'detailTeacher'])->name('admin.detailT');
 
     // thông tin môn học
+    Route::get('subject',[DBController::class,'showSubject'])->name('admin.Subject');
+
+    Route::post('subject',[DBController::class,'addSubject'])->name('admin.addSubject');
+
+    Route::get('deleteSbj/subjectID={sbj_id}',[DBcontroller::class,'deleteSubject'])->name('admin.deleteSubject');
     });
 
     Route::prefix('account')->group(function(){

@@ -25,9 +25,7 @@ class LayoutController extends Controller
         foreach($studentListFemale  as $item){
              $jsonS2[] = $item->Female;
         }
-        foreach($studentnumber  as $item){
-            $jsonS3[] = $item->student;
-        }
+        
         $data1 =array_merge($jsonS1,$jsonS2,$jsonS3);
        // Chart thông tin giảng viên
        $teacherListMale =DB::select("SELECT COUNT(gender) as Male  FROM teacher WHERE gender = 'male' " );
@@ -41,11 +39,9 @@ class LayoutController extends Controller
        foreach($teacherListFemale  as $item ) {
             $jsonT2[] = $item->Female;
        }
-       foreach($teachernumber  as $item){
-        $jsonT3[] = $item->teacher;
-        }   
+        
        $data2 =array_merge($jsonT1,$jsonT2);
-        return view('layout.assets.dashboard',compact('data1','data2','jsonT3','jsonS3'));
+        return view('layout.assets.dashboard',compact('data1','data2','studentnumber','teachernumber'));
     }
     public function exam(){
         return view('layout.assets.exam');

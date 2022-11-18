@@ -38,7 +38,16 @@
                 <div class="teacher-inner">
                     <div class="column column-left">
                         <div class="column-left-inner">
-                            <h1 id="teacherCount">{{json_encode($jsonT3)}}</h1>
+                            @foreach ($teachernumber as $key => $item)
+                            <h1 id="teacherCount">
+                            @if ($item->teacher<10)
+                                {{0}}{{$item->teacher}}   
+                            @else
+                            {{$item->teacher}}   
+                            @endif
+                            </h1>
+                            @endforeach
+                            
                             <p>Giảng viên</p>
                         </div>
                     </div>
@@ -72,7 +81,15 @@
                 <div class="student-inner">
                     <div class="column column-left">
                         <div class="column-left-inner">
-                            <h1 id="studentCount">{{json_encode($jsonS3)}}</h1>
+                            @foreach ($studentnumber as $key => $item)
+                            <h1 id="studentCount">
+                            @if ($item->student<10)
+                                {{0}}{{$item->student}}   
+                            @else
+                            {{$item->student}}  
+                            @endif
+                            </h1>
+                            @endforeach
                             <p>Sinh viên</p>
                         </div>
                     </div>
