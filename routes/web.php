@@ -34,12 +34,8 @@ Route::get('/', function () {
 
    Route::get('expenses',[LayoutController::class,'expenses'])->name('admin.expenses');
 
-   Route::get('subjects',[LayoutController::class,'subjects'])->name('admin.subjects');
-
    Route::get('class',[LayoutController::class,'class'])->name('admin.class');
     
-   Route::get('scores',[LayoutController::class,'scores'])->name('admin.scores');
-
    Route::get('admin',[LayoutController::class,'admin'])->name('admin.edit');
     //đăng xuất
 
@@ -76,6 +72,14 @@ Route::get('/', function () {
     Route::post('subject',[DBController::class,'addSubject'])->name('admin.addSubject');
 
     Route::get('deleteSbj/subjectID={sbj_id}',[DBcontroller::class,'deleteSubject'])->name('admin.deleteSubject');
+
+    // điểm số 
+    Route::get('mark',[DBController::class,'showMark'])->name('admin.Mark');
+
+    Route::post('mark',[DBController::class,'addMark'])->name('admin.addMark');
+
+    Route::get('deletemark/markID={m_id}',[DBcontroller::class,'deleteMark'])->name('admin.deleteMark');
+     
     });
 
     Route::prefix('account')->group(function(){

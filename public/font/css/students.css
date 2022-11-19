@@ -5,13 +5,18 @@
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+
 /* thanh tìm kiếm */
+
 .search {
- margin-bottom: 20px;
+    margin-bottom: 20px;
 }
-.search label{
+
+.search label {
     color: black;
 }
+
 .t_dlt_btn {
     background: red;
     color: #fff;
@@ -368,11 +373,20 @@
     color: #000;
 }
 
-.modal .modal_body form select {
-    padding: 10px;
-    margin-bottom: 20px;
-    cursor: pointer;
-    border: 1px solid yellowgreen;
+.subjects_section #add_subjects .radio_option {
+    width: 25%;
+    position: relative;
+}
+
+.subjects_section #add_subjects .radio_option .rd1 {
+    position: absolute;
+    top: 28px;
+}
+
+.subjects_section #add_subjects .radio_option .rd2 {
+    position: absolute;
+    top: 60px;
+    left: 0px;
 }
 
 .modal .modal_body form #sub_student_btn {
@@ -653,7 +667,7 @@
 }
 
 .details_modal .details_modal_body .details_modal_body_inner .gender p {
-    width: 100px;
+    width: 100px;   
     color: #8a8787;
     font-size: 15px;
     font-weight: 500;

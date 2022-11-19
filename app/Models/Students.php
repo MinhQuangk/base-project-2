@@ -19,7 +19,7 @@ class Students extends Model
         's_phone'
     ];
     public function getAllStudent(){
-        $student = DB::select('SELECT * FROM student ');
+        $student = DB::select('SELECT * FROM student ORDER BY s_name ');
 
         return $student;
     }

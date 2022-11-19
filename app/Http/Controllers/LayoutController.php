@@ -39,9 +39,9 @@ class LayoutController extends Controller
        foreach($teacherListFemale  as $item ) {
             $jsonT2[] = $item->Female;
        }
-        
+        $subject = DB::select("SELECT COUNT(*) as subject from subject" );
        $data2 =array_merge($jsonT1,$jsonT2);
-        return view('layout.assets.dashboard',compact('data1','data2','studentnumber','teachernumber'));
+        return view('layout.assets.dashboard',compact('data1','data2','studentnumber','teachernumber','subject'));
     }
     public function exam(){
         return view('layout.assets.exam');

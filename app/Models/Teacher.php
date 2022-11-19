@@ -28,7 +28,7 @@ class Teacher extends Model
     }
 
     public function getAllTeacher(){
-        $teacher = DB::select('SELECT * FROM teacher ');
+        $teacher = DB::select('SELECT * FROM teacher ORDER by l_name');
 
         return $teacher;
     }

@@ -60,13 +60,13 @@
                 </div>
                 <div class="tablinks" onclick="openTab(event,'subjects')">
                     <i class="fas fa-plus-circle"></i>
-                    <a href="{{ route('admin.subjects') }}">
+                    <a href="{{ route('admin.Subject') }}">
                       <h4>Môn học</h4>
                     </a>
                 </div>
                 <div class="tablinks" onclick="openTab(event,'scores')">
                     <i class="fas fa-print"></i>
-                    <a href="{{ route('admin.scores') }}">
+                    <a href="{{ route('admin.Mark') }}">
                       <h4>Điểm số</h4>
                     </a>
                 </div>

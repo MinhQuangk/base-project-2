@@ -10,14 +10,15 @@
     </div>
     <!-- Chức năng xem thông tin sinh viên -->
     <div id="see_scores" class="scores_tabcontent">
-        <form action="" class="scores_search" method="POST">
+        <form action="" class="scores_search" >
+            @csrf
             <select name="t_scores" id="classes" required>
                 <option value="0" id="">Chọn lớp</option>
                 <option id="s1">....</option>
                 <option id="s2">....</option>
             </select>
 
-            <input type="text" class="search_input" placeholder="Mã sinh viên...">
+            <input type="text" class="search_input" placeholder="Mã sinh viên..." name="key" >
             <button type="submit" id="submit"><i class="fa fa-search" aria-hidden="true"></i>Tìm kiếm</button>
         </form>
         <div class_scores_search>
@@ -26,50 +27,70 @@
                 <tr>
                     <td width='50px'>STT</td>
                     <td width='200px'>Họ và tên SV</td>
-                    <td width='200px'>Mã sinh viên</td>
+                    <td width='100px'>Mã sinh viên</td>
                     <td width='100px' >Lớp</td>
-                    <td>Môn học</td>
+                    <td width='200px'>Môn học</td>
+                    <td>Hình thức</td>
                     <td width='100px'>Điểm</td>
                     <td width='150px'>Ngày nhập</td>
                     <td width='100px'>Chức năng</td>
                 </tr>
                 <tbody d="e_table_body">
                     <!-- scores will be show here======= -->
-
+                    @if (!empty($MarkList))
+                    @foreach ( $MarkList as $key =>$item)
+                    <tr>
+                        <td>{{$key +1}}</td>
+                        <td>{{$item->s_name}}</td>
+                        <td>{{$item->s_id}}</td>
+                        <td>{{$item->s_class}}</td>
+                        <td>{{$item->sbj_name}}</td>
+                        <td>{{$item->type}}</td>
+                        <td>{{$item->mark}}</td>
+                        <td>{{$item->created_at}}</td>
+                        <td>
+                            <a onclick="return confirm('xác nhận xóa')" href="{{ route('admin.deleteMark',['m_id'=>$item->m_id]) }}"><i class="fa fa-trash" aria-hidden="true" style="color: red"></i></a>
+                            <a href="{{ route('admin.updateS',['s_id'=>$item->s_id]) }}"><i class="fas fa-user-edit" style="color: green"></i></i></a>
+                        </td>
+                    
+                    </tr>
+                    @endforeach
+                @endif
                 </tbody>
             </table>
         </div>
     </div>
     <!-- chức năng thêm sinh viên -->
     <div id="add_scores" class="scores_tabcontent">
-        <form autocomplete="off" id="formData" method="POST" action="{{ route('admin.addS')}}">
+        <form autocomplete="off" id="formData" method="POST" action="{{ route('admin.addMark')}}">
             @csrf
-            <h2 style="font-family: Arial, Helvetica, sans-serif;">Điểm số</h2>
+            <h2 style="font-family: Arial, Helvetica, sans-serif;"> Nhập Điểm số</h2>
             <div class="first_last_name">
-                <!-- Họ và tên -->
                 <span class="f_left">
-                    <label for="fname">Họ và tên sinh viên</label>
-                    <input type="text" id="sc_name" name="s_name">
+                    <label for="fname">Khoa</label>
+                    <input type="text" id="sc_name" name="department">
 
                 </span>
-                <!-- Năm sinh -->
                 <span class="l_right">
                     <label for="lname">Mã sinh viên</label>
-                    <input type="text" id="sc_name" name="birthday">
+                    <input type="text" id="sc_name" name="s_id">
                 </span>
             </div>
             <label for="s_address">Lớp</label>
-            <input type="text" id="sc_class" name="s_address">
+            <input type="text" id="sc_class" name="s_class">
 
-            <label for="subject">Môn học</label>
-            <input type="text" id="sc_subject" name="money">
+            <label for="subject">Mã môn học</label>
+            <input type="text" id="sc_subject" name="sbj_id">
 
             <label for="sc_scores">Điểm</label>
-            <input type="text" id="sc_scores" name="sc_scores">
+            <input type="text" id="sc_scores" name="mark">
 
-            <label for="sc_day">Ngày nhập</label>
-            <input type="date" id="sc_day" name="sc_day">
-
+            <label for="sc_day">Hình thức kiểm tra</label>
+            <select name="type" id="type" >
+                <option selected disabled value="0">select one</option>
+                <option value="kiểm tra giữa kì" {{request()->type=='kiểm tra giữa kì'?'selected':false}}>kiểm tra giữa kì</option>
+                <option value="kiểm tra cuối kì"{{request()->type=='kiểm tra cuối kì'?'selected':false}}>kiểm tra cuối kì</option>
+              </select>
             <input type="submit" id="sub_scores_btn">
         </form>
     </div>

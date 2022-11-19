@@ -123,7 +123,15 @@
                 <div class="subjects-inner">
                     <div class="column column-left">
                         <div class="column-left-inner">
-                            <h1 id="subjectsCount">01</h1>
+                            @foreach ($subject as $key => $item)
+                            <h1 id="subjectsCount">
+                            @if ($item->subject<10)
+                                {{0}}{{$item->subject}}   
+                            @else
+                            {{$item->subject}}  
+                            @endif
+                            </h1>
+                            @endforeach
                             <p>Môn học</p>
                         </div>
                     </div>

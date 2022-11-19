@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mark;
 use App\Models\Students;
 use App\Models\Teacher;
 use App\Models\Subject;
@@ -29,17 +30,30 @@ class DBcontroller extends Controller
     public function addStudent(Request $request){
         $student = new Students();
         
-        $dataInsert =[     
-            $request->s_name,
-            $request->birthday,
-            $request->s_address,
-            $request->department,
-            $request->s_class,
-            $request->s_gender,
-            $request->s_phone,
-            $request->S_email
-        ];
-       $student->addStudent($dataInsert);
+        // $dataInsert =[     
+            
+        //     $student->s_name = $request->s_name,
+        //     $request->birthday,
+        //     $request->s_address,
+        //     $request->department,
+        //     $request->s_class,
+        //     $request->s_gender,
+        //     $request->s_phone,
+        //     $request->S_email,
+
+           
+        // ];
+        $student->s_name = $request->s_name;
+        $student->birthday = $request->birthday;
+        $student->s_address =$request->s_address;
+        $student->department =$request->department;
+        $student->s_class =$request->s_class;
+        $student->s_gender =$request->s_gender;
+        $student->s_phone =$request->s_phone;
+        $student->S_email =$request->S_email;
+        $student->save();
+        
+    //    $student->addStudent($dataInsert);
         
         return Redirect()->route('admin.showStudent')->with('msg','thêm người dùng thành công');
     }
@@ -82,6 +96,7 @@ class DBcontroller extends Controller
             $request->s_phone,
             $request->S_email
         ];
+            
         $student->updateStudent($dataInsert,$id);
        
         return redirect()->route('admin.showStudent')->with('msg','Cập nhật thành công');
@@ -124,7 +139,9 @@ class DBcontroller extends Controller
             $request->t_email,
             $request->yearOfBirth,
             $request->avatar
+            
         ];
+        $teacher->save();
        $teacher->addTeacher($dataInsert);
         
         return Redirect()->route('admin.teacher')->with('msg','thêm mới giảng viên thành công');
@@ -217,6 +234,7 @@ class DBcontroller extends Controller
     public function deleteSubject($id=0){
         $subject = new Subject();
 
+        
         $subjectList = $subject->deleteSubject($id);
         if($subjectList){
             $msg = 'xóa thành công';
@@ -227,5 +245,52 @@ class DBcontroller extends Controller
         return redirect()->route('admin.Subject')->with('msg',$msg);
     }
 
+
+    // Mark
+    public function showMark(){
+        $Mark = new Mark();
+
+        $MarkList = $Mark->getAllScore();
+        $classes = DB::table('class')->select('class_id')->get();
+        if($key=Request()->key){
+
+            $MarkList= $Mark->Search($key);
+            return view('layout.assets.Scores',compact('MarkList'));
+        }
+
+        return view('layout.assets.Scores',compact('MarkList'));
+    }
+    public function addMark(Request $request){
+        $Mark = new Mark();
+        
+    //     $dataInsert =[     
+    //         $request->sbj_id ,
+    //         $request->sbj_name,
+    //         $request->credit_quantity,
+    //         $request->department
+    //     ];
+    //    $Mark->addMark($dataInsert);
+
+        $Mark->sbj_id=$request->sbj_id ;
+        $Mark->s_class=$request->s_class;
+        $Mark->s_id=$request->s_id;
+        $Mark->mark=$request->mark;
+        $Mark->type=$request->type;
+        $Mark->department=$request->department;
+        $Mark->save();
+        return Redirect()->route('admin.Mark')->with('msg','nhập điểm thành công');
+    }
+    public function deleteMark($id=0){
+        $Mark = new Mark();
+
+        $MarkList = $Mark->deleteScore($id);
+        if($MarkList){
+            $msg = 'xóa thành công';
+           
+        }else{
+            $msg = 'xóa không thành công';
+        }
+        return redirect()->route('admin.Mark')->with('msg',$msg);
+    }
 }
 
