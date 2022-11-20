@@ -226,13 +226,28 @@ body {
 .notices .show_notice_data .posted_notice h1 {
     background-color: yellowgreen;
     border-radius: 15px;
-    padding: 10px 25px;
+    padding: 5px 20px;
     color: #fff;
     display: inline-block;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.notices .show_notice_data .posted_notice h3 {
+   
+    border-radius: 15px;
+    padding: 5px 20px;
+    color: rgb(126, 35, 35);
+   
+    margin-left: 2px;
 }
 
 .notices .show_notice_data .posted_notice {
     padding: 15px 0px;
+    border: solid 2px black;
+    border-radius: 20px;
+    background-color: rgb(97, 187, 76);
+    margin-top: 10px;
 }
 
 .notices .show_notice_data .posted_notice p {
@@ -240,6 +255,7 @@ body {
     font-size: 17px;
     font-weight: 500;
     line-height: 29px;
+    margin-left: 20px;
 }
 
 .notices .show_notice_data .post_name_date {
@@ -248,7 +264,7 @@ body {
     margin: 5px 0px;
 }
 
-.notices .show_notice_data .post_name_date h2 {
+/* .notices .show_notice_data .post_name_date h2 {
     color: #000;
 }
 
@@ -257,4 +273,4 @@ body {
     font-weight: 550;
     margin: 0px 10px;
     color: rgb(197, 194, 194);
-}
+} */

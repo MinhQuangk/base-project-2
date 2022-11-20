@@ -87,7 +87,7 @@
                 </div>
                 <div class="tablinks" onclick="openTab(event,'notice')">
                     <i class="fas fa-bullhorn" ></i>
-                    <a href="{{ route('admin.noctices') }}">
+                    <a href="{{ route('admin.Notices') }}">
                       <h4>Thông báo và khảo sát</h4>
                     </a>
                 </div>

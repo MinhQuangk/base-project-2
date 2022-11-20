@@ -27,10 +27,6 @@ Route::get('/', function () {
    Route::get('dashboard',[LayoutController::class,'dashboard'],)->name('admin.dashboard');
 
    Route::get('schedule',[LayoutController::class,'schedule'])->name('admin.schedule');
-
-   Route::get('noctices',[LayoutController::class,'noctices'])->name('admin.noctices');
-
-   Route::get('expenses',[LayoutController::class,'expenses'])->name('admin.expenses');
     
    Route::get('admin',[LayoutController::class,'admin'])->name('admin.edit');
     //đăng xuất
@@ -91,7 +87,14 @@ Route::get('/', function () {
     Route::post('exam',[DBController::class,'addExam'])->name('admin.addExam');
 
     Route::get('deleteExam/examID={exam_id}',[DBcontroller::class,'deleteExam'])->name('admin.deleteExam');
+    
+    //thông báo 
 
+    Route::get('notices',[DBController::class,'showNotice'])->name('admin.Notices');
+
+    Route::post('notices',[DBController::class,'addNotice'])->name('admin.addNotices');
+
+    Route::get('deleteNotice/n_id={n_id}',[DBcontroller::class,'deleteNotices'])->name('admin.deleteNotices');
     });
 
     Route::prefix('account')->group(function(){
@@ -106,5 +109,5 @@ Route::get('/', function () {
     
         Route::post('signUp',[accountController::class,'storeUser'])->name('account.store');    
     
-
+        
     });

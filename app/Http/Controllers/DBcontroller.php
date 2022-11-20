@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Classes;
 use App\Models\Exam;
 use App\Models\Mark;
+use App\Models\Notice;
 use App\Models\Students;
 use App\Models\Teacher;
 use App\Models\Subject;
@@ -379,6 +380,48 @@ class DBcontroller extends Controller
             $msg = 'xóa không thành công';
         }
         return redirect()->route('admin.Exam')->with('msg',$msg);
+    }
+
+    //thông báo 
+
+    public function showNotice(){
+        $Notice = new Notice();
+        $NoticeList = $Notice->getAllNotice();
+        
+        if($key=Request()->key){
+
+            $NoticeList= $Notice->Search($key);
+            return view('layout.assets.Notice',compact('NoticeList'));
+        }
+        // dd($NoticeList);
+        return view('layout.assets.notices',compact('NoticeList'));
+    }
+    public function addNotice(Request $request){
+        $Notice = new Notice();
+        
+            
+          if(!empty($request)){
+            $Notice->post_by=$request->post_by;
+            $Notice->title=$request->title;
+            $Notice->detail_notice=$request->detail_notice;
+           $Notice->save();
+          }
+    
+    //    $Notice->addNotice($dataInsert);
+        
+        return Redirect()->route('admin.Notices')->with('msg','thêm thông báo mới thành công thành công');
+    }
+    public function deleteNotice($id=0){
+        $Notice = new Notice();
+        
+        $NoticeList = $Notice->deleteNotice($id);
+        if($NoticeList){
+            $msg = 'xóa thành công';
+           
+        }else{
+            $msg = 'xóa không thành công';
+        }
+        return redirect()->route('admin.Notice')->with('msg',$msg);
     }
 }
 
