@@ -16,7 +16,6 @@
     <link href="{{ asset('font/css/schedule.css') }}" rel="stylesheet">
     <link href="{{ asset('font/css/noctices.css') }}" rel="stylesheet">
     <link href="{{ asset('font/css/subjects.css') }}" rel="stylesheet">
-    <link href="{{ asset('font/css/expenses.css') }}" rel="stylesheet">
     <link href="{{ asset('font/css/class.css') }}" rel="stylesheet">
     <link href="{{ asset('font/css/scores.css') }}" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -78,19 +77,13 @@
                 </div>
                 <div class="tablinks" onclick="openTab(event,'media')">
                   <i class="fas fa-inbox"></i>
-                  <a href="{{ route('admin.class') }}">
+                  <a href="{{ route('admin.Class') }}">
                     <h4>Lớp</h4>
                   </a>
                 </div>
-                <div class="tablinks" onclick="openTab(event,'expenses')">
-                    <i class="fas fa-money-check-alt"></i>
-                    <a href="{{ route('admin.expenses') }}">
-                      <h4>Học phí</h4>
-                    </a>
-                </div>
                 <div class="tablinks" onclick="openTab(event,'exams')">
                     <i class="fas fa-graduation-cap"></i>
-                    <a href="{{ route('admin.exam') }}"><h4>Exam</h4></a>
+                    <a href="{{ route('admin.Exam') }}"><h4>Exam</h4></a>
                 </div>
                 <div class="tablinks" onclick="openTab(event,'notice')">
                     <i class="fas fa-bullhorn" ></i>
@@ -153,9 +146,6 @@
             </div>
             <div id="media" class="tabcontent">
               @yield('class')
-            </div>
-            <div id="expenses" class="tabcontent">
-              @yield('expenses')
             </div>
             <div id="exams" class="tabcontent">
                {{-- @include('layout.assets.exam'); --}}

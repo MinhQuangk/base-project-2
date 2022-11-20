@@ -26,15 +26,11 @@ Route::get('/', function () {
     
    Route::get('dashboard',[LayoutController::class,'dashboard'],)->name('admin.dashboard');
 
-   Route::get('exam',[LayoutController::class,'exam'])->name('admin.exam');
-
    Route::get('schedule',[LayoutController::class,'schedule'])->name('admin.schedule');
 
    Route::get('noctices',[LayoutController::class,'noctices'])->name('admin.noctices');
 
    Route::get('expenses',[LayoutController::class,'expenses'])->name('admin.expenses');
-
-   Route::get('class',[LayoutController::class,'class'])->name('admin.class');
     
    Route::get('admin',[LayoutController::class,'admin'])->name('admin.edit');
     //đăng xuất
@@ -73,13 +69,29 @@ Route::get('/', function () {
 
     Route::get('deleteSbj/subjectID={sbj_id}',[DBcontroller::class,'deleteSubject'])->name('admin.deleteSubject');
 
-    // điểm số 
+    // thông tin điểm số 
     Route::get('mark',[DBController::class,'showMark'])->name('admin.Mark');
 
     Route::post('mark',[DBController::class,'addMark'])->name('admin.addMark');
 
     Route::get('deletemark/markID={m_id}',[DBcontroller::class,'deleteMark'])->name('admin.deleteMark');
-     
+
+    // thông tin lớp học
+    
+    Route::get('class',[DBController::class,'showCLass'])->name('admin.Class');
+
+    Route::post('class',[DBController::class,'addClass'])->name('admin.addClass');
+
+    Route::get('deleteClass/classID={class_id}',[DBcontroller::class,'deleteClass'])->name('admin.deleteClass');
+
+    // thông tin kiểm tra 
+    
+    Route::get('exam',[DBController::class,'showExam'])->name('admin.Exam');
+
+    Route::post('exam',[DBController::class,'addExam'])->name('admin.addExam');
+
+    Route::get('deleteExam/examID={exam_id}',[DBcontroller::class,'deleteExam'])->name('admin.deleteExam');
+
     });
 
     Route::prefix('account')->group(function(){

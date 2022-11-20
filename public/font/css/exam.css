@@ -1,3 +1,15 @@
+/* body {
+    background-color: #f0f1f3;
+}
+
+.exam {
+    padding: 15px 15px;
+}
+
+.exam h1 {
+    color: #000;
+} */
+
 body {
     background-color: #f0f1f3;
 }
@@ -66,6 +78,7 @@ body {
     background-color: #f0f1f3;
     margin: 10px 0px 15px 0px;
     padding: 15px;
+    border: solid 1px black;
 }
 
 .exam .add_new_exam .row1 .row1_inner2 select {
@@ -77,6 +90,7 @@ body {
     background-color: #f0f1f3;
     margin: 10px 0px 15px 0px;
     padding: 15px;
+    border: solid 1px black;
 }
 
 
@@ -105,7 +119,6 @@ body {
     width: 49%;
 }
 
-
 .exam .add_new_exam .row2 .row2_inner1 input {
     width: 100%;
     outline: none;
@@ -114,7 +127,8 @@ body {
     background-color: #f0f1f3;
     margin: 10px 0px 15px 0px;
     padding: 15px;
-  }
+    border: solid 1px black;
+}
 
 .exam .add_new_exam .row2 .row2_inner1 select {
     width: 100%;
@@ -125,6 +139,7 @@ body {
     background-color: #f0f1f3;
     margin: 10px 0px 15px 0px;
     padding: 15px;
+    border: solid 1px black;
 }
 
 .exam .add_new_exam .row2 .row2_inner2 select {
@@ -136,6 +151,7 @@ body {
     background-color: #f0f1f3;
     margin: 10px 0px 15px 0px;
     padding: 15px;
+    border: solid 1px black;
 }
 
 
@@ -172,6 +188,7 @@ body {
     background-color: #f0f1f3;
     margin: 10px 0px 15px 0px;
     padding: 15px;
+    border: solid 1px black;
 }
 
 .exam .add_new_exam .row3 .row3_inner2 input {
@@ -182,6 +199,52 @@ body {
     background-color: #f0f1f3;
     margin: 10px 0px 15px 0px;
     padding: 15px;
+    border: solid 1px black;
+}
+/* row 4 */
+.exam .add_new_exam .row4 {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.exam .add_new_exam .row4 .row4_inner1 label {
+    color: #386ad0;
+    font-size: 17px;
+    font-weight: 550;
+}
+
+.exam .add_new_exam .row4 .row4_inner2 label {
+    color: #386ad0;
+    font-size: 17px;
+    font-weight: 550;
+}
+
+.exam .add_new_exam .row4 .row4_inner1,
+.row4_inner2 {
+    width: 49%;
+}
+
+.exam .add_new_exam .row4 .row4_inner1 input {
+    width: 100%;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    background-color: #f0f1f3;
+    margin: 10px 0px 15px 0px;
+    padding: 15px;
+    border: solid 1px black;
+}
+
+.exam .add_new_exam .row4 .row4_inner2 input {
+    width: 100%;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    background-color: #f0f1f3;
+    margin: 10px 0px 15px 0px;
+    padding: 15px;
+    border: solid 1px black;
 }
 
 
@@ -240,132 +303,64 @@ body {
 .exam .all_exam_schedule .header_exam_schedule_table {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 25px;
+    margin-bottom: 5px;
     align-items: center;
     font-size: 15px;
 }
 
-.exam .all_exam_schedule .header_exam_schedule_table button {
-    background-color: yellowgreen;
-    color: #fff;
-    border: none;
-    padding: 5px 15px;
-    cursor: pointer;
-    border-radius: 5px;
+
+/* Table hiển thị & search  */
+
+.exam .all_exam_schedule .exam_tabcontent {
+    display: block;
+    padding: 6px 12px;
+    border-top: none;
+    margin-left: 120px;
 }
 
+.exam .all_exam_schedule #see_exam {
+    margin: 10px 5px;
+}
 
-/* hahhaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa===================== */
+.exam .all_exam_schedule #see_exam .exam_search .search_input {
+    padding: 10px 5px;
+    width: 250px;
+    margin: 10px 0px; 
+    border: 1px solid yellowgreen;
+    margin-bottom: 30px;
+    border: solid 1px black;
+}
 
-#exam_table {
-    font-family: Arial, Helvetica, sans-serif;
+.exam .all_exam_schedule #see_exam .exam_search .search_input:focus {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.exam .all_exam_schedule #see_exam table {
+    font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
-    margin: 25px 0px;
-    border: 1px solid #ddd;
-}
-
-#exam_table tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-#exam_table th {
-    padding: 15px;
-    border: 1px solid #ddd;
-    background-color: yellowgreen;
-    color: #fff;
-}
-
-#exam_table td {
-    border: 1px solid #ddd;
-    padding: 15px;
-    color: #7c647c;
-}
-
-#exam_table td {
-    border: none;
-    border-bottom: 1px solid #ddd;
-}
-
-span.page-link {
-    cursor: pointer;
-}
-
-.pagination {
-    display: flex;
-    justify-content: center;
-}
-
-#exam_table td.e_action #exam_action_icon {
-    cursor: pointer;
-    color: #04aa6d;
-}
-
-#exam_table td.e_action .e_action_content {
-    position: absolute;
-    margin-left: -150px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    width: 150px;
     background-color: #fff;
-    padding: 10px;
-    display: none;
+    margin: 0px auto;
 }
 
-#showExamData ul.pagination {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-}
-
-#showExamData ul.pagination li {
-    padding: 10px 15px;
-    list-style: none;
-    transition: 0.5s;
-    color: #000;
-    cursor: pointer;
-    border: 1px solid yellowgreen;
-    margin: 0px 5px;
-}
-
-#showExamData ul.pagination li:hover {
-    background-color: yellowgreen;
+.exam .all_exam_schedule #see_exam th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    background-color: black;
     color: #fff;
 }
 
-#showExamData ul.pagination li.active {
-    background-color: yellowgreen;
-    color: #fff;
-}
-
-#showExamData ul.pagination li.active:hover {
-    background-color: transparent;
+.exam .all_exam_schedule #see_exam td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
     color: #000;
 }
 
-#exam_table td.e_action .e_action_content .e_action_btn_hide {
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    font-size: 10px;
-    background-color: red;
-    padding: 7px;
-    border-radius: 50%;
-    color: #fff;
-    cursor: pointer;
-}
-
-#exam_table td.e_action .e_action_content.e_action_btn {
-    display: block;
-}
-
-#exam_table td.e_action .e_action_content button {
-    border: 1px solid#04aa6d;
-    cursor: pointer;
-    width: 100%;
-    margin: 5px 0px;
-    padding: 5px 10px;
+.exam .all_exam_schedule #see_exam tr:nth-child(even) {
+    background-color: #e6e3e3;
     color: #000;
-    font-size: 14px;
-    line-height: 26px;
-    font-weight: 500;
 }

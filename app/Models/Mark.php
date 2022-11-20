@@ -30,7 +30,7 @@ class Mark extends Model
         return $add_Score;
     }
     public function Search($key){
-       $search_Score = DB::select(" SELECT mark.m_id  ,student.s_name,student.s_id,mark.s_class,subject.sbj_name,mark.type,mark.mark,mark.created_at FROM student,subject,mark WHERE mark.s_id=student.s_id AND mark.sbj_id=subject.sbj_id and mark.s_id =? ORDER BY s_name",$key );
+       $search_Score = DB::select(' SELECT mark.m_id  ,student.s_name,student.s_id,mark.s_class,subject.sbj_name,mark.type,mark.mark,mark.created_at FROM student,subject,mark WHERE mark.s_id=student.s_id AND mark.sbj_id=subject.sbj_id and student.s_id = '.$key.' ORDER BY s_name');
        return $search_Score;
     }
     public function deleteScore($id){

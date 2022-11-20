@@ -38,9 +38,9 @@
                 <tbody d="e_table_body">
                     <!-- scores will be show here======= -->
                     @if (!empty($MarkList))
-                    @foreach ( $MarkList as $key =>$item)
+                    @foreach ( $MarkList as $n=>$item)
                     <tr>
-                        <td>{{$key +1}}</td>
+                        <td>{{$n +1}}</td>
                         <td>{{$item->s_name}}</td>
                         <td>{{$item->s_id}}</td>
                         <td>{{$item->s_class}}</td>

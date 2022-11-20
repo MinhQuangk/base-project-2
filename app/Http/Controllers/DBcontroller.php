@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Classes;
+use App\Models\Exam;
 use App\Models\Mark;
 use App\Models\Students;
 use App\Models\Teacher;
@@ -251,13 +253,14 @@ class DBcontroller extends Controller
         $Mark = new Mark();
 
         $MarkList = $Mark->getAllScore();
-        $classes = DB::table('class')->select('class_id')->get();
+        // $classes = DB::table('class')->select('class_id')->get();
         if($key=Request()->key){
 
             $MarkList= $Mark->Search($key);
+          
             return view('layout.assets.Scores',compact('MarkList'));
         }
-
+        
         return view('layout.assets.Scores',compact('MarkList'));
     }
     public function addMark(Request $request){
@@ -291,6 +294,91 @@ class DBcontroller extends Controller
             $msg = 'xóa không thành công';
         }
         return redirect()->route('admin.Mark')->with('msg',$msg);
+    }
+
+    // Class
+    public function showCLass(){
+        $class = new Classes();
+
+        $classList = $class->getAllClass();
+        
+        if($key=Request()->key){
+
+            $classList= $class->Search($key);
+            return view('layout.assets.class',compact('classList'));
+        }
+
+        return view('layout.assets.class',compact('classList'));
+    }
+    public function addClass(Request $request){
+        $class = new Classes();
+        
+        $dataInsert =[     
+            $request->class_id ,
+            $request->class_name,
+            $request->quantity,
+            $request->form_teacher,
+            $request->monitor
+        ];
+       $class->addClass($dataInsert);
+        
+        return Redirect()->route('admin.Class')->with('msg','thêm người dùng thành công');
+    }
+    public function deleteClass($id=0){
+        $class = new Classes();
+
+        
+        $classList = $class->deleteClass($id);
+        if($classList){
+            $msg = 'xóa thành công';
+           
+        }else{
+            $msg = 'xóa không thành công';
+        }
+        return redirect()->route('admin.Class')->with('msg',$msg);
+    }
+
+
+    //Exam
+    public function showExam(){
+        $exam = new Exam();
+        $examList = $exam->getAllExam();
+        
+        if($key=Request()->key){
+
+            $examList= $exam->Search($key);
+            return view('layout.assets.exam',compact('examList'));
+        }
+
+        return view('layout.assets.exam',compact('examList'));
+    }
+    public function addExam(Request $request){
+        $exam = new Exam();
+        
+        $dataInsert =[     
+            $request->sbj_id,
+            $request->years,
+            $request->type,
+            $request->times,
+            $request->exam_date,
+            $request->exam_time,
+            $request->s_class,
+        ];
+       $exam->addExam($dataInsert);
+        
+        return Redirect()->route('admin.Exam')->with('msg','thêm lịch thi mới thành công thành công');
+    }
+    public function deleteExam($id=0){
+        $exam = new Exam();
+        
+        $examList = $exam->deleteExam($id);
+        if($examList){
+            $msg = 'xóa thành công';
+           
+        }else{
+            $msg = 'xóa không thành công';
+        }
+        return redirect()->route('admin.Exam')->with('msg',$msg);
     }
 }
 

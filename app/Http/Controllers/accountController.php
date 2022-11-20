@@ -46,7 +46,7 @@ class accountController extends Controller
         $pass =$request->password;
         if(Auth::attempt(['username'=>$user,'password'=>$pass])){
            
-             return view('layout.assets.dashboard');
+             return redirect()->route('admin.dashboard');
           
         }else{
             return 'đăng nhập thất bại';
