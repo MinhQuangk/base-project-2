@@ -70,7 +70,12 @@ Route::get('/', function () {
 
     Route::post('mark',[DBController::class,'addMark'])->name('admin.addMark');
 
-    Route::get('deletemark/markID={m_id}',[DBcontroller::class,'deleteMark'])->name('admin.deleteMark');
+    Route::get('deleteMark/markID={m_id}',[DBcontroller::class,'deleteMark'])->name('admin.deleteMark');
+
+    Route::get('updateMark/m_id ={m_id}',[DBcontroller::class,'getUpdateMark'])->name('admin.updateMark');
+
+    Route::post('updateMarks',[DBcontroller::class,'postUpdateMark'])->name('admin.addUpdateMark');
+
 
     // thông tin lớp học
     
@@ -79,6 +84,10 @@ Route::get('/', function () {
     Route::post('class',[DBController::class,'addClass'])->name('admin.addClass');
 
     Route::get('deleteClass/classID={class_id}',[DBcontroller::class,'deleteClass'])->name('admin.deleteClass');
+
+    Route::get('updateClass/{class_id}',[DBcontroller::class,'getUpdateClass'])->name('admin.updateClass');
+
+    Route::post('updateClass',[DBcontroller::class,'postUpdateClass'])->name('admin.addUpdateClass');
 
     // thông tin kiểm tra 
     

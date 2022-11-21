@@ -53,6 +53,7 @@
                             <td>
                                 <a onclick="return confirm('xác nhận xóa')" href="{{ route('admin.deleteS',['s_id'=>$item->s_id]) }}"><i class="fa fa-trash" aria-hidden="true" style="color: red"></i></a>
                                 <a href="{{ route('admin.updateS',['s_id'=>$item->s_id]) }}"><i class="fas fa-user-edit" style="color: green"></i></i></a>
+                                <a href=""><i class="fa fa-info-circle" aria-hidden="true"></i>                                </a>
                             </td>
                         
                         </tr>
