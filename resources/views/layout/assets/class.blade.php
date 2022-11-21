@@ -39,7 +39,7 @@
                         <td>{{$item->monitor}}</td>
                         <td>
                             <a onclick="return confirm('xác nhận xóa')" href="{{ route('admin.deleteClass',['class_id'=>$item->class_id]) }}"><i class="fa fa-trash" aria-hidden="true" style="color: red"></i></a>
-                            <a href=""><i class="fas fa-user-edit" style="color: green"></i></i></a>
+                            <a href="{{ route('admin.updateClass', ['class_id'=>$item->class_id]) }}"><i class="fas fa-user-edit" style="color: green"></i></i></a>
                         </td>
                     
                     </tr>

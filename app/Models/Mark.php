@@ -37,4 +37,14 @@ class Mark extends Model
         $delete_Score=DB::table('mark')->where('m_id','=',$id)->delete();
         return $delete_Score;
     }
+    public function updateMark($data,$id){
+        $data = array_merge($data,[$id]);
+        $update_Mark=DB::insert('UPDATE mark set mark=? where m_id =? ',$data);
+        return $update_Mark;
+    }
+    public function getDetail($id){
+        return DB::select('SELECT * FROM Mark WHERE m_id = ? ',[$id]);
+        
+        
+    }
 }

@@ -37,4 +37,12 @@ class Classes extends Model
         $delete_Class=DB::table('class')->where('class_id','=',$id)->delete();
         return $delete_Class;
     }
+    public function updateClass($data,$id){
+        $data = array_merge($data,[$id]);
+        $update_Class=DB::insert('UPDATE class set quantity=?,form_teacher=?,monitor=? where class_id =? ',$data);
+        return $update_Class;
+    }
+    public function getDetail($id){
+        return DB::select('SELECT * FROM class WHERE class_id = ? ',[$id]);    
+    }
 }

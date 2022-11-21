@@ -297,6 +297,32 @@ class DBcontroller extends Controller
         return redirect()->route('admin.Mark')->with('msg',$msg);
     }
 
+    public function getUpdateMark(Request $request,$id=0){
+        $mark = new Mark();
+
+        if(!empty($id)){
+            $detail = $mark->getDetail($id);
+            if(!empty( $detail[0])){
+                $request->session()->put('m_id',$id);
+                $detail = $detail[0];
+            }
+        }
+       
+       
+        return view('layout.assets.editDbScores',compact('detail'));
+    }
+    public function postUpdateMark(Request $request){
+       $mark = new Mark();
+        $id =session('m_id');
+        $dataInsert =[        
+        $request->mark
+        ];
+        
+       $mark->updateMark($dataInsert,$id);
+        return redirect()->route('admin.Mark')->with('msg','Cập nhật thành công');
+    }
+
+
     // Class
     public function showCLass(){
         $class = new Classes();
@@ -338,7 +364,35 @@ class DBcontroller extends Controller
         }
         return redirect()->route('admin.Class')->with('msg',$msg);
     }
+    public function getUpdateClass(Request $request,$id=0){
+        $class = new Classes();
 
+        if(!empty($id)){
+            $detail = $class->getDetail($id);
+            if(!empty( $detail[0])){
+                $request->session()->put('class_id',$id);
+                $detail = $detail[0];
+            }
+        }
+       
+       
+        return view('layout.assets.editDbClass',compact('detail'));
+    }
+    public function postUpdateClass(Request $request){
+        $class = new Classes();
+        $id =session('class_id');
+        $dataInsert =[     
+            
+            
+            $request->quantity,
+            $request->form_teacher,
+            $request->monitor
+          
+        ];
+        
+       $class->updateClass($dataInsert,$id);
+        return redirect()->route('admin.Class')->with('msg','Cập nhật thành công');
+    }
 
     //Exam
     public function showExam(){

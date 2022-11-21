@@ -18,7 +18,7 @@
                 }
                 @endphp
             </h1>
-            <h1 style="color: yellow;font-size: 35px">Văn Thiên</h1>
+            <h1 style="color: yellow;font-size: 35px">Vũ Minh Quang</h1>
             <h1 style="font-size: 35px;margin-left: 200px;"><?php echo date('M d,Y'); ?></h1>
         </div>
     </div>
@@ -63,7 +63,15 @@
                 <div class="attendance-inner">
                     <div class="column column-left">
                         <div class="column-left-inner">
-                            <h1 id="examCount">01</h1>
+                            @foreach ($classlist as $key => $item)
+                            <h1 id="examCount">
+                            @if ($item->class<10)
+                                {{0}}{{$item->class}}   
+                            @else
+                            {{$item->class}}  
+                            @endif
+                            </h1>
+                            @endforeach
                             <p>Lớp</p>
                         </div>
                     </div>
@@ -105,12 +113,20 @@
                 <div class="media-inner">
                     <div class="column column-left">
                         <div class="column-left-inner">
-                            <h1 id="mediaCount">01</h1>
-                            <p>Danh bạ</p>
+                            @foreach ($notice as $key => $item)
+                            <h1 id="mediaCount">
+                            @if ($item->notice<10)
+                                {{0}}{{$item->notice}}   
+                            @else
+                            {{$item->notice}}  
+                            @endif
+                            </h1>
+                            @endforeach
+                            <p>Thông báo</p>
                         </div>
                     </div>
                     <div class="column column-right">
-                        <i class="fa fa-phone"></i>
+                        <i class="fa fa-bell"></i>
                     </div>
                 </div>
                 <div class="media-footer">
@@ -147,7 +163,15 @@
                 <div class="scores-inner">
                     <div class="column column-left">
                         <div class="column-left-inner">
-                            <h1 id="scoresCount">01</h1>
+                            @foreach ($mark as $key => $item)
+                            <h1 id="scoresCount">
+                            @if ($item->mark<10)
+                                {{0}}{{$item->mark}}   
+                            @else
+                            {{$item->mark}}  
+                            @endif
+                            </h1>
+                            @endforeach
                             <p>Điểm học phần</p>
                         </div>
                     </div>
@@ -165,8 +189,16 @@
                 <div class="schedule-inner">
                     <div class="column column-left">
                         <div class="column-left-inner">
-                            <h1 id="scheduleCount">01</h1>
-                            <p>Lịch học</p>
+                            @foreach ($exam as $key => $item)
+                            <h1 id="scheduleCount">
+                            @if ($item->exam<10)
+                                {{0}}{{$item->exam}}   
+                            @else
+                            {{$item->exam}}  
+                            @endif
+                            </h1>
+                            @endforeach
+                            <p>Lịch kiểm tra</p>
                         </div>
                     </div>
                     <div class="column column-right">
@@ -207,12 +239,28 @@
                 <div class="chart_footer_left">
                     <hr>
                     <span style="color: black">Số giáo viên nam :</span>
-                    <h1 id="fetchFemale_teacher_count">00</h1>
+                    @foreach ($teacherListMale as $key => $item)
+                    <h1 id="fetchFemale_teacher_count">
+                    @if ($item->Male<10)
+                        {{0}}{{$item->Male}}   
+                    @else
+                    {{$item->Male}}  
+                    @endif
+                    </h1>
+                    @endforeach
                 </div>
                 <div class="chart_footer_right">
                     <hr>
                     <span style="color: black">Số giáo viên nữ :</span>
-                    <h1 id="fetchMale_teacher_count">00</h1>
+                    @foreach ($teacherListFemale as $key => $item)
+                    <h1 id="fetchMale_teacher_count">
+                    @if ($item->Female<10)
+                        {{0}}{{$item->Female}}   
+                    @else
+                    {{$item->Female}}  
+                    @endif
+                    </h1>
+                    @endforeach
                 </div>
               </div>  
             </div>
@@ -229,12 +277,28 @@
                         <hr>
                         <h1 id="fetchChartData"></h1>
                         <span style="color: black">số sinh viên nam :</span>
-                        <h1 id="fetchFemale_count">00</h1>
+                        @foreach ($studentListMale as $key => $item)
+                            <h1 id="fetchMale_count">
+                            @if ($item->Male<10)
+                                {{0}}{{$item->Male}}   
+                            @else
+                            {{$item->Male}}  
+                            @endif
+                            </h1>
+                            @endforeach
                     </div>
                     <div class="chart_footer_right">
                         <hr>
                         <span style="color: black">số sinh nữ :</span>
-                        <h1 id="fetchMale_count">00</h1>
+                        @foreach ($studentListFemale as $key => $item)
+                        <h1 id="fetchFemale_count">
+                        @if ($item->Female<10)
+                            {{0}}{{$item->Female}}   
+                        @else
+                        {{$item->Female}}  
+                        @endif
+                        </h1>
+                        @endforeach
                     </div>
                 </div>
             </div>

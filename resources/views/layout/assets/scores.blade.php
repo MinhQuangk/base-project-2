@@ -13,12 +13,14 @@
         <form action="" class="scores_search" >
             @csrf
             <select name="t_scores" id="classes" required>
-                <option value="0" id="">Chọn lớp</option>
-                <option id="s1">....</option>
-                <option id="s2">....</option>
+                <option value="0" id="">hình thức kiểm tra</option>
+                <option id="s1">kiểm tra giữa kì</option>
+                <option id="s2">Kiểm tra cuối kì</option>
             </select>
+            <input type="text" class="search_input" placeholder="Mã sinh viên" name="key" >
+            <input type="text" class="search_input" placeholder="Tên môn học" name="key2" >
+            <input type="text" class="search_input" placeholder="Mã lớp" name="key3" >
 
-            <input type="text" class="search_input" placeholder="Mã sinh viên..." name="key" >
             <button type="submit" id="submit"><i class="fa fa-search" aria-hidden="true"></i>Tìm kiếm</button>
         </form>
         <div class_scores_search>
@@ -50,7 +52,7 @@
                         <td>{{$item->created_at}}</td>
                         <td>
                             <a onclick="return confirm('xác nhận xóa')" href="{{ route('admin.deleteMark',['m_id'=>$item->m_id]) }}"><i class="fa fa-trash" aria-hidden="true" style="color: red"></i></a>
-                            <a href="{{ route('admin.updateS',['s_id'=>$item->s_id]) }}"><i class="fas fa-user-edit" style="color: green"></i></i></a>
+                            <a href="{{ route('admin.updateMark',['m_id'=>$item->m_id]) }}"><i class="fas fa-user-edit" style="color: green"></i></i></a>
                         </td>
                     
                     </tr>

@@ -5,7 +5,7 @@
                 <h3>{{session('msg')}}</h3>
     @endif
     <div class="subjects_tab">
-        <h1>Thông tin Môn học</h1>
+        <h1>Thông tin môn học</h1>
         <div class="subjects_tab_inner">
             <button class="s_btn_tablinks" onclick="subjectsFunc(event,'see_subjects')" id="s_defaultOpen"><i class="fas fa-info-circle"></i></button>
             <button class="s_btn_tablinks" onclick="subjectsFunc(event,'add_subjects')"><i class="fas fa-plus-circle"></i></button>
@@ -15,7 +15,9 @@
     <div id="see_subjects" class="subjects_tabcontent">
         <form action="" class="subjects_search">
             @csrf
-            <input type="text" class="search_input" placeholder="Tìm kiếm môn học..." name="key">
+            <input type="text" class="search_input" placeholder="Tên môn học" name="key">
+            <input type="text" class="search_input" placeholder="Mã môn học" name="key2" >
+
             <button type="submit" id="submit"><i class="fa fa-search" aria-hidden="true"></i>Tìm kiếm</button>
         </form>
         <div class_subjects_search>
