@@ -44,6 +44,10 @@ Route::get('/', function () {
 
     Route::post('updateS',[DBcontroller::class,'postUpdateStudent'])->name('admin.addUpdateS');
 
+    Route::get('detailS/s_id={s_id}',[DBcontroller::class,'detailStudent'])->name('admin.detailS');
+
+    Route::post('updateStatusStudent',[DBcontroller::class,'updateStatusStudent'])->name('admin.updateStatusStudent');
+
     //thông tin giáo viên
     
     Route::get('teacher',[DBController::class,'showTeacher'])->name('admin.teacher');
