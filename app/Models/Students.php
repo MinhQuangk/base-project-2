@@ -47,4 +47,9 @@ class Students extends Model
         
         
     }
+    public function updateDetailStudent($data,$id){
+        $data = array_merge($data,[$id]);
+        $update_student=DB::insert('UPDATE student set credits = ?,point_training=?,average=?,GPA=?,achievements=?,status=? where s_id =? ',$data);
+        return $update_student;
+    }
 }

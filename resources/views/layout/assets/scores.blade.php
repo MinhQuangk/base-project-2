@@ -12,10 +12,10 @@
     <div id="see_scores" class="scores_tabcontent">
         <form action="" class="scores_search" >
             @csrf
-            <select name="t_scores" id="classes" required>
-                <option value="0" id="">hình thức kiểm tra</option>
-                <option id="s1">kiểm tra giữa kì</option>
-                <option id="s2">Kiểm tra cuối kì</option>
+            <select name="type_scores" id="classes" required>
+                <option value="0" id="" n>hình thức kiểm tra</option>
+                <option value="kiểm tra giữa kì" {{request()->type=='kiểm tra giữa kì'?'selected':false}}>kiểm tra giữa kì</option>
+                <option value="kiểm tra cuối kì"{{request()->type=='kiểm tra cuối kì'?'selected':false}}>kiểm tra cuối kì</option>
             </select>
             <input type="text" class="search_input" placeholder="Mã sinh viên" name="key" >
             <input type="text" class="search_input" placeholder="Tên môn học" name="key2" >

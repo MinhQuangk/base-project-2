@@ -104,7 +104,40 @@ class DBcontroller extends Controller
        
         return redirect()->route('admin.showStudent')->with('msg','Cập nhật thành công');
     }
+    public function detailStudent(Request $request,$id=0){
+        $student = new Students();
+        if(!empty($id)){
+            $detail = $student->getDetail($id);
+            if(!empty( $detail[0])){
+                $request->session()->put('s_id',$id);
+                $detail = $detail[0];
+            }
+        }
+       
+       
+        return view('layout.assets.detailStudent',compact('detail'));
+    }
 
+    public function updateStatusStudent(Request $request){
+        $student = new Students();
+         $id =$request->s_id;
+        $dataInsert =[  
+              
+            $request->credits,
+            // $request->birthday,
+            $request->point_training,
+            $request->average,
+            $request->GPA,
+            
+            $request->achievements,
+            $request->status,
+            
+        ];
+       
+        $student->updateDetailStudent($dataInsert,$id);
+        
+        return redirect()->route('admin.showStudent')->with('msg','Cập nhật thành công');
+    }
 
     //teacher 
 
