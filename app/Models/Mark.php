@@ -19,9 +19,23 @@ class Mark extends Model
         'type',
         'department'
     ];
-    public function getAllScore(){
-        $Score = DB::select(' SELECT mark.m_id  ,student.s_name,student.s_id,mark.s_class,subject.sbj_name,mark.type,mark.mark,mark.created_at FROM student,subject,mark WHERE mark.s_id=student.s_id AND mark.sbj_id=subject.sbj_id ORDER BY s_name' );
-
+    public function getAllScore($key=null,$selecteds=[]){
+        // $Score = DB::select(' SELECT mark.m_id  ,student.s_name,student.s_id,mark.s_class,subject.sbj_name,mark.type,mark.mark,mark.created_at FROM student,subject,mark WHERE mark.s_id=student.s_id AND mark.sbj_id=subject.sbj_id ORDER BY s_name' );
+        $Score =DB::table('mark')->select('mark.m_id','student.s_name','student.s_id','mark.s_class','subject.sbj_name','mark.type','mark.mark','mark.created_at')
+        ->join('student','mark.s_id','=','student.s_id')
+        ->join('subject','mark.sbj_id','=','subject.sbj_id')
+        ->orderBy('s_name');
+        if(!empty($selecteds)){
+            $Score=$Score->where($selecteds);
+        }
+        if(!empty($key)){
+            $Score = $Score->where(function($query) use ($key){
+             $query->orWhere('student.s_name','like','%'.$key.'%'); 
+             $query->orWhere('mark.s_class','like','%'.$key.'%');
+             $query->orWhere('student.s_id','=',$key); 
+            });
+         }
+        $Score=$Score->get();
         return $Score;
     }
     public function addScore($data){
@@ -29,10 +43,10 @@ class Mark extends Model
 
         return $add_Score;
     }
-    public function Search($key){
-       $search_Score = DB::select(' SELECT mark.m_id  ,student.s_name,student.s_id,mark.s_class,subject.sbj_name,mark.type,mark.mark,mark.created_at FROM student,subject,mark WHERE mark.s_id=student.s_id AND mark.sbj_id=subject.sbj_id and student.s_id = '.$key.' ORDER BY s_name');
-       return $search_Score;
-    }
+    // public function Search($key){
+    //    $search_Score = DB::select(' SELECT mark.m_id  ,student.s_name,student.s_id,mark.s_class,subject.sbj_name,mark.type,mark.mark,mark.created_at FROM student,subject,mark WHERE mark.s_id=student.s_id AND mark.sbj_id=subject.sbj_id and student.s_id = '.$key.' ORDER BY s_name');
+    //    return $search_Score;
+    // }
     public function deleteScore($id){
         $delete_Score=DB::table('mark')->where('m_id','=',$id)->delete();
         return $delete_Score;

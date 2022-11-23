@@ -44,7 +44,7 @@
         <div class="admin-left" id="slideNav">
             <div class="admin">
                 <img src="{{ asset('font/img/yasua.jpg') }}" alt="profile picture" />
-                <h4 style="text-align:center;">Vũ Minh Quang</h4>
+                <h4 style="text-align:center;">Quản trị viên</h4>
             </div>
             <div class="tab">
                 <div class="tablinks" id="defaultOpen" onclick="openTab(event,'dashboard_top')">

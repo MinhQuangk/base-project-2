@@ -37,6 +37,11 @@
     <!-- notice data will show here================================================================= -->
     <div class="show_notice_data">
         <h1>Thông báo</h1>
+        <form action="" class="class_search" >
+            @csrf
+            <input type="text" class="search_input" placeholder="Tìm kiếm theo từ khóa" name="key">
+            <button type="submit" id="submit"><i class="fa fa-search" aria-hidden="true"></i>Tìm kiếm</button>
+        </form>
        @foreach ($NoticeList as $n => $item)
        <div class="posted_notice" id="posted_notice">
         <!-- Total Post will be showing Here =============== -->
@@ -44,8 +49,12 @@
         <p>Post by : <span style="color: crimson">{{$item->post_by}}</span></p>
         <p>{{$item->detail_notice}}.</p>
         <p>Đăng ngày: <span style="color: crimson">{{$item->created_at}}</span></p>
+        <div>
+            <a onclick="return confirm('xác nhận xóa')" href="{{ route('admin.deleteNotices',['notice_id'=>$item->notice_id]) }}"><i class="fa fa-trash" aria-hidden="true" style="color: red"></i></a>
+
         </div>
-        
+        </div>
+
         
        @endforeach
        

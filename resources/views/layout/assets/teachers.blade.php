@@ -39,7 +39,7 @@
              <div class="card">
               <img src="{{asset('uploads')}}/{{$item->avatar}}" alt="">
               <div class="s_card_footer">
-                <h2 style="color: black">{{$item->f_name}} {{$item->l_name}}</h2>
+                <h2 style="color: black">{{$item->academic}}.{{$item->f_name}} {{$item->l_name}}</h2>
                 <div class="teacher_profile_action">
                   <a class="s_btn_view" href="{{ route('admin.detailT',['t_id'=>$item->t_id]) }}">Profile</a>
                   <a onclick="return confirm('xác nhận xóa')" href="{{ route('admin.deleteT', ['t_id'=>$item->t_id])}}" class="s_btn_del" ><i class="fa fa-trash" aria-hidden="true" style="color: red"></i></a>

@@ -13,13 +13,12 @@
         <form action="" class="scores_search" >
             @csrf
             <select name="type_scores" id="classes" required>
-                <option value="0" id="" n>hình thức kiểm tra</option>
-                <option value="kiểm tra giữa kì" {{request()->type=='kiểm tra giữa kì'?'selected':false}}>kiểm tra giữa kì</option>
-                <option value="kiểm tra cuối kì"{{request()->type=='kiểm tra cuối kì'?'selected':false}}>kiểm tra cuối kì</option>
+                <option value="0" selected disabled >hình thức kiểm tra</option>
+                <option value="kiểm tra giữa kì" {{request()->type_scores=='kiểm tra giữa kì'?'selected':false}}>kiểm tra giữa kì</option>
+                <option value="kiểm tra cuối kì"{{request()->type_scores=='kiểm tra cuối kì'?'selected':false}}>kiểm tra cuối kì</option>
             </select>
-            <input type="text" class="search_input" placeholder="Mã sinh viên" name="key" >
-            <input type="text" class="search_input" placeholder="Tên môn học" name="key2" >
-            <input type="text" class="search_input" placeholder="Mã lớp" name="key3" >
+            <input type="text" class="search_input" placeholder="Tìm kiếm theo từ khóa" name="key" >
+            
 
             <button type="submit" id="submit"><i class="fa fa-search" aria-hidden="true"></i>Tìm kiếm</button>
         </form>

@@ -17,17 +17,16 @@ use League\CommonMark\Extension\Table\Table;
 class DBcontroller extends Controller
 {
     //student 
-    public function showStudent(){
+    public function showStudent(Request $request){
+        
         $student = new Students();
 
-        $studentList = $student->getAllStudent();
         
-        if($key=Request()->key){
-
-            $studentList= $student->Search($key);
-            return view('layout.assets.students',compact('studentList'));
-        }
-
+        $key=null;
+        if(!empty($request->key)){
+            $key=$request->key;
+         }
+         $studentList = $student->getAllStudent($key);
         return view('layout.assets.students',compact('studentList'));
     }
     public function addStudent(Request $request){
@@ -241,17 +240,13 @@ class DBcontroller extends Controller
         return view('layout.assets.detailTeacher',compact('detail'));
     }
     //Subject
-    public function showSubject(){
+    public function showSubject(Request $request){
         $subject = new Subject();
-
-        $subjectList = $subject->getAllSubject();
-        
-        if($key=Request()->key){
-
-            $subjectList= $subject->Search($key);
-            return view('layout.assets.subjects',compact('subjectList'));
-        }
-
+         $key=null;
+       if(!empty($request->key)){
+          $key=$request->key;
+       }
+        $subjectList = $subject->getAllSubject($key);
         return view('layout.assets.subjects',compact('subjectList'));
     }
     public function addSubject(Request $request){
@@ -283,18 +278,21 @@ class DBcontroller extends Controller
 
 
     // Mark
-    public function showMark(){
+    public function showMark(Request $request){
         $Mark = new Mark();
 
         $MarkList = $Mark->getAllScore();
         // $classes = DB::table('class')->select('class_id')->get();
-        if($key=Request()->key){
-
-            $MarkList= $Mark->Search($key);
-          
-            return view('layout.assets.Scores',compact('MarkList'));
+        $key=null;
+        $selected=[];
+        if(!empty($request->type_scores)){
+            $type=$request->type_scores;
+            $selected[]=['mark.type','=',$type];
         }
-        
+        if(!empty($request->key)){
+           $key=$request->key;
+        }
+        $MarkList = $Mark->getAllScore($key,$selected);
         return view('layout.assets.Scores',compact('MarkList'));
     }
     public function addMark(Request $request){
@@ -357,17 +355,16 @@ class DBcontroller extends Controller
 
 
     // Class
-    public function showCLass(){
+    public function showCLass(Request $request){
         $class = new Classes();
 
-        $classList = $class->getAllClass();
+       
         
-        if($key=Request()->key){
-
-            $classList= $class->Search($key);
-            return view('layout.assets.class',compact('classList'));
+        $key=null;
+        if(!empty($request->key)){
+           $key=$request->key;
         }
-
+        $classList = $class->getAllClass($key);
         return view('layout.assets.class',compact('classList'));
     }
     public function addClass(Request $request){
@@ -471,15 +468,15 @@ class DBcontroller extends Controller
 
     //thông báo 
 
-    public function showNotice(){
+    public function  showNotice(Request $request){
         $Notice = new Notice();
-        $NoticeList = $Notice->getAllNotice();
+       
         
-        if($key=Request()->key){
-
-            $NoticeList= $Notice->Search($key);
-            return view('layout.assets.Notice',compact('NoticeList'));
+        $key=null;
+        if(!empty($request->key)){
+           $key=$request->key;
         }
+        $NoticeList = $Notice->getAllNotice($key);
         // dd($NoticeList);
         return view('layout.assets.notices',compact('NoticeList'));
     }
@@ -508,7 +505,7 @@ class DBcontroller extends Controller
         }else{
             $msg = 'xóa không thành công';
         }
-        return redirect()->route('admin.Notice')->with('msg',$msg);
+        return redirect()->route('admin.Notices')->with('msg',$msg);
     }
 }
 
