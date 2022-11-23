@@ -37,8 +37,28 @@ class LayoutController extends Controller
        $teacherListMale =DB::select("SELECT COUNT(gender) as Male  FROM teacher WHERE gender = 'male' " );
        $teacherListFemale =DB::select("SELECT COUNT(gender) as Female  FROM teacher WHERE gender = 'female' " );
        $teachernumber=DB::select("SELECT COUNT(*) as teacher from teacher ");   
+       $statusStudent=DB::table('student')
+       ->selectRaw("COUNT(CASE WHEN status = 'Nguy cơ nghỉ học' THEN 1 END) AS status1")
+       ->selectRaw("COUNT(CASE WHEN status = 'cảnh báo học vụ' THEN 1 END) AS status2")
+       ->selectRaw("COUNT(CASE WHEN status = 'thiếu tín chỉ' THEN 1 END) AS status3")
+       ->selectRaw("COUNT(CASE WHEN status = 'thiếu học phí' THEN 1 END) AS status4")
+       ->selectRaw("COUNT(CASE WHEN status = 'khen thưởng' THEN 1 END) AS status5")
+       ->selectRaw("COUNT(CASE WHEN status = 'rèn luyện học tập tốt' THEN 1 END) AS status6")
+       ->get();
+       ;
+    //    dd($statusStudent);
       $jsonT1 = [];
       $jsonT2 = [];
+      $status=[];
+        foreach($statusStudent as $item ) {
+            $status[]=$item->status1;
+            $status[]=$item->status2;
+            $status[]=$item->status3;
+            $status[]=$item->status4;
+            $status[]=$item->status5;
+            $status[]=$item->status6;
+        }
+        // dd($status);
        foreach($teacherListMale as $item ) {
            $jsonT1[] = $item->Male;
        }
@@ -46,8 +66,9 @@ class LayoutController extends Controller
             $jsonT2[] = $item->Female;
        }
        $data2 =array_merge($jsonT1,$jsonT2);
+    //    dd($data2);
         return view('layout.assets.dashboard',compact('data1','data2','studentnumber','teachernumber',
-        'subject','classlist','teacherListMale','teacherListFemale','studentListMale','studentListFemale','notice','mark','exam'));
+        'subject','classlist','teacherListMale','teacherListFemale','studentListMale','studentListFemale','notice','mark','exam','status'));
     }
     public function exam(){
         return view('layout.assets.exam');
