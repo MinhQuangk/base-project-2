@@ -9,6 +9,7 @@ use App\Models\Notice;
 use App\Models\Students;
 use App\Models\Teacher;
 use App\Models\Subject;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -32,44 +33,46 @@ class DBcontroller extends Controller
     public function addStudent(Request $request){
         $student = new Students();
         
-        // $dataInsert =[     
-            
-        //     $student->s_name = $request->s_name,
-        //     $request->birthday,
-        //     $request->s_address,
-        //     $request->department,
-        //     $request->s_class,
-        //     $request->s_gender,
-        //     $request->s_phone,
-        //     $request->S_email,
-
-           
-        // ];
-        $student->s_name = $request->s_name;
-        $student->birthday = $request->birthday;
-        $student->s_address =$request->s_address;
-        $student->department =$request->department;
-        $student->s_class =$request->s_class;
-        $student->s_gender =$request->s_gender;
-        $student->s_phone =$request->s_phone;
-        $student->S_email =$request->S_email;
-        $student->save();
+        $dataInsert =[             
+            $request->s_name,
+            $request->birthday,
+            $request->s_address,
+            $request->department,
+            $request->s_class,
+            $request->s_gender,
+            $request->s_phone,
+            $request->S_email,
+        ];
+        // $student->s_name = $request->s_name;
+        // $student->birthday = $request->birthday;
+        // $student->s_address =$request->s_address;
+        // $student->department =$request->department;
+        // $student->s_class =$request->s_class;
+        // $student->s_gender =$request->s_gender;
+        // $student->s_phone =$request->s_phone;
+        // $student->S_email =$request->S_email;
+        // $student->save();
         
-    //    $student->addStudent($dataInsert);
+        $student->addStudent($dataInsert);
+        if( $student){
+            Toastr::success('Thêm sinh viên thành công ', 'Success');
+        }else{
+            Toastr::error('Thêm sinh viên thất bại', 'Fail');
+        }
+     
         
-        return Redirect()->route('admin.showStudent')->with('msg','thêm người dùng thành công');
+        return Redirect()->route('admin.showStudent');
     }
     public function deleteStudent($id=0){
         $student = new Students();
 
         $studentList = $student->deleteStudent($id);
-        if($studentList){
-            $msg = 'xóa thành công';
-           
+        if( $studentList){
+            Toastr::success('Xóa thành công ', 'Success');
         }else{
-            $msg = 'xóa không thành công';
+            Toastr::error('Xóa thất bại', 'Fail');
         }
-        return redirect()->route('admin.showStudent')->with('msg',$msg);
+        return redirect()->route('admin.showStudent');
     }
     public function getUpdateStudent(Request $request,$id=0){
         $student = new Students();
@@ -99,9 +102,15 @@ class DBcontroller extends Controller
             $request->S_email
         ];
             
-        $student->updateStudent($dataInsert,$id);
-       
-        return redirect()->route('admin.showStudent')->with('msg','Cập nhật thành công');
+        $student=$student->updateStudent($dataInsert,$id);
+        if( $student){
+            Toastr::success('Cập nhật thành công ', 'Success');
+        }else{
+            Toastr::error('Cập nhật thất bại', 'Fail');
+        }
+
+    //  
+        return redirect()->route('admin.showStudent');
     }
     public function detailStudent(Request $request,$id=0){
         $student = new Students();
@@ -132,10 +141,14 @@ class DBcontroller extends Controller
             $request->status,
             
         ];
-       
-        $student->updateDetailStudent($dataInsert,$id);
         
-        return redirect()->route('admin.showStudent')->with('msg','Cập nhật thành công');
+        $student->updateDetailStudent($dataInsert,$id);
+        if( $student){
+            Toastr::success('Cập nhật tình trạng sinh viên thành công ', 'Success');
+        }else{
+            Toastr::error('Cập nhật tình trạng sinh viên thất bại', 'Fail');
+        }
+        return redirect()->route('admin.showStudent');
     }
 
     //teacher 
@@ -179,17 +192,21 @@ class DBcontroller extends Controller
         $teacher->save();
        $teacher->addTeacher($dataInsert);
         
-        return Redirect()->route('admin.teacher')->with('msg','thêm mới giảng viên thành công');
+       if( $teacher){
+        Toastr::success('Thêm giáo viên mới thành công ', 'Success');
+    }else{
+        Toastr::error('Thêm giáo viên mới thất bại', 'Fail');
+    }
+        return Redirect()->route('admin.teacher');
     }
     public function deleteTeacher($t_id=0){
         $teacher = new Teacher();
 
         $teacherList = $teacher->deleteTeacher($t_id);
-        if($teacherList){
-            $msg = 'xóa thành công';
-           
+        if( $teacherList){
+            Toastr::success('Xóa thành công ', 'Success');
         }else{
-            $msg = 'xóa không thành công';
+            Toastr::error('Xóa thất bại', 'Fail');
         }
         return redirect()->route('admin.teacher');
     }
@@ -223,7 +240,12 @@ class DBcontroller extends Controller
         ];
         
        $teacher->updateTeacher($dataInsert,$id);
-        return redirect()->route('admin.teacher')->with('msg','Cập nhật thành công');
+       if( $teacher){
+        Toastr::success('Cập nhật giáo viên thành công ', 'Success');
+    }else{
+        Toastr::error('Cập nhật giáo viên thất bại', 'Fail');
+    }
+        return redirect()->route('admin.teacher');
     }
     public function detailTeacher(Request $request,$id=0){
         $teacher = new Teacher();
@@ -259,21 +281,24 @@ class DBcontroller extends Controller
             $request->department
         ];
        $subject->addSubject($dataInsert);
-        
-        return Redirect()->route('admin.Subject')->with('msg','thêm người dùng thành công');
+       if( $subject){
+        Toastr::success('Thêm môn học mới thành công ', 'Success');
+    }else{
+        Toastr::error('Thêm môn học mới thất bại', 'Fail');
+    }
+        return Redirect()->route('admin.Subject');
     }
     public function deleteSubject($id=0){
         $subject = new Subject();
 
         
         $subjectList = $subject->deleteSubject($id);
-        if($subjectList){
-            $msg = 'xóa thành công';
-           
+        if( $subjectList){
+            Toastr::success('Xóa thành công ', 'Success');
         }else{
-            $msg = 'xóa không thành công';
+            Toastr::error('Xóa thất bại', 'Fail');
         }
-        return redirect()->route('admin.Subject')->with('msg',$msg);
+        return redirect()->route('admin.Subject');
     }
 
 
@@ -313,19 +338,23 @@ class DBcontroller extends Controller
         $Mark->type=$request->type;
         $Mark->department=$request->department;
         $Mark->save();
-        return Redirect()->route('admin.Mark')->with('msg','nhập điểm thành công');
+        if( $Mark){
+            Toastr::success('Nhập điểm thành công ', 'Success');
+        }else{
+            Toastr::error('Nhập điểm thất bại', 'Fail');
+        }
+        return Redirect()->route('admin.Mark');
     }
     public function deleteMark($id=0){
         $Mark = new Mark();
 
         $MarkList = $Mark->deleteScore($id);
-        if($MarkList){
-            $msg = 'xóa thành công';
-           
+        if( $MarkList){
+            Toastr::success('Xóa thành công ', 'Success');
         }else{
-            $msg = 'xóa không thành công';
+            Toastr::error('Xóa thất bại', 'Fail');
         }
-        return redirect()->route('admin.Mark')->with('msg',$msg);
+        return redirect()->route('admin.Mark');
     }
 
     public function getUpdateMark(Request $request,$id=0){
@@ -350,7 +379,12 @@ class DBcontroller extends Controller
         ];
         
        $mark->updateMark($dataInsert,$id);
-        return redirect()->route('admin.Mark')->with('msg','Cập nhật thành công');
+        if( $mark){
+            Toastr::success('Cập nhật thành công ', 'Success');
+        }else{
+            Toastr::error('Cập nhật thất bại', 'Fail');
+        }
+        return redirect()->route('admin.Mark');
     }
 
 
@@ -378,21 +412,24 @@ class DBcontroller extends Controller
             $request->monitor
         ];
        $class->addClass($dataInsert);
-        
-        return Redirect()->route('admin.Class')->with('msg','thêm người dùng thành công');
+       if( $class){
+        Toastr::success('Thêm lớp mới thành công ', 'Success');
+    }else{
+        Toastr::error('Thêm lớp mới thất bại', 'Fail');
+    }
+        return Redirect()->route('admin.Class');
     }
     public function deleteClass($id=0){
         $class = new Classes();
 
         
         $classList = $class->deleteClass($id);
-        if($classList){
-            $msg = 'xóa thành công';
-           
+        if( $classList){
+            Toastr::success('Xóa thành công ', 'Success');
         }else{
-            $msg = 'xóa không thành công';
+            Toastr::error('Xóa thất bại', 'Fail');
         }
-        return redirect()->route('admin.Class')->with('msg',$msg);
+        return redirect()->route('admin.Class');
     }
     public function getUpdateClass(Request $request,$id=0){
         $class = new Classes();
@@ -421,7 +458,12 @@ class DBcontroller extends Controller
         ];
         
        $class->updateClass($dataInsert,$id);
-        return redirect()->route('admin.Class')->with('msg','Cập nhật thành công');
+        if( $class){
+            Toastr::success('Cập nhật thành công ', 'Success');
+        }else{
+            Toastr::error('Cập nhật thất bại', 'Fail');
+        }
+        return redirect()->route('admin.Class');
     }
 
     //Exam
@@ -450,20 +492,23 @@ class DBcontroller extends Controller
             $request->s_class,
         ];
        $exam->addExam($dataInsert);
-        
-        return Redirect()->route('admin.Exam')->with('msg','thêm lịch thi mới thành công thành công');
+       if($exam){
+        Toastr::success('Thêm lịch thi mới thành công ', 'Success');
+    }else{
+        Toastr::error('Thêm lịch thi mới thất bại', 'Fail');
+    }
+        return Redirect()->route('admin.Exam');
     }
     public function deleteExam($id=0){
         $exam = new Exam();
         
         $examList = $exam->deleteExam($id);
-        if($examList){
-            $msg = 'xóa thành công';
-           
+        if( $examList){
+            Toastr::success('Xóa thành công ', 'Success');
         }else{
-            $msg = 'xóa không thành công';
+            Toastr::error('Xóa thất bại', 'Fail');
         }
-        return redirect()->route('admin.Exam')->with('msg',$msg);
+        return redirect()->route('admin.Exam');
     }
 
     //thông báo 
@@ -492,20 +537,23 @@ class DBcontroller extends Controller
           }
     
     //    $Notice->addNotice($dataInsert);
-        
-        return Redirect()->route('admin.Notices')->with('msg','thêm thông báo mới thành công thành công');
+    if( $Notice){
+        Toastr::success('Thêm thông báo mới thành công ', 'Success');
+    }else{
+        Toastr::error('Thêm thông báo mới thất bại', 'Fail');
+    }
+        return Redirect()->route('admin.Notices');
     }
     public function deleteNotice($id=0){
         $Notice = new Notice();
         
         $NoticeList = $Notice->deleteNotice($id);
-        if($NoticeList){
-            $msg = 'xóa thành công';
-           
+        if( $NoticeList){
+            Toastr::success('Xóa thành công ', 'Success');
         }else{
-            $msg = 'xóa không thành công';
+            Toastr::error('Xóa thất bại', 'Fail');
         }
-        return redirect()->route('admin.Notices')->with('msg',$msg);
+        return redirect()->route('admin.Notices');
     }
 }
 
