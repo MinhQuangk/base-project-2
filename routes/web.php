@@ -107,7 +107,7 @@ Route::get('/', function () {
 
     Route::post('notices',[DBController::class,'addNotice'])->name('admin.addNotices');
 
-    Route::get('deleteNotice/n_id={n_id}',[DBcontroller::class,'deleteNotices'])->name('admin.deleteNotices');
+    Route::get('deleteNotice/notice_id ={notice_id}',[DBcontroller::class,'deleteNotice'])->name('admin.deleteNotices');
     });
 
     Route::prefix('account')->group(function(){

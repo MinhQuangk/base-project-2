@@ -18,8 +18,8 @@
                 }
                 @endphp
             </h1>
-            <h1 style="color: yellow;font-size: 35px">Vũ Minh Quang</h1>
-            <h1 style="font-size: 35px;margin-left: 200px;"><?php echo date('M d,Y'); ?></h1>
+            <h1 style="color: yellow;font-size: 35px">Quản trị viên</h1>
+            <h1 style="font-size: 35px;margin-left: 200px;"><?php echo date('M d,Y | H:i'); ?></h1>
         </div>
     </div>
     <div class="cover-img"> 

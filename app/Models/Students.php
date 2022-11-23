@@ -18,9 +18,18 @@ class Students extends Model
         's_class',
         's_phone'
     ];
-    public function getAllStudent(){
-        $student = DB::select('SELECT * FROM student ORDER BY s_name ');
+    public function getAllStudent($key=null){
+        $student = DB::table('student')->select('*')->orderBy('s_name');
+        $student = $student->where(function($query) use ($key){
+            $query->orWhere('s_id','like','%'.$key.'%');
+            $query->orWhere('s_name','like','%'.$key.'%');
+            $query->orWhere('s_class','like','%'.$key.'%');
+            $query->orWhere('s_address','like','%'.$key.'%');
+            $query->orWhere('department','like','%'.$key.'%');
+            $query->orWhere('s_gender','like','%'.$key.'%');
 
+           });
+        $student=$student->get();
         return $student;
     }
     public function addStudent($data){
@@ -28,11 +37,11 @@ class Students extends Model
 
         return $add_student;
     }
-    public function Search($key){
-       $search_student = DB::table('student')->select('*')->where('s_name','like',
-       '%'.$key.'%')->get();
-       return $search_student;
-    }
+    // public function Search($key){
+    //    $search_student = DB::table('student')->select('*')->where('s_name','like',
+    //    '%'.$key.'%')->get();
+    //    return $search_student;
+    // }
     public function deleteStudent($id){
         $delete_student=DB::table('student')->where('s_id','=',$id)->delete();
         return $delete_student;

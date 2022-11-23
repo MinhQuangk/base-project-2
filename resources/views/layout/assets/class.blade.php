@@ -12,7 +12,7 @@
     <div id="see_class" class="class_tabcontent">
         <form action="" class="class_search" >
             @csrf
-            <input type="text" class="search_input" placeholder="Tìm kiếm mã lớp..." name="key">
+            <input type="text" class="search_input" placeholder="Tìm kiếm theo từ khóa" name="key">
             <button type="submit" id="submit"><i class="fa fa-search" aria-hidden="true"></i>Tìm kiếm</button>
         </form>
         <div class_class_search>
