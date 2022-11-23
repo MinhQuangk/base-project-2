@@ -460,7 +460,7 @@ var ctx5 = document.getElementById("mychart5").getContext("2d");
             datasets: [
                 {
                 label:'Population',
-                data: [20,40,60,80,90,200],
+                data: <?php echo json_encode($status) ?>,
                 backgroundColor: ["red", "orange", "blue", "#B20600", "#46244C", "#557B83"],
                 borderWidth: 1,
                 borderColor:'#777',
