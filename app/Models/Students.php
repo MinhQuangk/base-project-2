@@ -10,7 +10,7 @@ class Students extends Model
 {
     use HasFactory;
     protected $table = 'student';
-
+    
     protected $fillable = [
         's_id   ',
         's_name',
@@ -18,7 +18,9 @@ class Students extends Model
         's_class',
         's_phone'
     ];
-    public function getAllStudent($key=null){
+    public function getAllStudent($key=null,$perPage=null){
+        
+        
         $student = DB::table('student')->select('*')->orderBy('s_name');
         $student = $student->where(function($query) use ($key){
             $query->orWhere('s_id','like','%'.$key.'%');
@@ -29,7 +31,14 @@ class Students extends Model
             $query->orWhere('s_gender','like','%'.$key.'%');
 
            });
-        $student=$student->get();
+        
+       
+           if(!empty($perPage)){
+            $student=$student->paginate($perPage);
+           }else{
+            $student=$student->get();
+           }
+        
         return $student;
     }
     public function addStudent($data){

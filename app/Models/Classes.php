@@ -18,7 +18,7 @@ class Classes extends Model
         'form_teacher',
         'monitor'
     ];
-    public function getAllClass($key=null){
+    public function getAllClass($key=null,$perPage=null){
         $Class = DB::table('class')->select('*')->orderBy('class_id');
         if(!empty($key)){
             $Class = $Class->where(function($query) use ($key){
@@ -27,7 +27,11 @@ class Classes extends Model
              $query->orWhere('form_teacher','like','%'.$key.'%');
             });
          }
-         $Class =  $Class->get();
+         if(!empty($perPage)){
+            $Class=$Class->paginate($perPage);
+           }else{
+            $Class=$Class->get();
+           }
         return $Class;
     }
     public function addClass($data){

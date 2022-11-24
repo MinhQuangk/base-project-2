@@ -49,15 +49,17 @@
         <p>Post by : <span style="color: crimson">{{$item->post_by}}</span></p>
         <p>{{$item->detail_notice}}.</p>
         <p>Đăng ngày: <span style="color: crimson">{{$item->created_at}}</span></p>
-        <div>
-            <a onclick="return confirm('xác nhận xóa')" href="{{ route('admin.deleteNotices',['notice_id'=>$item->notice_id]) }}"><i class="fa fa-trash" aria-hidden="true" style="color: red"></i></a>
+            <div>
+                <a onclick="return confirm('xác nhận xóa')" href="{{ route('admin.deleteNotices',['notice_id'=>$item->notice_id]) }}"><i class="fa fa-trash" aria-hidden="true" style="color: red"></i></a>
 
+            </div>
         </div>
-        </div>
-
+        
         
        @endforeach
-       
+       <div class="d-flex justify-content-end">
+        {{$NoticeList->links()}}
+   </div>
     </div>
     <!-- notice data will show here================================================================= -->
 </section>

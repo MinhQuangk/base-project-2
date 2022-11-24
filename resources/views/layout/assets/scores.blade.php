@@ -59,6 +59,9 @@
                 @endif
                 </tbody>
             </table>
+            <div class="d-flex justify-content-end">
+                {{$MarkList->links()}}
+           </div>
         </div>
     </div>
     <!-- chức năng thêm sinh viên -->

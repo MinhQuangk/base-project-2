@@ -11,7 +11,7 @@
 
 .admin-top .row .admin-left {
     color: #fff;
-    width: 20%;
+    width: 15%;
     background-color: rgb(71, 60, 172);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     min-height: 770px;
@@ -125,7 +125,7 @@
 }
 
 .admin-top .row .admin-right {
-    width: 100%;
+    width: 85%;
     color: white;
     transition: 0.3s;
 }

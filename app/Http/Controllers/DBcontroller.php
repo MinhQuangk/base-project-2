@@ -14,10 +14,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use League\CommonMark\Extension\Table\Table;
+use Illuminate\Support\Facades\Validator as FacadesValidator;
 
 class DBcontroller extends Controller
 {
     //student 
+    const _perPage=6;
     public function showStudent(Request $request){
         
         $student = new Students();
@@ -27,12 +29,33 @@ class DBcontroller extends Controller
         if(!empty($request->key)){
             $key=$request->key;
          }
-         $studentList = $student->getAllStudent($key);
+         $studentList = $student->getAllStudent($key,self::_perPage);
         return view('layout.assets.students',compact('studentList'));
     }
     public function addStudent(Request $request){
         $student = new Students();
-        
+        // if($request->isMethod('Post')){
+        //     $validator = FacadesValidator ::make($request->all(),[
+        //         's_name'=>'required',
+        //         'birthday'=>'required|after_or_equal:'.date('Y-m-d H:i:s'),
+        //         's_address'=>'required',
+        //         'department'=>'required',
+        //         's_class'=>'required|email',
+        //         's_gender'=>'required|in:Nam,Nữ',
+        //         'S_email'=>'required|email',
+
+        //     ],['s_name.required'=>'họ và tên bắt buộc phải nhập',
+        //         'birthday.required'=>'sinh nhật bắt buộc phải nhập',
+        //         'department.required'=>'mã khoa bắt buộc phải nhập',
+        //         's_class.required'=>'lớp buộc phải nhập',
+        //         's_gender.required'=>'giới tích bắt buộc phải chọn',
+        //         'S_email.required'=>'email bắt buộc phải nhập'
+                
+        //         ]);
+        // }  
+        // if($validator->fails()){
+        //     return redirect()->back()->with('student_tabcontent', true)->withErrors($validator)->withInput(); 
+        // }
         $dataInsert =[             
             $request->s_name,
             $request->birthday,
@@ -157,7 +180,7 @@ class DBcontroller extends Controller
     public function showTeacher(){
         
         $teacher = new Teacher();
-        $teacherlist=$teacher->getAllTeacher();
+        $teacherlist=$teacher->getAllTeacher(self::_perPage);
         if($key=Request()->key){
 
             $teacherlist= $teacher->Search($key);
@@ -268,7 +291,7 @@ class DBcontroller extends Controller
        if(!empty($request->key)){
           $key=$request->key;
        }
-        $subjectList = $subject->getAllSubject($key);
+        $subjectList = $subject->getAllSubject($key,self::_perPage);
         return view('layout.assets.subjects',compact('subjectList'));
     }
     public function addSubject(Request $request){
@@ -317,7 +340,7 @@ class DBcontroller extends Controller
         if(!empty($request->key)){
            $key=$request->key;
         }
-        $MarkList = $Mark->getAllScore($key,$selected);
+        $MarkList = $Mark->getAllScore($key,$selected,self::_perPage);
         return view('layout.assets.Scores',compact('MarkList'));
     }
     public function addMark(Request $request){
@@ -398,7 +421,7 @@ class DBcontroller extends Controller
         if(!empty($request->key)){
            $key=$request->key;
         }
-        $classList = $class->getAllClass($key);
+        $classList = $class->getAllClass($key,self::_perPage);
         return view('layout.assets.class',compact('classList'));
     }
     public function addClass(Request $request){
@@ -469,7 +492,7 @@ class DBcontroller extends Controller
     //Exam
     public function showExam(){
         $exam = new Exam();
-        $examList = $exam->getAllExam();
+        $examList = $exam->getAllExam(self::_perPage);
         
         if($key=Request()->key){
 
@@ -521,7 +544,7 @@ class DBcontroller extends Controller
         if(!empty($request->key)){
            $key=$request->key;
         }
-        $NoticeList = $Notice->getAllNotice($key);
+        $NoticeList = $Notice->getAllNotice($key,self::_perPage);
         // dd($NoticeList);
         return view('layout.assets.notices',compact('NoticeList'));
     }
