@@ -27,9 +27,16 @@ class Teacher extends Model
         return $add_teacher;
     }
 
-    public function getAllTeacher(){
-        $teacher = DB::select('SELECT * FROM teacher ORDER by l_name');
+    public function getAllTeacher($perPage=null){
+        // $teacher = DB::select('SELECT * FROM teacher ORDER by l_name');
+        $teacher=DB::table('teacher')->select('*')->orderBy('l_name');
 
+
+        if(!empty($perPage)){
+            $teacher=$teacher->paginate($perPage);
+           }else{
+            $teacher=$teacher->get();
+           }
         return $teacher;
     }
     public function Search($key){

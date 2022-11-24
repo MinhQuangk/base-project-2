@@ -47,6 +47,9 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="d-flex justify-content-end">
+                {{$subjectList->links()}}
+           </div>s
         </div>
     </div>
     <!-- chức năng thêm sinh viên -->

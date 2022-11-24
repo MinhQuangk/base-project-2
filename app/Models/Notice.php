@@ -18,7 +18,7 @@ class Notice extends Model
         'detail_notice',
         'created_at'
     ];
-    public function getAllNotice($key=null){
+    public function getAllNotice($key=null,$perPage=null){
         $Notice = DB::table('notice')->select('*');
         if(!empty($key)){
             $Notice = $Notice->where(function($query) use ($key){
@@ -27,7 +27,11 @@ class Notice extends Model
              
             });
          }
-         $Notice =$Notice->get();
+         if(!empty($perPage)){
+            $Notice=$Notice->paginate($perPage);
+           }else{
+            $Notice=$Notice->get();
+           }
         return $Notice;
     }
     // public function addNotice($data){

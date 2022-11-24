@@ -46,10 +46,26 @@ class LayoutController extends Controller
        ->selectRaw("COUNT(CASE WHEN status = 'rèn luyện học tập tốt' THEN 1 END) AS status6")
        ->get();
        ;
+       $GPAStudent=DB::table('student')
+       ->selectRaw("COUNT(CASE WHEN GPA < 2.0 THEN 1 END) AS GPA1")
+       ->selectRaw("COUNT(CASE WHEN 2.49> GPA and GPA>=2.0    THEN 1 END) AS GPA2")
+       ->selectRaw("COUNT(CASE WHEN 3.19> GPA and GPA>=2.5  THEN 1 END) AS GPA3")
+       ->selectRaw("COUNT(CASE WHEN 3.59> GPA and GPA>=3.2   THEN 1 END) AS GPA4")
+       ->selectRaw("COUNT(CASE WHEN 4.00> GPA and GPA>=3.6 THEN 1 END) AS GPA5")
+        ->get();
     //    dd($statusStudent);
       $jsonT1 = [];
       $jsonT2 = [];
       $status=[];
+      $GPA=[];
+      foreach($GPAStudent as $item ) {
+        $GPA[]=$item->GPA1;
+        $GPA[]=$item->GPA2;
+        $GPA[]=$item->GPA3;
+        $GPA[]=$item->GPA4;
+        $GPA[]=$item->GPA5;
+       
+    }
         foreach($statusStudent as $item ) {
             $status[]=$item->status1;
             $status[]=$item->status2;
@@ -68,7 +84,8 @@ class LayoutController extends Controller
        $data2 =array_merge($jsonT1,$jsonT2);
     //    dd($data2);
         return view('layout.assets.dashboard',compact('data1','data2','studentnumber','teachernumber',
-        'subject','classlist','teacherListMale','teacherListFemale','studentListMale','studentListFemale','notice','mark','exam','status'));
+        'subject','classlist','teacherListMale','teacherListFemale','studentListMale','studentListFemale',
+        'notice','mark','exam','status','GPA'));
     }
     public function exam(){
         return view('layout.assets.exam');
@@ -100,4 +117,5 @@ class LayoutController extends Controller
     public function subjects(){
         return view('layout.assets.subjects');
     }
+    
 }

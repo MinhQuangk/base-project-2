@@ -11,7 +11,7 @@ class Subject extends Model
 {
     use HasFactory;
 
-    public function getAllSubject($key=null){
+    public function getAllSubject($key=null,$perPage=null){
         DB::enableQueryLog();
         $subject = DB::table('subject')->select('*');
         if(!empty($key)){
@@ -23,8 +23,12 @@ class Subject extends Model
         }
         
         
-        $subject=$subject->get();
-        $sql=DB::getQueryLog();
+        if(!empty($perPage)){
+            $subject=$subject->paginate($perPage);
+           }else{
+            $subject=$subject->get();
+           }
+        // $sql=DB::getQueryLog();
         // dd($sql);
         return $subject;
     }

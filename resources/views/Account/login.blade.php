@@ -39,7 +39,7 @@
                      <br>
                     @if ($errors->has('password'))
                     <strong class="text-danger" style="color: red ;">{{$errors->first('password')}}</strong> <br>
-                @endif
+                    @endif
                     
                     <div class="save">
                         <div class="left_save">

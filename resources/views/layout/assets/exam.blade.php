@@ -107,6 +107,9 @@
                             @endif
                                 </tbody>
                         </table>
+                        <div class="d-flex justify-content-end">
+                                {{$examList->links()}}
+                           </div>
                 </div>
         </div>
         <!-- exam table schedule end============================================== -->

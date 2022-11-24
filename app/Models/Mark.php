@@ -19,7 +19,7 @@ class Mark extends Model
         'type',
         'department'
     ];
-    public function getAllScore($key=null,$selecteds=[]){
+    public function getAllScore($key=null,$selecteds=[],$perPage=null){
         // $Score = DB::select(' SELECT mark.m_id  ,student.s_name,student.s_id,mark.s_class,subject.sbj_name,mark.type,mark.mark,mark.created_at FROM student,subject,mark WHERE mark.s_id=student.s_id AND mark.sbj_id=subject.sbj_id ORDER BY s_name' );
         $Score =DB::table('mark')->select('mark.m_id','student.s_name','student.s_id','mark.s_class','subject.sbj_name','mark.type','mark.mark','mark.created_at')
         ->join('student','mark.s_id','=','student.s_id')
@@ -35,7 +35,11 @@ class Mark extends Model
              $query->orWhere('student.s_id','=',$key); 
             });
          }
-        $Score=$Score->get();
+         if(!empty($perPage)){
+            $Score=$Score->paginate($perPage);
+           }else{
+            $Score=$Score->get();
+           }
         return $Score;
     }
     public function addScore($data){

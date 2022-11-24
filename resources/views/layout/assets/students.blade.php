@@ -14,7 +14,7 @@
         </div>
     </div>
     <!-- Chức năng xem thông tin sinh viên -->
-    <div id="see_student" class="student_tabcontent">
+    <div id="see_student" class="tab {{ !session('student_tabcontent') ? 'active', null }} ">
         <form class="search">
             <input type="text" name="key"/>
             <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
@@ -62,10 +62,13 @@
                     @endif
                 </tbody>
             </table>
+           <div class="d-flex justify-content-end">
+            {{$studentList->links()}}
+           </div>
         </div>
     </div>
     <!-- chức năng thêm giảng viên -->
-    <div id="add_student" class="student_tabcontent">
+    <div id="add_student" class="tab{{ !session('student_tabcontent') ? 'active', null }}">
         <form autocomplete="off" id="formData" method="POST" action="{{ route('admin.addS')}}" >
             @csrf
             <h2 style="font-family: Arial, Helvetica, sans-serif;">thêm sinh viên</h2>
@@ -74,23 +77,34 @@
                 <span class="f_left">
                     <label for="fname">Họ và tên</label>
                     <input type="text" id="fname" name="s_name" >
-                   
+                    @if ($errors->has('s_name'))
+                    <strong class="text-danger" style="color: red ;">{{$errors->first('password')}}</strong> <br>
+                    @endif
                 </span>
                 <!-- Năm sinh -->
                 <span class="l_right">
                     <label for="lname">Ngày sinh</label>
                     <input type="date" id="lname" name="birthday" >
+                    @if ($errors->has('birthday'))
+                    <strong class="text-danger" style="color: red ;">{{$errors->first('password')}}</strong> <br>
+                    @endif
                 </span>
             </div>
             <label for="s_address">Quê quán</label>
             <input type="text" id="s_address" name="s_address" >
-
+                    @if ($errors->has('s_address'))
+                    <strong class="text-danger" style="color: red ;">{{$errors->first('password')}}</strong> <br>
+                    @endif
             <label for="department">Khoa</label>
             <input type="text" id="s_qualification" name="department" >
-            
+                    @if ($errors->has('department'))
+                    <strong class="text-danger" style="color: red ;">{{$errors->first('password')}}</strong> <br>
+                    @endif
             <label for="s_class">lớp</label>
             <input type="text" id="s_class" name="s_class" >
-            
+                    @if ($errors->has('s_class'))
+                    <strong class="text-danger" style="color: red ;">{{$errors->first('password')}}</strong> <br>
+                    @endif
             
             <div class="radio_option" >
                 <label for="s_gender">Giới tính</label>
@@ -99,12 +113,19 @@
                 <input type="radio" id="female" name="s_gender" value="Nữ">
                 <label for="rd2">Nữ</label>
               </div>
-
+              @if ($errors->has('s_gender'))
+              <strong class="text-danger" style="color: red ;">{{$errors->first('password')}}</strong> <br>
+              @endif
             <label for="s_phone">Số điện thoại</label>
             <input type="text" id="s_phone" name="s_phone" >
-
+            @if ($errors->has('s_phone'))
+            <strong class="text-danger" style="color: red ;">{{$errors->first('password')}}</strong> <br>
+            @endif
             <label for="S_email">Email</label>
             <input type="text" id="s_email" name="S_email" >
+            @if ($errors->has('S_email'))
+                    <strong class="text-danger" style="color: red ;">{{$errors->first('password')}}</strong> <br>
+                    @endif
             <input type="submit" id="sub_student_btn">
         </form>
     </div>
@@ -150,4 +171,11 @@
         </form>
     </div>
 </div>
+
+<Script>
+    $(document).ready(function () {
+  $('#nav-tab a[href="#{{ old('tab') }}"]').tab('show')
+});
+</Script>
+
 @endsection

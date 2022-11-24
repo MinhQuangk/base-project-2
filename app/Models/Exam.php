@@ -22,9 +22,19 @@ class Exam extends Model
         's_class',
         
     ];
-    public function getAllExam(){
-        $Exam = DB::select('SELECT exam.exam_id,subject.sbj_name,exam.type,exam.s_class,exam.exam_date,exam.exam_time,exam.times FROM exam,subject WHERE exam.sbj_id=subject.sbj_id ORDER By exam.exam_id ');
+    public function getAllExam($perPage=null){
+        // $Exam = DB::select('SELECT exam.exam_id,subject.sbj_name,exam.type,exam.s_class,exam.exam_date,exam.exam_time,exam.times FROM exam,s
+        // ubject WHERE exam.sbj_id=subject.sbj_id ORDER By exam.exam_id ');
+        $Exam=DB::table('exam')
+        ->join('subject','exam.sbj_id','=','subject.sbj_id')
+        ->select('exam.exam_id','subject.sbj_name','exam.type','exam.s_class','exam.exam_date','exam.exam_time','exam.times')
+        ->orderBy('exam.exam_id');
 
+        if(!empty($perPage)){
+            $Exam=$Exam->paginate($perPage);
+           }else{
+            $Exam=$Exam->get();
+           }
         return $Exam;
     }
     public function addExam($data){
