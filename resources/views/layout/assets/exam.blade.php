@@ -43,21 +43,21 @@
                         <div class="row3">
                                 <div class="row3_inner1">
                                         <label for="s_time">Tên lớp</label><br>
-                                        <input type="text" id="s_time" name="s_class">
+                                        <input type="text" id="s_time" name="s_class" required>
                                 </div>
                                 <div class="row3_inner2">
                                         <label for="s_date">Nhập ngày thi </label><br>
-                                        <input type="date" id="s_date" name="exam_date">
+                                        <input type="date" id="s_date" name="exam_date" required>
                                 </div>
                         </div>
                         <div class="row4">
                                 <div class="row4_inner1">
                                         <label for="s_time">Giờ bắt đầu thi</label><br>
-                                        <input type="time" id="s_time" name="exam_time">
+                                        <input type="time" id="s_time" name="exam_time" required>
                                 </div>
                                 <div class="row4_inner2">
                                         <label for="s_date">Thời gian thi </label><br>
-                                        <input type="text"  name="times">
+                                        <input type="text"  name="times" required>
                                 </div>
                         </div>
                         <button class="e_save_btn" id="e_save_btn">Lưu</button>
@@ -107,9 +107,7 @@
                             @endif
                                 </tbody>
                         </table>
-                        <div class="d-flex justify-content-end">
-                                {{$examList->links()}}
-                           </div>
+                       
                 </div>
         </div>
         <!-- exam table schedule end============================================== -->

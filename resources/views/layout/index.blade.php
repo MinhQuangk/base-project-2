@@ -25,10 +25,10 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     
-       <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+       {{-- <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"> --}}
 
-    <!-- jQuery library -->
+    {{-- <!-- jQuery library -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
     
     <!-- Popper JS -->
@@ -36,7 +36,7 @@
     
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-    
+     --}}
 </head>
 
 <body>
@@ -75,10 +75,16 @@
                 </div>
                 <div class="tablinks" onclick="openTab(event,'schedules')">
                     <i class="fas fa-clock"></i>
-                    <a href="{{ route('admin.schedule') }}">
-                      <h4>Thời khóa biểu</h4>
+                    <a href="{{ route('admin.schedule')}}">
+                      <h4>Lịch giảng dạy</h4>
                     </a>
                 </div>
+                <div class="tablinks" onclick="openTab(event,'department')">
+                  <i class="fas fa-sitemap"></i>
+                  <a href="{{ route('admin.Department')}}">
+                    <h4>Khoa</h4>
+                  </a>
+              </div>
                 <div class="tablinks" onclick="openTab(event,'media')">
                   <i class="fas fa-inbox"></i>
                   <a href="{{ route('admin.Class') }}">
@@ -148,11 +154,13 @@
             <div id="schedule" class="tabcontent">
               @yield('schedule')
             </div>
+            <div id="department" class="tabcontent">
+              @yield('department')
+            </div>
             <div id="media" class="tabcontent">
               @yield('class')
             </div>
             <div id="exams" class="tabcontent">
-               {{-- @include('layout.assets.exam'); --}}
                @yield('exam')
             </div>
             <div id="notice" class="tabcontent">
@@ -172,6 +180,7 @@
         }
     }
 </script>
+
 </body>
 
 
@@ -184,5 +193,7 @@
 <script src="{{ asset('font/js/class.js') }}"></script>
 <script src="{{ asset('font/js/scores.js') }}"></script>
 <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 {!! Toastr::message() !!}
-</html> 
+</html>   

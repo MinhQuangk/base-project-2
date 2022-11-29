@@ -27,11 +27,9 @@ class Classes extends Model
              $query->orWhere('form_teacher','like','%'.$key.'%');
             });
          }
-         if(!empty($perPage)){
-            $Class=$Class->paginate($perPage);
-           }else{
+         
             $Class=$Class->get();
-           }
+           
         return $Class;
     }
     public function addClass($data){

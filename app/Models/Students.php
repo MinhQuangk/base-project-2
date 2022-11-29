@@ -33,11 +33,9 @@ class Students extends Model
            });
         
        
-           if(!empty($perPage)){
-            $student=$student->paginate($perPage);
-           }else{
+           
             $student=$student->get();
-           }
+           
         
         return $student;
     }

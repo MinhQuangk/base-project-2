@@ -59,9 +59,7 @@
                 @endif
                 </tbody>
             </table>
-            <div class="d-flex justify-content-end">
-                {{$MarkList->links()}}
-           </div>
+            
         </div>
     </div>
     <!-- chức năng thêm sinh viên -->
@@ -72,25 +70,25 @@
             <div class="first_last_name">
                 <span class="f_left">
                     <label for="fname">Khoa</label>
-                    <input type="text" id="sc_name" name="department">
+                    <input type="text" id="sc_name" name="department" required>
 
                 </span>
                 <span class="l_right">
                     <label for="lname">Mã sinh viên</label>
-                    <input type="text" id="sc_name" name="s_id">
+                    <input type="text" id="sc_name" name="s_id" required>
                 </span>
             </div>
             <label for="s_address">Lớp</label>
-            <input type="text" id="sc_class" name="s_class">
+            <input type="text" id="sc_class" name="s_class" required>
 
             <label for="subject">Mã môn học</label>
-            <input type="text" id="sc_subject" name="sbj_id">
+            <input type="text" id="sc_subject" name="sbj_id" required>
 
             <label for="sc_scores">Điểm</label>
-            <input type="text" id="sc_scores" name="mark">
+            <input type="text" id="sc_scores" name="mark" required>
 
             <label for="sc_day">Hình thức kiểm tra</label>
-            <select name="type" id="type" >
+            <select name="type" id="type" required>
                 <option selected disabled value="0">select one</option>
                 <option value="kiểm tra giữa kì" {{request()->type=='kiểm tra giữa kì'?'selected':false}}>kiểm tra giữa kì</option>
                 <option value="kiểm tra cuối kì"{{request()->type=='kiểm tra cuối kì'?'selected':false}}>kiểm tra cuối kì</option>

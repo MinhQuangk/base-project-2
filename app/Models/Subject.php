@@ -23,11 +23,9 @@ class Subject extends Model
         }
         
         
-        if(!empty($perPage)){
-            $subject=$subject->paginate($perPage);
-           }else{
+        
             $subject=$subject->get();
-           }
+           
         // $sql=DB::getQueryLog();
         // dd($sql);
         return $subject;

@@ -16,17 +16,17 @@
             <div class="row1">
                 <div class="row1_inner1">
                     <label for="n_title">Tiêu đề </label>
-                    <input type="text" id="n_title" name="title">
+                    <input type="text" id="n_title" name="title" required>
                 </div>
                 <div class="row1_inner2">
                     <label for="n_posted_by">Người đăng</label>
-                    <input type="text" id="n_posted_by" name="post_by">
+                    <input type="text" id="n_posted_by" name="post_by" required>
                 </div>
             </div>
             <div class="row3">
                 <label for="n_details">Nội dung</label>
                 <br>
-                <textarea name="detail_notice" id="n_details" placeholder="Nhập nội dung thông báo ở đây"></textarea>
+                <textarea name="detail_notice" id="n_details" placeholder="Nhập nội dung thông báo ở đây" required></textarea>
                 <br>
             </div>
             <button class="n_save_btn" id="n_save_btn">Post</button>
@@ -57,9 +57,7 @@
         
         
        @endforeach
-       <div class="d-flex justify-content-end">
-        {{$NoticeList->links()}}
-   </div>
+       
     </div>
     <!-- notice data will show here================================================================= -->
 </section>

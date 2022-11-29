@@ -76,12 +76,12 @@
         <div class="first_last_name">
           <span class="f_left">
             <label for="t_fname">Họ và tên đệm</label>
-            <input type="text" id="t_fname" name="f_name"  />
+            <input type="text" id="t_fname" name="f_name" required >
             <br />
           </span>
           <span class="l_right">
             <label for="t_lname">Tên</label>
-            <input type="text" id="t_lname" name="l_name"  />
+            <input type="text" id="t_lname" name="l_name"  required >
             <br />
           </span>
         </div>
@@ -96,17 +96,17 @@
         <div class="t_class">
           <span class="t_class_left">
             <label for="t_dob">Chức danh</label>
-            <input type="text" id="t_dob" name="academic"  />
+            <input type="text" id="t_dob" name="academic" required />
             <br />
           </span>
           <span class="t_class_right">
             <label for="t_class">Khoa</label>
-            <input type="text" id="t_class" name="department"  />
+            <input type="text" id="t_class" name="department" required />
             <br />
           </span>
        </div>
         <label for="t_gender">Giới tính</label>
-        <select name="gender" id="t_gender" >
+        <select name="gender" id="t_gender" required>
           <option selected disabled value="0">select one</option>
           <option value="male" {{request()->gender=='male'?'selected':false}}>Nam</option>
           <option value="female"{{request()->gender=='female'?'selected':false}}>Nữ</option>
@@ -117,7 +117,7 @@
           type="text"
           id="t_phone"
           name="t_phone"
-         
+          required
         />
         <br />
         <label for="t_email">Email</label>
@@ -125,7 +125,7 @@
           type="text"
           id="t_email"
           name="t_email"
-          
+          required
         />
         <br />
         <label for="t_image">Hình ảnh</label>
@@ -133,7 +133,7 @@
           type="file"
           id="t_image"
           name="img"
-          
+          required
         />
         <br>
         <input type="submit" name="t_submit" id="t_teacher_btn"></input>
