@@ -35,11 +35,9 @@ class Mark extends Model
              $query->orWhere('student.s_id','=',$key); 
             });
          }
-         if(!empty($perPage)){
-            $Score=$Score->paginate($perPage);
-           }else{
+         
             $Score=$Score->get();
-           }
+           
         return $Score;
     }
     public function addScore($data){

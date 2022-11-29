@@ -32,11 +32,9 @@ class Teacher extends Model
         $teacher=DB::table('teacher')->select('*')->orderBy('l_name');
 
 
-        if(!empty($perPage)){
-            $teacher=$teacher->paginate($perPage);
-           }else{
+        
             $teacher=$teacher->get();
-           }
+           
         return $teacher;
     }
     public function Search($key){

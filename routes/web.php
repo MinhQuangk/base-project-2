@@ -108,6 +108,13 @@ Route::get('/', function () {
     Route::post('notices',[DBController::class,'addNotice'])->name('admin.addNotices');
 
     Route::get('deleteNotice/notice_id ={notice_id}',[DBcontroller::class,'deleteNotice'])->name('admin.deleteNotices');
+
+    // thông tin khoa
+    Route::get('department',[DBController::class,'showDepartment'])->name('admin.Department');
+
+    Route::post('department',[DBController::class,'addDepartment'])->name('admin.addDepartment');
+
+    Route::get('deleteDepartment/Department_ID={department_id}',[DBcontroller::class,'deleteDepartment'])->name('admin.deleteDepartment');
     });
 
     Route::prefix('account')->group(function(){

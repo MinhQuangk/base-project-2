@@ -213,12 +213,20 @@
                 <div class="expenses-inner">
                     <div class="column column-left">
                         <div class="column-left-inner">
-                            <h1 id="expensesCount">01</h1>
-                            <p>Học phí</p>
+                            @foreach ($department as $key => $item)
+                            <h1 id="examCount">
+                            @if ($item->department<10)
+                                {{0}}{{$item->department}}   
+                            @else
+                            {{$item->department}}  
+                            @endif
+                            </h1>
+                            @endforeach
+                            <p>Khoa</p>
                         </div>
                     </div>
                     <div class="column column-right">
-                        <i class="fas fa-money-check-alt"></i>
+                        <i class="fas fa-sitemap"></i>
                     </div>
                 </div>
                 <div class="expenses-footer">

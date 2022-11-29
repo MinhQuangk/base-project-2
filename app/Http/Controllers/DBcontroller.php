@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Classes;
+use App\Models\Department;
 use App\Models\Exam;
 use App\Models\Mark;
 use App\Models\Notice;
@@ -19,7 +20,7 @@ use Illuminate\Support\Facades\Validator as FacadesValidator;
 class DBcontroller extends Controller
 {
     //student 
-    const _perPage=6;
+    const _perPage=2;
     public function showStudent(Request $request){
         
         $student = new Students();
@@ -29,12 +30,12 @@ class DBcontroller extends Controller
         if(!empty($request->key)){
             $key=$request->key;
          }
-         $studentList = $student->getAllStudent($key,self::_perPage);
+         $studentList = $student->getAllStudent($key );
         return view('layout.assets.students',compact('studentList'));
     }
     public function addStudent(Request $request){
         $student = new Students();
-        // if($request->isMethod('Post')){
+        // if($request->isMethod('POST')){
         //     $validator = FacadesValidator ::make($request->all(),[
         //         's_name'=>'required',
         //         'birthday'=>'required|after_or_equal:'.date('Y-m-d H:i:s'),
@@ -43,18 +44,22 @@ class DBcontroller extends Controller
         //         's_class'=>'required|email',
         //         's_gender'=>'required|in:Nam,Nữ',
         //         'S_email'=>'required|email',
-
+        //         's_phone'=>'required'
         //     ],['s_name.required'=>'họ và tên bắt buộc phải nhập',
+        //         's_address.required'=>'sinh nhật bắt buộc phải nhập',
         //         'birthday.required'=>'sinh nhật bắt buộc phải nhập',
         //         'department.required'=>'mã khoa bắt buộc phải nhập',
         //         's_class.required'=>'lớp buộc phải nhập',
         //         's_gender.required'=>'giới tích bắt buộc phải chọn',
-        //         'S_email.required'=>'email bắt buộc phải nhập'
-                
+        //         'S_email.required'=>'email bắt buộc phải nhập',
+        //         's_phone.required'=>'email bắt buộc phải nhập'
+
+               
+                 
         //         ]);
         // }  
         // if($validator->fails()){
-        //     return redirect()->back()->with('student_tabcontent', true)->withErrors($validator)->withInput(); 
+        //     return redirect()->back()->withErrors($validator)->withInput(); 
         // }
         $dataInsert =[             
             $request->s_name,
@@ -131,7 +136,7 @@ class DBcontroller extends Controller
         }else{
             Toastr::error('Cập nhật thất bại', 'Fail');
         }
-
+            
     //  
         return redirect()->route('admin.showStudent');
     }
@@ -291,7 +296,7 @@ class DBcontroller extends Controller
        if(!empty($request->key)){
           $key=$request->key;
        }
-        $subjectList = $subject->getAllSubject($key,self::_perPage);
+        $subjectList = $subject->getAllSubject($key );
         return view('layout.assets.subjects',compact('subjectList'));
     }
     public function addSubject(Request $request){
@@ -340,7 +345,7 @@ class DBcontroller extends Controller
         if(!empty($request->key)){
            $key=$request->key;
         }
-        $MarkList = $Mark->getAllScore($key,$selected,self::_perPage);
+        $MarkList = $Mark->getAllScore($key,$selected );
         return view('layout.assets.Scores',compact('MarkList'));
     }
     public function addMark(Request $request){
@@ -421,7 +426,7 @@ class DBcontroller extends Controller
         if(!empty($request->key)){
            $key=$request->key;
         }
-        $classList = $class->getAllClass($key,self::_perPage);
+        $classList = $class->getAllClass($key );
         return view('layout.assets.class',compact('classList'));
     }
     public function addClass(Request $request){
@@ -544,7 +549,7 @@ class DBcontroller extends Controller
         if(!empty($request->key)){
            $key=$request->key;
         }
-        $NoticeList = $Notice->getAllNotice($key,self::_perPage);
+        $NoticeList = $Notice->getAllNotice($key );
         // dd($NoticeList);
         return view('layout.assets.notices',compact('NoticeList'));
     }
@@ -578,5 +583,47 @@ class DBcontroller extends Controller
         }
         return redirect()->route('admin.Notices');
     }
+
+    
+//Department
+public function showDepartment(Request $request){
+    $Department = new Department();
+     $key=null;
+   if(!empty($request->key)){
+      $key=$request->key;
+   }
+    $DepartmentList = $Department->getAllDepartment($key );
+    return view('layout.assets.department',compact('DepartmentList'));
+}
+public function addDepartment(Request $request){
+    $Department = new Department();
+    
+    $dataInsert =[     
+        $request->department_id,
+        $request->department_name,
+        $request->Dean,
+        
+    ];
+   $Department->addDepartment($dataInsert);
+   if( $Department){
+    Toastr::success('Thêm khoa mới thành công ', 'Success');
+}else{
+    Toastr::error('Thêm khoa mới thất bại', 'Fail');
+}
+    return Redirect()->route('admin.Department');
+}
+public function deleteDepartment($id=0){
+    $Department = new Department();
+
+    
+    $DepartmentList = $Department->deleteDepartment($id);
+    if( $DepartmentList){
+        Toastr::success('Xóa thành công ', 'Success');
+    }else{
+        Toastr::error('Xóa thất bại', 'Fail');
+    }
+    return redirect()->route('admin.Department');
+}
+
 }
 

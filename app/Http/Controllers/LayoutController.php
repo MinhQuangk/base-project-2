@@ -18,6 +18,8 @@ class LayoutController extends Controller
         $notice = DB::select('SELECT COUNT(*) as notice from notice');
         $exam = DB::select('SELECT COUNT(*) as exam from exam');
         $mark = DB::select('SELECT COUNT(*) as mark from mark');
+        $department = DB::select('SELECT COUNT(*) as department from department');
+
         //Chart thông tin sinh viên
         $studentListMale =DB::select("SELECT COUNT(s_gender) as Male  FROM student WHERE s_gender = 'Nam' " );
         $studentListFemale =DB::select("SELECT COUNT(s_gender) as Female  FROM student WHERE s_gender = N'Nữ' " );
@@ -85,22 +87,11 @@ class LayoutController extends Controller
     //    dd($data2);
         return view('layout.assets.dashboard',compact('data1','data2','studentnumber','teachernumber',
         'subject','classlist','teacherListMale','teacherListFemale','studentListMale','studentListFemale',
-        'notice','mark','exam','status','GPA'));
+        'notice','mark','exam','status','GPA','department'));
     }
-    public function exam(){
-        return view('layout.assets.exam');
-    }
-    public function teacher(){
-        return view('layout.assets.teachers');
-    }
-    public function student(){
-        return view('layout.assets.students');
-    }
+    
     public function schedule(){
         return view('layout.assets.schedule');
-    }
-    public function noctices(){
-        return view('layout.assets.noctices');
     }
     public function admin(){
         return view('Account.admin');
@@ -108,14 +99,4 @@ class LayoutController extends Controller
     public function expenses(){
         return view('layout.assets.expenses');
     }
-    public function class(){
-        return view('layout.assets.class');
-    }
-    public function scores(){
-        return view('layout.assets.scores');
-    }
-    public function subjects(){
-        return view('layout.assets.subjects');
-    }
-    
 }

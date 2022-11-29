@@ -47,9 +47,7 @@
                 @endif
                 </tbody>
             </table>
-            <div class="d-flex justify-content-end">
-                {{$classList->links()}}
-           </div>
+            
         </div>
     </div>
     <!-- chức năng thêm sinh viên -->
@@ -58,19 +56,19 @@
             @csrf
             <h2 style="font-family: Arial, Helvetica, sans-serif;">Thêm Lớp</h2>
             <label for="s_subjectId">Mã Lớp</label>
-            <input type="text" id="s_subjectId" name="class_id">
+            <input type="text" id="s_subjectId" name="class_id" required>
 
             <label for="nameclass">Tên Lớp</label>
-            <input type="text" id="nameclass" name="class_name">
+            <input type="text" id="nameclass" name="class_name" required>
             
             <label for="nameclass">số lượng sinh viên</label>
-            <input type="text" id="nameclass" name="quantity">
+            <input type="text" id="nameclass" name="quantity" required>
 
             <label for="nameclass">Giáo viên chủ nhiệm(mã)</label>
-            <input type="text" id="nameclass" name="form_teacher">
+            <input type="text" id="nameclass" name="form_teacher" required>
 
             <label for="nameclass">lớp trưởng(mã)</label>
-            <input type="text" id="nameclass" name="monitor">
+            <input type="text" id="nameclass" name="monitor" required>
 
             <input type="submit" id="sub_class_btn">
         </form>

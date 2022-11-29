@@ -27,11 +27,9 @@ class Notice extends Model
              
             });
          }
-         if(!empty($perPage)){
-            $Notice=$Notice->paginate($perPage);
-           }else{
+        
             $Notice=$Notice->get();
-           }
+           
         return $Notice;
     }
     // public function addNotice($data){

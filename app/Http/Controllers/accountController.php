@@ -14,7 +14,7 @@ use Illuminate\Validation\Validator as ValidationValidator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Nette\Utils\Validators;
-
+use Brian2694\Toastr\Facades\Toastr;
 class accountController extends Controller
 {
     public function __construct()
@@ -46,10 +46,12 @@ class accountController extends Controller
         $pass =$request->password;
         if(Auth::attempt(['username'=>$user,'password'=>$pass])){
            
+            Toastr::success('Đăng nhập thành công ', 'Success');
              return redirect()->route('admin.dashboard');
           
         }else{
-            return 'đăng nhập thất bại';
+            Toastr::error('tên đăng nhập hoặc mật khẩu sai vui lòng thử lại', 'Fail');
+           return redirect()->back();
         }
 
     }   }

@@ -30,11 +30,9 @@ class Exam extends Model
         ->select('exam.exam_id','subject.sbj_name','exam.type','exam.s_class','exam.exam_date','exam.exam_time','exam.times')
         ->orderBy('exam.exam_id');
 
-        if(!empty($perPage)){
-            $Exam=$Exam->paginate($perPage);
-           }else{
+       
             $Exam=$Exam->get();
-           }
+           
         return $Exam;
     }
     public function addExam($data){
